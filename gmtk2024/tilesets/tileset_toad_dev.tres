@@ -1,0 +1,16 @@
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://c6sbug5hr28jf"]
+
+[ext_resource type="Texture2D" uid="uid://b37n14ywyny13" path="res://sprites/dev/toad_brick.png" id="1_opr5w"]
+[ext_resource type="Texture2D" uid="uid://cagkpjgb483f8" path="res://sprites/dev/toad_wall.png" id="2_x7hgj"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_edomr"]
+texture = ExtResource("1_opr5w")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_km3ip"]
+texture = ExtResource("2_x7hgj")
+0:0/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_edomr")
+sources/1 = SubResource("TileSetAtlasSource_km3ip")
