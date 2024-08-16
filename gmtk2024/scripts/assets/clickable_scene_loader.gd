@@ -9,14 +9,33 @@ extends Node2D
 @export var scene_id : String
 @export var pos : Vector2
 
+var hovered: bool = false
+var primed: bool = false
+
 func _ready():
 	label.text = scene_id
 
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("LeftClick") and hovered:
+		set_visible_layer(2)
+		primed = true
+	if not Input.is_action_pressed("LeftClick") and hovered:
+		set_visible_layer(1)
+		if primed:
+			Game_Manager.load_scene(pos, scene_id)
+			primed = false
+
 func _on_area_2d_mouse_entered() -> void:
-	set_visible_layer(1)
+	hovered = true
+	if Input.is_action_pressed("LeftClick"):
+		set_visible_layer(2)
+	else:
+		set_visible_layer(1)
 
 func _on_area_2d_mouse_exited() -> void:
 	set_visible_layer(0)
+	hovered = false
+	primed = false
 
 func set_visible_layer(layer : int) -> void:
 	button_deselect.visible = (layer == 0)
