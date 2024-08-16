@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://dh7totc25gyx8"]
+
+[ext_resource type="Script" path="res://scripts/assets/clickable_scene_loader.gd" id="1_sesmv"]
+[ext_resource type="Texture2D" uid="uid://ddhhhthvvqhj3" path="res://sprites/dev/button_deselect.png" id="2_i3cb6"]
+[ext_resource type="Texture2D" uid="uid://2xgkcd0xke5p" path="res://sprites/dev/button_hovered.png" id="3_fvja0"]
+[ext_resource type="Texture2D" uid="uid://c6spgrn4qyp61" path="res://sprites/dev/button_select.png" id="4_pil6k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7hvp"]
+size = Vector2(62, 30)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vjeu8"]
+font_size = 8
+
+[node name="ClickableSceneLoader" type="Node2D"]
+script = ExtResource("1_sesmv")
+
+[node name="Button_Deselect" type="Sprite2D" parent="."]
+texture = ExtResource("2_i3cb6")
+
+[node name="Button_Hovered" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_fvja0")
+
+[node name="Button_Select" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_pil6k")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_f7hvp")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -29.0
+offset_top = -13.0
+offset_right = 29.0
+offset_bottom = 13.0
+label_settings = SubResource("LabelSettings_vjeu8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

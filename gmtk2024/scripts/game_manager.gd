@@ -9,11 +9,9 @@ func _ready():
 	load_scene(Vector2(0,48), "dev_stage")
 	pass
 
-
+# Generic Stage Loading Function
 func load_scene(pos: Vector2, scene_id: String):
-	print("Loading stage ", scene_id)
 	var stage = load("res://scenes/stages/" + scene_id + ".tscn")
 	var stage_instance : Node2D = stage.instantiate()
 	stage_instance.global_position = pos
 	game.add_child(stage_instance)
-	print(stage, " : ", stage_instance, " : ")
