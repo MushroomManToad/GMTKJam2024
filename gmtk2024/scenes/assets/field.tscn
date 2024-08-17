@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://7ik2bbfal7fp"]
+
+[ext_resource type="Script" path="res://scripts/assets/field.gd" id="1_3lsog"]
+
+[node name="Field" type="Area2D"]
+collision_layer = 4
+collision_mask = 251
+script = ExtResource("1_3lsog")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="GrowSprite" type="AnimatedSprite2D" parent="."]
+visible = false
+
+[node name="StretchSprite" type="AnimatedSprite2D" parent="."]
+visible = false
+
+[node name="RotateSprite" type="AnimatedSprite2D" parent="."]
+visible = false
