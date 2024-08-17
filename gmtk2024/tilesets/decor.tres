@@ -1,9 +1,9 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://c7571q4sbu67e"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://u4302ro2deea"]
 
-[ext_resource type="Texture2D" uid="uid://3xhaqxamow43" path="res://sprites/tiles/decor/decor_1.png" id="1_lvpb3"]
+[ext_resource type="Texture2D" uid="uid://3xhaqxamow43" path="res://sprites/tiles/decor/decor_1.png" id="1_6q3od"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kydg8"]
-texture = ExtResource("1_lvpb3")
+texture = ExtResource("1_6q3od")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
