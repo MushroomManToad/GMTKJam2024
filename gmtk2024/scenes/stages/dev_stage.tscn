@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=4 uid="uid://h63k08gvpiq0"]
+[gd_scene load_steps=4 format=4 uid="uid://h63k08gvpiq0"]
 
 [ext_resource type="TileSet" uid="uid://c6sbug5hr28jf" path="res://tilesets/tileset_toad_dev.tres" id="1_eiuvf"]
 [ext_resource type="PackedScene" uid="uid://dh7totc25gyx8" path="res://scenes/assets/clickable_scene_loader.tscn" id="2_txwh0"]
-[ext_resource type="PackedScene" uid="uid://d21c3hc1cqc5g" path="res://scenes/player/player.tscn" id="3_b3fc4"]
 [ext_resource type="PackedScene" uid="uid://c2fuwxxyo25yp" path="res://scenes/assets/dev/dev_one_way.tscn" id="4_vc718"]
 
 [node name="DevStage" type="Node2D"]
@@ -24,9 +23,6 @@ collision_visibility_mode = 1
 z_index = -4
 position = Vector2(48, -16)
 scene_id = "toad_stage"
-
-[node name="Player" parent="." instance=ExtResource("3_b3fc4")]
-position = Vector2(-45, -11)
 
 [node name="DevOneWay" parent="." instance=ExtResource("4_vc718")]
 position = Vector2(-8, -16)
