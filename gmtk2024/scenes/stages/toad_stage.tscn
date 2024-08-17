@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=4 uid="uid://dmjkk2cg57vpk"]
+[gd_scene load_steps=8 format=4 uid="uid://dmjkk2cg57vpk"]
 
 [ext_resource type="TileSet" uid="uid://c6sbug5hr28jf" path="res://tilesets/tileset_toad_dev.tres" id="1_wup54"]
 [ext_resource type="PackedScene" uid="uid://cui0fpu2gykur" path="res://scenes/assets/one_way_tile.tscn" id="2_b1anm"]
-[ext_resource type="PackedScene" uid="uid://c80ll2o76ldle" path="res://scenes/game_objects/key_door.tscn" id="3_eosr7"]
+[ext_resource type="Script" path="res://scripts/assets/key_door.gd" id="3_bgtcb"]
+[ext_resource type="Texture2D" uid="uid://rssu361wyvu" path="res://sprites/game_objects/door.png" id="4_2iapg"]
 [ext_resource type="PackedScene" uid="uid://bth3lkpq26jfx" path="res://scenes/game_objects/key.tscn" id="4_l4mer"]
+[ext_resource type="Texture2D" uid="uid://uda51qesa8tn" path="res://sprites/game_objects/door_center.png" id="5_tk3cb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nillq"]
+size = Vector2(16, 16)
 
 [node name="ToadStage" type="Node2D"]
 
@@ -24,12 +29,40 @@ position = Vector2(-8, 0)
 [node name="DevOneWay2" parent="." instance=ExtResource("2_b1anm")]
 position = Vector2(8, 0)
 
-[node name="door" parent="." instance=ExtResource("3_eosr7")]
-position = Vector2(-90, -36)
-
 [node name="Key" parent="." node_paths=PackedStringArray("door") instance=ExtResource("4_l4mer")]
 position = Vector2(54, -37)
 door = NodePath("../door")
 
 [node name="DevOneWay3" parent="." instance=ExtResource("2_b1anm")]
 position = Vector2(0, 24)
+
+[node name="door" type="Node2D" parent="."]
+position = Vector2(-91, -40)
+script = ExtResource("3_bgtcb")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="door"]
+offset_left = -28.0
+offset_top = -33.0
+offset_right = 8.0
+offset_bottom = 8.0
+texture = ExtResource("4_2iapg")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="DoorCenter" type="Sprite2D" parent="door/NinePatchRect"]
+position = Vector2(8, 8)
+texture = ExtResource("5_tk3cb")
+
+[node name="Sprite2D" type="Sprite2D" parent="door"]
+visible = false
+texture = ExtResource("4_2iapg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="door"]
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="door/StaticBody2D"]
+shape = SubResource("RectangleShape2D_nillq")
