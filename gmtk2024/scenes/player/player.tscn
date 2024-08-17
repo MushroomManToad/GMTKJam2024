@@ -191,4 +191,5 @@ shape = SubResource("CircleShape2D_rx3ta")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+limit_bottom = 32
 position_smoothing_enabled = true
