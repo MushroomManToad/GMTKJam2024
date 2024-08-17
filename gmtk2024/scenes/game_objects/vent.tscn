@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://sxnojnvbwnom"]
+
+[ext_resource type="Texture2D" uid="uid://bh7o8hnac1dh1" path="res://sprites/game_objects/vent.png" id="1_fqtig"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rwn53"]
+size = Vector2(10, 5)
+
+[node name="vent" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fqtig")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_rwn53")

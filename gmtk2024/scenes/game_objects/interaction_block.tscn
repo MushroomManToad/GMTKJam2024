@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnniirpi6nmlv"]
+
+[ext_resource type="Texture2D" uid="uid://lf5vmjwayftc" path="res://sprites/game_objects/interaction_block.png" id="1_36758"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_omv2o"]
+size = Vector2(16, 16)
+
+[node name="interaction_block" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_36758")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_omv2o")

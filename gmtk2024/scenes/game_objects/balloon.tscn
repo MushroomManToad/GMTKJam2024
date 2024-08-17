@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://2qu4k8jmv0gi"]
+
+[ext_resource type="Texture2D" uid="uid://qa7ftkfi6nho" path="res://sprites/game_objects/balloon.png" id="1_fpggb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_twyy1"]
+radius = 6.08276
+
+[node name="balloon" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fpggb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, -4)
+shape = SubResource("CircleShape2D_twyy1")

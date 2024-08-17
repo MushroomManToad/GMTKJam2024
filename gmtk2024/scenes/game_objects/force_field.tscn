@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4htmmnw6qghh"]
+
+[ext_resource type="Texture2D" uid="uid://c553kv7vevi0i" path="res://sprites/game_objects/forcefield.png" id="1_hj2ll"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kvx7j"]
+
+[node name="force_field" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_hj2ll")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_kvx7j")

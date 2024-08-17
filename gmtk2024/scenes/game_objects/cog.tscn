@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmvqbtaqekkie"]
+
+[ext_resource type="Texture2D" uid="uid://d18uhxwjnqkuq" path="res://sprites/game_objects/cog.png" id="1_7i6ag"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lnb3f"]
+radius = 4.47214
+
+[node name="cog" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7i6ag")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_lnb3f")

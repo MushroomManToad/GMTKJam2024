@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp267ymmeq7fa"]
+
+[ext_resource type="Texture2D" uid="uid://dsjyfkwx3ggl8" path="res://sprites/game_objects/button.png" id="1_fcimx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0iu7u"]
+size = Vector2(12, 9)
+
+[node name="button" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fcimx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_0iu7u")
