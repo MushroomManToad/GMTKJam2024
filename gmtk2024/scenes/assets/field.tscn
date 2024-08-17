@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://7ik2bbfal7fp"]
+[gd_scene load_steps=3 format=3 uid="uid://7ik2bbfal7fp"]
 
 [ext_resource type="Script" path="res://scripts/assets/field.gd" id="1_3lsog"]
+[ext_resource type="Texture2D" uid="uid://b7o23ptkv1cvb" path="res://sprites/player/field/field.png" id="2_2co1w"]
 
 [node name="Field" type="Area2D"]
 collision_layer = 4
@@ -17,3 +18,14 @@ visible = false
 
 [node name="RotateSprite" type="AnimatedSprite2D" parent="."]
 visible = false
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("2_2co1w")
+patch_margin_left = 5
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
