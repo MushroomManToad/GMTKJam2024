@@ -9,6 +9,15 @@ extends CharacterBody2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var camera_2d: Camera2D = $Camera2D
+
+var camera_zoom : bool = false
+
+func _process(delta: float) -> void:
+	if not camera_zoom and Input.is_action_pressed("Zoom"):
+		camera_zoom_out()
+	if camera_zoom and not Input.is_action_pressed("Zoom"):
+		camera_zoom_reset()
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -44,3 +53,13 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+func camera_zoom_out() -> void:
+	camera_zoom = true
+	camera_2d.zoom = Vector2(1.0, 1.0)
+	pass
+
+func camera_zoom_reset() -> void:
+	camera_zoom = false
+	camera_2d.zoom = Vector2(3.0, 3.0)
+	pass
