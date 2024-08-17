@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://bkva52cd0gw6c" path="res://tilesets/ground.tres" id="1_otguk"]
 [ext_resource type="PackedScene" uid="uid://dh7totc25gyx8" path="res://scenes/assets/clickable_scene_loader.tscn" id="2_txwh0"]
 [ext_resource type="TileSet" uid="uid://dqis0qpqroafk" path="res://tilesets/background.tres" id="2_wrnnh"]
-[ext_resource type="TileSet" uid="uid://c7571q4sbu67e" path="res://scenes/stages/decor.tres" id="3_f6yei"]
+[ext_resource type="TileSet" uid="uid://u4302ro2deea" path="res://tilesets/decor.tres" id="3_sc475"]
 [ext_resource type="PackedScene" uid="uid://c2fuwxxyo25yp" path="res://scenes/assets/dev/dev_one_way.tscn" id="4_vc718"]
 
 [node name="DevStage" type="Node2D"]
@@ -24,7 +24,7 @@ collision_visibility_mode = 1
 [node name="Decor" type="TileMapLayer" parent="Tilemap"]
 z_index = 1
 tile_map_data = PackedByteArray("AAD6////AAAKAAAAAAD8/wAAAAAFAAIAAAD8////AAAFAAEAAAD8//7/AAAFAAEAAAD8//3/AAAFAAAAAAAGAP3/AAAFAAAAAAAGAP7/AAAFAAEAAAAGAP//AAAFAAEAAAAGAAAAAAAFAAIAAAD7/wAAAAALAAEAAAD6/wAAAAAKAAEAAAD7////AAALAAAAAAD9//7/AAAEAAAAAAD9////AAAEAAEAAAD9/wAAAAAEAAEAAAD6//7/AAAEAAIAAAABAP3/AAAEAAIAAAACAP3/AAAEAAIAAAADAP3/AAAEAAIAAAAEAP3/AAAEAAIAAAD0//z/AAABAAEAAADz//z/AAADAAAAAADz//3/AAABAAEAAADy//3/AAAAAAAAAADy//7/AAADAAAAAADx//7/AAAAAAEAAADx////AAAAAAAAAADx/wAAAAAAAAEAAADx/wEAAAAAAAAAAADy/wEAAAADAAAAAADy/wAAAAABAAAAAADz/wAAAAADAAAAAAD0/wAAAAABAAAAAAD1/wAAAAAAAAAAAAD1/wEAAAABAAEAAAD0/wEAAAAAAAEAAADz/wEAAAABAAEAAADy////AAABAAEAAADx//3/AAADAAAAAADx//z/AAAAAAAAAADy//z/AAACAAAAAAAFAP//AAAJAAAAAAAEAP//AAAHAAEAAAAEAAAAAAAJAAIAAAADAAAAAAAGAAIAAAADAP//AAAGAAAAAAA=")
-tile_set = ExtResource("3_f6yei")
+tile_set = ExtResource("3_sc475")
 
 [node name="ClickableSceneLoader" parent="." instance=ExtResource("2_txwh0")]
 z_index = -4
