@@ -10,7 +10,7 @@ const player_asset = preload("res://scenes/player/player.tscn")
 const background_asset = preload("res://scenes/global/background.tscn")
 
 # Current array of loaded floor objects
-var loaded_floors : Array = [null, null, null]
+var loaded_floors : Array
 
 func _ready():
 	load_first_stage(Vector2(0, 0), "kristen_test_scene")
@@ -34,25 +34,30 @@ func load_background(pos: Vector2) -> void:
 	background = bg_instance
 
 func load_new_scene(pos: Vector2, scene_id: String):
-	pass
+	if loaded_floors[1] is Floor:
+		load_scene(pos + (loaded_floors[1] as Floor).get_vals()[0], scene_id)
+	else:
+		print("Major floor error. Blame MMT and tell him he typecast wrong")
 
 # Special variable setting for loading the tower's first floor
 func load_first_stage(pos: Vector2, scene_id: String):
 	load_background(Vector2(0, 0))
 	load_scene(pos, scene_id)
 	load_player(Vector2(0,0))
-	# Array setup
-	pass
+	loaded_floors = [null, Floor.new(pos, scene_id), null]
 
 # Internal class for storing loaded floor data
 class Floor:
 	var scene_id : String
 	var pos : Vector2
 	
-	func set_vals(pos: Vector2, scene_id: String) -> void:
+	func _init(pos: Vector2, scene_id: String) -> void:
 		self.scene_id = scene_id
 		self.pos = pos
 	
 	# Returns an array of [Pos, Scene_ID]
 	func get_vals() -> Array:
 		return [pos, scene_id]
+	
+	func _to_string() -> String:
+		return "(" + str(pos) + ", " + str(scene_id) + ")"

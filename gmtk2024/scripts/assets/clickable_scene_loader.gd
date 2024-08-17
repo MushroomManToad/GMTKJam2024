@@ -22,7 +22,7 @@ func _process(_delta: float) -> void:
 	if not Input.is_action_pressed("LeftClick") and hovered:
 		set_visible_layer(1)
 		if primed:
-			Game_Manager.load_scene(pos, scene_id)
+			Game_Manager.load_new_scene(pos, scene_id)
 			primed = false
 
 func _on_area_2d_mouse_entered() -> void:
