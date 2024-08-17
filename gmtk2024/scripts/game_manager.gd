@@ -24,4 +24,4 @@ func load_player(pos: Vector2) -> void:
 	var player_instance : CharacterBody2D = player_asset.instantiate()
 	player_instance.global_position = pos
 	game.add_child(player_instance)
-	player = player_instance.get_script()
+	player = player_instance
