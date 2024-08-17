@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://c80ll2o76ldle"]
+[gd_scene load_steps=5 format=3 uid="uid://c80ll2o76ldle"]
 
 [ext_resource type="Texture2D" uid="uid://rssu361wyvu" path="res://sprites/game_objects/door.png" id="1_gq0ob"]
+[ext_resource type="Script" path="res://scripts/assets/key_door.gd" id="1_m7gyj"]
 [ext_resource type="Texture2D" uid="uid://uda51qesa8tn" path="res://sprites/game_objects/door_center.png" id="2_c2xle"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nillq"]
 size = Vector2(16, 16)
 
 [node name="door" type="Node2D"]
+script = ExtResource("1_m7gyj")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 offset_left = -8.0

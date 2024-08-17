@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bp267ymmeq7fa"]
+[gd_scene load_steps=4 format=3 uid="uid://bp267ymmeq7fa"]
 
 [ext_resource type="Texture2D" uid="uid://dsjyfkwx3ggl8" path="res://sprites/game_objects/button.png" id="1_fcimx"]
+[ext_resource type="Script" path="res://scripts/assets/button.gd" id="1_jhnan"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0iu7u"]
 size = Vector2(12, 9)
 
 [node name="button" type="Node2D"]
+script = ExtResource("1_jhnan")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -3)

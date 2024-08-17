@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnniirpi6nmlv"]
+[gd_scene load_steps=4 format=3 uid="uid://bnniirpi6nmlv"]
 
+[ext_resource type="Script" path="res://scripts/assets/interaction_block.gd" id="1_1c61u"]
 [ext_resource type="Texture2D" uid="uid://lf5vmjwayftc" path="res://sprites/game_objects/interaction_block.png" id="1_36758"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_omv2o"]
 size = Vector2(16, 16)
 
 [node name="interaction_block" type="Node2D"]
+script = ExtResource("1_1c61u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_36758")

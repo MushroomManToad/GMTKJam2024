@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://sxnojnvbwnom"]
+[gd_scene load_steps=4 format=3 uid="uid://sxnojnvbwnom"]
 
 [ext_resource type="Texture2D" uid="uid://bh7o8hnac1dh1" path="res://sprites/game_objects/vent.png" id="1_fqtig"]
+[ext_resource type="Script" path="res://scripts/assets/vent.gd" id="1_pe2tj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rwn53"]
 size = Vector2(10, 5)
 
 [node name="vent" type="Node2D"]
+script = ExtResource("1_pe2tj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_fqtig")

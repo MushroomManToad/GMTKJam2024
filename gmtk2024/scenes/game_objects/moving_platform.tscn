@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4amfn7fouxs5"]
+[gd_scene load_steps=5 format=3 uid="uid://w0ind4mhva2i"]
 
+[ext_resource type="Script" path="res://scripts/assets/moving_platform.gd" id="1_3l7ca"]
 [ext_resource type="Texture2D" uid="uid://bnxxouwu8vbk1" path="res://sprites/tiles/foreground/tiles_1.png" id="1_gwx1x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q863h"]
@@ -10,6 +11,7 @@ region = Rect2(96, 48, 48, 16)
 size = Vector2(48, 16)
 
 [node name="moving_platform" type="Node2D"]
+script = ExtResource("1_3l7ca")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_q863h")
