@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=4 uid="uid://kg5o7bhjiuab"]
+[gd_scene load_steps=3 format=4 uid="uid://kg5o7bhjiuab"]
 
 [ext_resource type="TileSet" uid="uid://c6sbug5hr28jf" path="res://tilesets/tileset_toad_dev.tres" id="1_licr2"]
+[ext_resource type="PackedScene" uid="uid://c2fuwxxyo25yp" path="res://scenes/assets/dev/dev_one_way.tscn" id="2_0tm1i"]
 
 [node name="KristenTestScene" type="Node2D"]
 
@@ -14,3 +15,6 @@ tile_set = ExtResource("1_licr2")
 [node name="Ground" type="TileMapLayer" parent="TileMap"]
 tile_map_data = PackedByteArray("AAD8/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAD9/wIAAAAAAAAAAAACAAIAAAAAAAAAAAD//wMAAAAAAAAAAAAAAAMAAAAAAAAAAAD+/wUAAAAAAAAAAAD//wUAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAYAAAAAAAAAAAD9/wYAAAAAAAAAAAA=")
 tile_set = ExtResource("1_licr2")
+
+[node name="DevOneWay" parent="TileMap" instance=ExtResource("2_0tm1i")]
+position = Vector2(5, -12)
