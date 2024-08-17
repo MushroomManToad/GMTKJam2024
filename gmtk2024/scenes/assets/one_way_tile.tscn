@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cui0fpu2gykur"]
 
-[ext_resource type="Texture2D" uid="uid://p7kqf83ijgm" path="res://sprites/dev/one_way.png" id="1_2q7wx"]
+[ext_resource type="Texture2D" uid="uid://p7kqf83ijgm" path="res://sprites/one_way.png" id="1_2q7wx"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_36b8x"]
 a = Vector2(-8, -7)
