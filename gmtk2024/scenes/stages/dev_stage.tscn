@@ -23,6 +23,7 @@ collision_visibility_mode = 1
 z_index = -4
 position = Vector2(48, -16)
 scene_id = "toad_stage"
+pos = Vector2(0, -48)
 
 [node name="DevOneWay" parent="." instance=ExtResource("4_vc718")]
 position = Vector2(-8, -16)

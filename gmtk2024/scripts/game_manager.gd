@@ -11,16 +11,18 @@ const background_asset = preload("res://scenes/global/background.tscn")
 
 # Current array of loaded floor objects
 var loaded_floors : Array
+var loaded_floors_nodes : Array
 
 func _ready():
 	load_first_stage(Vector2(0, 0), "kristen_test_scene")
 
 # Generic Stage Loading Function. Called by relevant functions "first and "new
-func load_scene(pos: Vector2, scene_id: String):
+func load_scene(pos: Vector2, scene_id: String) -> Node2D:
 	var stage = load("res://scenes/stages/" + scene_id + ".tscn")
 	var stage_instance : Node2D = stage.instantiate()
 	stage_instance.global_position = pos
 	game.add_child(stage_instance)
+	return stage_instance
 
 func load_player(pos: Vector2) -> void:
 	var player_instance : CharacterBody2D = player_asset.instantiate()
@@ -34,17 +36,32 @@ func load_background(pos: Vector2) -> void:
 	background = bg_instance
 
 func load_new_scene(pos: Vector2, scene_id: String):
+	# A lil crash failsafe
 	if loaded_floors[1] is Floor:
-		load_scene(pos + (loaded_floors[1] as Floor).get_vals()[0], scene_id)
+		# Load the new scene
+		var new_scene : Node2D = load_scene(pos + (loaded_floors[1] as Floor).get_vals()[0], scene_id)
+		
+		# Unload any scene 2+ scenes ago
+		if not loaded_floors[0] == null and loaded_floors_nodes[0] is Node2D:
+			(loaded_floors_nodes[0] as Node2D).queue_free()
+		
+		# Push current scene to prev scene
+		loaded_floors[0] = loaded_floors[1]
+		loaded_floors_nodes[0] = loaded_floors_nodes[1]
+		
+		# Load new floor
+		loaded_floors[1] = Floor.new(pos + (loaded_floors[1] as Floor).get_vals()[0], scene_id)
+		loaded_floors_nodes[1] = new_scene
 	else:
-		print("Major floor error. Blame MMT and tell him he typecast wrong")
+		printerr("Major floor error. Blame MMT and tell him he typecast wrong")
 
 # Special variable setting for loading the tower's first floor
 func load_first_stage(pos: Vector2, scene_id: String):
 	load_background(Vector2(0, 0))
-	load_scene(pos, scene_id)
+	var new_scene : Node2D = load_scene(pos, scene_id)
 	load_player(Vector2(0,0))
 	loaded_floors = [null, Floor.new(pos, scene_id), null]
+	loaded_floors_nodes = [null, new_scene, null]
 
 # Internal class for storing loaded floor data
 class Floor:
