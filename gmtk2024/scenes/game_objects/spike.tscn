@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqpmyunh611lj"]
+
+[ext_resource type="Texture2D" uid="uid://3xhaqxamow43" path="res://sprites/tiles/decor/decor_1.png" id="1_ot72i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4tiw"]
+atlas = ExtResource("1_ot72i")
+region = Rect2(48, 42, 16, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mj80i"]
+size = Vector2(16, 4)
+
+[node name="Spike" type="Node2D"]
+position = Vector2(0, -3)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_n4tiw")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_mj80i")
