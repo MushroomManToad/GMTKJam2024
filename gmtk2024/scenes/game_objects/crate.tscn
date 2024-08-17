@@ -10,8 +10,8 @@ size = Vector2(16, 16)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_oftx3")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="RidgitBody2D" type="RigidBody2D" parent="."]
 collision_mask = 255
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RidgitBody2D"]
 shape = SubResource("RectangleShape2D_3dg3d")
