@@ -1,17 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://c80ll2o76ldle"]
+[gd_scene load_steps=4 format=3 uid="uid://c80ll2o76ldle"]
 
 [ext_resource type="Texture2D" uid="uid://rssu361wyvu" path="res://sprites/game_objects/door.png" id="1_gq0ob"]
+[ext_resource type="Texture2D" uid="uid://uda51qesa8tn" path="res://sprites/game_objects/door_center.png" id="2_c2xle"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nillq"]
 size = Vector2(16, 16)
 
 [node name="door" type="Node2D"]
 
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+texture = ExtResource("1_gq0ob")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="DoorCenter" type="Sprite2D" parent="NinePatchRect"]
+position = Vector2(8, 8)
+texture = ExtResource("2_c2xle")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_gq0ob")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
 shape = SubResource("RectangleShape2D_nillq")
