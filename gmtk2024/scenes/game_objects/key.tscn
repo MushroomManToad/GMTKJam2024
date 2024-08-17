@@ -7,6 +7,7 @@
 size = Vector2(6, 13)
 
 [node name="Key" type="Area2D"]
+collision_mask = 255
 script = ExtResource("1_6mkr0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -15,3 +16,5 @@ texture = ExtResource("1_ay57x")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_jychn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

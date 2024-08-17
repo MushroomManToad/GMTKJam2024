@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=4 uid="uid://dmjkk2cg57vpk"]
+[gd_scene load_steps=5 format=4 uid="uid://dmjkk2cg57vpk"]
 
 [ext_resource type="TileSet" uid="uid://c6sbug5hr28jf" path="res://tilesets/tileset_toad_dev.tres" id="1_wup54"]
 [ext_resource type="PackedScene" uid="uid://cui0fpu2gykur" path="res://scenes/assets/one_way_tile.tscn" id="2_b1anm"]
+[ext_resource type="PackedScene" uid="uid://c80ll2o76ldle" path="res://scenes/game_objects/key_door.tscn" id="3_eosr7"]
+[ext_resource type="PackedScene" uid="uid://bth3lkpq26jfx" path="res://scenes/game_objects/key.tscn" id="4_l4mer"]
 
 [node name="ToadStage" type="Node2D"]
 
@@ -21,3 +23,13 @@ position = Vector2(-8, 0)
 
 [node name="DevOneWay2" parent="." instance=ExtResource("2_b1anm")]
 position = Vector2(8, 0)
+
+[node name="door" parent="." instance=ExtResource("3_eosr7")]
+position = Vector2(-90, -36)
+
+[node name="Key" parent="." node_paths=PackedStringArray("door") instance=ExtResource("4_l4mer")]
+position = Vector2(54, -37)
+door = NodePath("../door")
+
+[node name="DevOneWay3" parent="." instance=ExtResource("2_b1anm")]
+position = Vector2(0, 24)
