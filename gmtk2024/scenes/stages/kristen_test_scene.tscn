@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://kg5o7bhjiuab"]
+[gd_scene load_steps=4 format=4 uid="uid://kg5o7bhjiuab"]
 
 [ext_resource type="TileSet" uid="uid://c6sbug5hr28jf" path="res://tilesets/tileset_toad_dev.tres" id="1_licr2"]
 [ext_resource type="PackedScene" uid="uid://c2fuwxxyo25yp" path="res://scenes/assets/dev/dev_one_way.tscn" id="2_0tm1i"]
+[ext_resource type="PackedScene" uid="uid://dh7totc25gyx8" path="res://scenes/assets/clickable_scene_loader.tscn" id="3_28jqa"]
 
 [node name="KristenTestScene" type="Node2D"]
 
@@ -18,3 +19,7 @@ tile_set = ExtResource("1_licr2")
 
 [node name="DevOneWay" parent="TileMap" instance=ExtResource("2_0tm1i")]
 position = Vector2(5, -12)
+
+[node name="ClickableSceneLoader" parent="." instance=ExtResource("3_28jqa")]
+position = Vector2(-56, -20)
+scene_id = "dev_stage"
