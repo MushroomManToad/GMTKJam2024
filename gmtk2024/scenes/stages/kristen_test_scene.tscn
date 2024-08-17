@@ -24,3 +24,8 @@ position = Vector2(5, -12)
 position = Vector2(-56, -20)
 scene_id = "dev_stage"
 pos = Vector2(0, -72)
+
+[node name="ClickableSceneLoader2" parent="." instance=ExtResource("3_28jqa")]
+position = Vector2(100, 8)
+scene_id = "stage_1"
+pos = Vector2(0, -37)
