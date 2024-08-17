@@ -15,7 +15,7 @@ var primed: bool = false
 func _ready():
 	label.text = scene_id
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_pressed("LeftClick") and hovered:
 		set_visible_layer(2)
 		primed = true

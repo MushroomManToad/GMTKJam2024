@@ -1,20 +1,35 @@
-[gd_scene load_steps=3 format=4 uid="uid://h63k08gvpiq0"]
+[gd_scene load_steps=5 format=4 uid="uid://h63k08gvpiq0"]
 
 [ext_resource type="TileSet" uid="uid://c6sbug5hr28jf" path="res://tilesets/tileset_toad_dev.tres" id="1_eiuvf"]
 [ext_resource type="PackedScene" uid="uid://dh7totc25gyx8" path="res://scenes/assets/clickable_scene_loader.tscn" id="2_txwh0"]
+[ext_resource type="PackedScene" uid="uid://d21c3hc1cqc5g" path="res://scenes/player/player.tscn" id="3_b3fc4"]
+[ext_resource type="PackedScene" uid="uid://c2fuwxxyo25yp" path="res://scenes/assets/dev/dev_one_way.tscn" id="4_vc718"]
 
 [node name="DevStage" type="Node2D"]
 
 [node name="Tilemap" type="Node2D" parent="."]
 
 [node name="Ground" type="TileMapLayer" parent="Tilemap"]
-tile_map_data = PackedByteArray("AAD5/wEAAAAAAAAAAAD6/wEAAAAAAAAAAAD7/wEAAAAAAAAAAAD8/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAD4/wEAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD4/wEAAAAAAAAAAAD5/wEAAAAAAAAAAAD6/wEAAAAAAAAAAAD7/wEAAAAAAAAAAAD8/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAA=")
 tile_set = ExtResource("1_eiuvf")
 
 [node name="Background" type="TileMapLayer" parent="Tilemap"]
+z_index = -5
 tile_map_data = PackedByteArray("AAD/////AQAAAAAAAAD//wAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAP//AQAAAAAAAAD+////AQAAAAAAAAD+/wAAAQAAAAAAAAD9/wAAAQAAAAAAAAD9////AQAAAAAAAAD8////AQAAAAAAAAD8/wAAAQAAAAAAAAD7/wAAAQAAAAAAAAD7////AQAAAAAAAAD6////AQAAAAAAAAD5////AQAAAAAAAAD5/wAAAQAAAAAAAAD6/wAAAQAAAAAAAAABAAAAAQAAAAAAAAACAAAAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAAFAAAAAQAAAAAAAAAFAP//AQAAAAAAAAAEAP//AQAAAAAAAAADAP//AQAAAAAAAAACAP//AQAAAAAAAAABAP//AQAAAAAAAAD5//7/AQAAAAAAAAD5//3/AQAAAAAAAAD6//3/AQAAAAAAAAD7//3/AQAAAAAAAAD8//3/AQAAAAAAAAD9//3/AQAAAAAAAAD+//3/AQAAAAAAAAD///3/AQAAAAAAAAAAAP3/AQAAAAAAAAABAP3/AQAAAAAAAAACAP3/AQAAAAAAAAADAP3/AQAAAAAAAAAEAP3/AQAAAAAAAAAEAP7/AQAAAAAAAAAFAP7/AQAAAAAAAAAFAP3/AQAAAAAAAAADAP7/AQAAAAAAAAACAP7/AQAAAAAAAAABAP7/AQAAAAAAAAAAAP7/AQAAAAAAAAD///7/AQAAAAAAAAD+//7/AQAAAAAAAAD9//7/AQAAAAAAAAD8//7/AQAAAAAAAAD7//7/AQAAAAAAAAD6//7/AQAAAAAAAAAGAAAAAQAAAAAAAAAGAP//AQAAAAAAAAAGAP7/AQAAAAAAAAAGAP3/AQAAAAAAAAA=")
 tile_set = ExtResource("1_eiuvf")
+collision_enabled = false
+collision_visibility_mode = 1
 
 [node name="ClickableSceneLoader" parent="." instance=ExtResource("2_txwh0")]
-position = Vector2(41, -22)
+z_index = -4
+position = Vector2(48, -16)
 scene_id = "toad_stage"
+
+[node name="Player" parent="." instance=ExtResource("3_b3fc4")]
+position = Vector2(-45, -11)
+
+[node name="DevOneWay" parent="." instance=ExtResource("4_vc718")]
+position = Vector2(-8, -16)
+
+[node name="DevOneWay2" parent="." instance=ExtResource("4_vc718")]
+position = Vector2(8, -16)
