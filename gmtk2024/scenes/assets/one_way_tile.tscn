@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cui0fpu2gykur"]
+
+[ext_resource type="Texture2D" uid="uid://p7kqf83ijgm" path="res://sprites/dev/one_way.png" id="1_2q7wx"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_36b8x"]
+a = Vector2(-8, -7)
+b = Vector2(8, -7)
+
+[node name="DevOneWay" type="Node2D"]
+
+[node name="OneWay" type="Sprite2D" parent="."]
+texture = ExtResource("1_2q7wx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 129
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("SegmentShape2D_36b8x")
+one_way_collision = true
