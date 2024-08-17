@@ -18,13 +18,12 @@ func _process(delta: float) -> void:
 			open_door()
 
 func _on_body_entered(body: Node2D) -> void:
-	print(body)
 	if body is Player:
 		collect_key()
 
 func collect_key():
 	collecting = true
-	collision_shape_2d.disabled = true
+	collision_shape_2d.set_deferred("disabled", true)
 
 func open_door():
 	if door.is_closed:
