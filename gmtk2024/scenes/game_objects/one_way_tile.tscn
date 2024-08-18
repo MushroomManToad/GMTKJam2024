@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://p7kqf83ijgm" path="res://sprites/one_way.png" id="1_2q7wx"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_36b8x"]
-a = Vector2(-8, -7)
-b = Vector2(8, -7)
+a = Vector2(-8, -9)
+b = Vector2(8, -9)
 
 [node name="DevOneWay" type="Node2D"]
 
