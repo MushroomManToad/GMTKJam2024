@@ -22,9 +22,9 @@ offset_right = 8.0
 offset_bottom = 8.0
 texture = ExtResource("1_oftx3")
 patch_margin_left = 1
-patch_margin_top = 4
-patch_margin_right = 1
-patch_margin_bottom = 4
+patch_margin_top = 8
+patch_margin_right = 7
+patch_margin_bottom = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_lcgat")
