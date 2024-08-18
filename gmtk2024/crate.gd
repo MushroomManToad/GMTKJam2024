@@ -27,4 +27,5 @@ func align_collider():
 
 
 func _on_body_entered(body: Node) -> void:
+	
 	pass # Replace with function body.
