@@ -31,3 +31,5 @@ shape = SubResource("RectangleShape2D_lcgat")
 
 [node name="icons" type="Sprite2D" parent="."]
 texture = ExtResource("2_j6gkv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

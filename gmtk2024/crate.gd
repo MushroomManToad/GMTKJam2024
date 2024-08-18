@@ -7,8 +7,9 @@ extends Node
 @onready var crate_center_sprite: Sprite2D = $icons
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#With apologies to MushroomManToad. Sorry. I'm a terrible artist and an even worse coder. -p8
-	
+	align_collider()
+
+func align_collider():
 	# Rescale the crate's components to match the visual.
 	# First, align the collision box
 	var size = nine_patch_rect.size
@@ -25,6 +26,5 @@ func _ready() -> void:
 	crate_center_sprite.position = Vector2(size[0] / 2.0, size[1] / 2.0)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_body_entered(body: Node) -> void:
+	pass # Replace with function body.
