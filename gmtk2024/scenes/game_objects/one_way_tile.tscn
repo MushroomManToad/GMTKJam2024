@@ -26,3 +26,4 @@ collision_mask = 255
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("SegmentShape2D_36b8x")
 one_way_collision = true
+one_way_collision_margin = 4.0
