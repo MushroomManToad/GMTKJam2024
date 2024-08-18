@@ -1,0 +1,23 @@
+[gd_resource type="AnimatedTexture" load_steps=7 format=3 uid="uid://chs7ai8o0q63"]
+
+[ext_resource type="Texture2D" uid="uid://ca0ikxw07yfnd" path="res://sprites/game_objects/balloon_inflate/balloon_inflate1.png" id="1_4f710"]
+[ext_resource type="Texture2D" uid="uid://b27hvawhsmcrv" path="res://sprites/game_objects/balloon_inflate/balloon_inflate2.png" id="2_mause"]
+[ext_resource type="Texture2D" uid="uid://se11sqlx12fs" path="res://sprites/game_objects/balloon_inflate/balloon_inflate3.png" id="3_unuqs"]
+[ext_resource type="Texture2D" uid="uid://b5dkkjji24m70" path="res://sprites/game_objects/balloon_inflate/balloon_inflate4.png" id="4_tnchq"]
+[ext_resource type="Texture2D" uid="uid://c3l0n3iqq5y2h" path="res://sprites/game_objects/balloon_inflate/balloon_inflate5.png" id="5_8t3yl"]
+[ext_resource type="Texture2D" uid="uid://cs584rkjmuh6l" path="res://sprites/game_objects/balloon_inflate/balloon_inflate6.png" id="6_8j16c"]
+
+[resource]
+frames = 6
+one_shot = true
+frame_0/texture = ExtResource("1_4f710")
+frame_1/texture = ExtResource("2_mause")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_unuqs")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_tnchq")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("5_8t3yl")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("6_8j16c")
+frame_5/duration = 1.0
