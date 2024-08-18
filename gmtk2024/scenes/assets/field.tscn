@@ -12,7 +12,7 @@ point_count = 3
 
 [sub_resource type="Gradient" id="Gradient_bxgrd"]
 offsets = PackedFloat32Array(0, 0.506667, 1)
-colors = PackedColorArray(1, 1, 1, 0.211765, 1, 1, 1, 0.517647, 0, 0, 0, 0.129412)
+colors = PackedColorArray(1, 1, 1, 0.211765, 1, 1, 1, 0.866667, 0, 0, 0, 0.129412)
 
 [node name="Field" type="Area2D"]
 collision_layer = 4
@@ -40,7 +40,7 @@ axis_stretch_vertical = 1
 z_index = -1
 amount = 1
 lifetime = 2.3
-randomness = 0.31
+randomness = 1.0
 texture = ExtResource("3_y3vj6")
 emission_shape = 3
 emission_rect_extents = Vector2(8, 8)
