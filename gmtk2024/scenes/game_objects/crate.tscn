@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://d4csisfev404e"]
+[gd_scene load_steps=5 format=3 uid="uid://bua0oeua0358m"]
 
 [ext_resource type="Script" path="res://crate.gd" id="1_almqp"]
 [ext_resource type="Texture2D" uid="uid://cut56x68cvyav" path="res://sprites/game_objects/crate.png" id="1_oftx3"]
-[ext_resource type="Texture2D" uid="uid://dbty30ync70ca" path="res://sprites/game_objects/crate_icons.png" id="2_j6gkv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ll8w2"]
 
@@ -22,12 +21,9 @@ offset_right = 8.0
 offset_bottom = 8.0
 texture = ExtResource("1_oftx3")
 patch_margin_left = 1
-patch_margin_top = 4
-patch_margin_right = 1
-patch_margin_bottom = 4
+patch_margin_top = 8
+patch_margin_right = 7
+patch_margin_bottom = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_lcgat")
-
-[node name="icons" type="Sprite2D" parent="."]
-texture = ExtResource("2_j6gkv")
