@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var height : float
-@export var SPEED : float = -265.0
+@export var SPEED : float = -10.0
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D

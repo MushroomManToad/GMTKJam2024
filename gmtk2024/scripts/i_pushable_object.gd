@@ -15,6 +15,8 @@ func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	if not is_on_floor() and not is_in_vent:
 		velocity.y += gravity * delta
+	if is_in_vent and velocity.y > 0:
+		velocity.y = 0
 	velocity.x += updated_vel.x
 	velocity.y += updated_vel.y
 	if updated_vel.x == 0.0:
