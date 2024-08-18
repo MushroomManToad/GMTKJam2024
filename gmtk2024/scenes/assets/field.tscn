@@ -37,6 +37,33 @@ axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
 [node name="GrowParticles" type="CPUParticles2D" parent="."]
+visible = false
+z_index = -1
+amount = 1
+lifetime = 2.3
+randomness = 0.31
+texture = ExtResource("3_y3vj6")
+emission_shape = 3
+emission_rect_extents = Vector2(8, 8)
+gravity = Vector2(0, 0)
+scale_amount_curve = SubResource("Curve_6yvq6")
+color_ramp = SubResource("Gradient_bxgrd")
+
+[node name="StretchParticles" type="CPUParticles2D" parent="."]
+visible = false
+z_index = -1
+amount = 1
+lifetime = 2.3
+randomness = 0.31
+texture = ExtResource("3_y3vj6")
+emission_shape = 3
+emission_rect_extents = Vector2(8, 8)
+gravity = Vector2(0, 0)
+scale_amount_curve = SubResource("Curve_6yvq6")
+color_ramp = SubResource("Gradient_bxgrd")
+
+[node name="RotateParticles" type="CPUParticles2D" parent="."]
+visible = false
 z_index = -1
 amount = 1
 lifetime = 2.3

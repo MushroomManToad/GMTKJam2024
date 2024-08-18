@@ -10,12 +10,14 @@ extends Area2D
 
 var colliding_bodies : Array
 @onready var grow_particles: CPUParticles2D = $GrowParticles
+@onready var stretch_particles: CPUParticles2D = $StretchParticles
+@onready var rotate_particles: CPUParticles2D = $RotateParticles
 
 func _ready():
 	# Set active sprite(s) by field
 	grow_particles.visible = type_grow
-	#stretch_sprite.visible = type_stretch
-	#rotate_sprite.visible = type_rotate
+	stretch_particles.visible = type_stretch
+	rotate_particles.visible = type_rotate
 	align_collider()
 
 
