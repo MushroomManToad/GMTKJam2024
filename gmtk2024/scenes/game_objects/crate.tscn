@@ -1,11 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bua0oeua0358m"]
+[gd_scene load_steps=6 format=3 uid="uid://d4csisfev404e"]
 
 [ext_resource type="Script" path="res://crate.gd" id="1_almqp"]
 [ext_resource type="Texture2D" uid="uid://cut56x68cvyav" path="res://sprites/game_objects/crate.png" id="1_oftx3"]
 [ext_resource type="Texture2D" uid="uid://dbty30ync70ca" path="res://sprites/game_objects/crate_icons.png" id="2_j6gkv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ll8w2"]
-friction = 0.01
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lcgat"]
 size = Vector2(16, 16)
@@ -14,7 +13,6 @@ size = Vector2(16, 16)
 collision_mask = 255
 mass = 0.001
 physics_material_override = SubResource("PhysicsMaterial_ll8w2")
-gravity_scale = 0.1
 script = ExtResource("1_almqp")
 
 [node name="Crate" type="NinePatchRect" parent="."]
