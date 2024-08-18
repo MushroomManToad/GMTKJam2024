@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkgnuu2butjnq"]
+
+[ext_resource type="Script" path="res://scripts/assets/key_door.gd" id="1_jswlt"]
+[ext_resource type="Texture2D" uid="uid://rssu361wyvu" path="res://sprites/game_objects/door.png" id="2_ilcdt"]
+[ext_resource type="Texture2D" uid="uid://dunf4d3fpih7c" path="res://sprites/game_objects/button_door_center.png" id="3_nuwgb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nillq"]
+size = Vector2(16, 16)
+
+[node name="door" type="Node2D"]
+script = ExtResource("1_jswlt")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+texture = ExtResource("2_ilcdt")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="DoorCenter" type="Sprite2D" parent="NinePatchRect"]
+position = Vector2(8, 8)
+texture = ExtResource("3_nuwgb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_nillq")
