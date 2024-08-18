@@ -1,5 +1,8 @@
 extends Area2D
 
+@onready var nine_patch_rect: NinePatchRect = $NinePatchRect
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+
 # Choose one of these to be the field type for initialization
 @export var type_grow : bool
 @export var type_stretch : bool
@@ -17,6 +20,7 @@ func _ready():
 	grow_sprite.visible = type_grow
 	stretch_sprite.visible = type_stretch
 	rotate_sprite.visible = type_rotate
+	align_collider()
 
 
 func _on_body_entered(body: Node2D) -> void:
@@ -54,3 +58,16 @@ func dump_bodies() -> void:
 			if type_rotate:
 				body.remove_field("rotate")
 	colliding_bodies.clear()
+
+func align_collider():
+	# Rescale the crate's components to match the visual.
+	# First, align the collision box
+	var size = nine_patch_rect.size
+	var pos = nine_patch_rect.position
+	var shape = collision_shape_2d.shape
+	
+	# Gen new door shape
+	var rect = RectangleShape2D.new()
+	rect.extents = Vector2((size[0] / 2.0) - 2.0, (size[1] / 2.0) - 2.0)
+	collision_shape_2d.position = Vector2(size[0] / 2.0 + pos[0], size[1] / 2.0 + pos[1])
+	collision_shape_2d.shape = rect
