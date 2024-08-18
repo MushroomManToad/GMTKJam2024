@@ -27,10 +27,6 @@ axis_stretch_vertical = 1
 position = Vector2(8, 8)
 texture = ExtResource("2_c2xle")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("1_gq0ob")
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_mask = 255
 
