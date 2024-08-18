@@ -1,18 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhsusyoycs3gi"]
+[gd_scene load_steps=4 format=3 uid="uid://bhsusyoycs3gi"]
 
+[ext_resource type="Script" path="res://scripts/assets/mimic_enemy.gd" id="1_1tlm1"]
 [ext_resource type="Texture2D" uid="uid://bjqa3tam6fb4x" path="res://sprites/game_objects/mimic_enemy.png" id="1_so3sg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3jps2"]
 size = Vector2(6, 5)
 
-[node name="mimic_enemy" type="Node2D"]
+[node name="mimic_enemy" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 255
+script = ExtResource("1_1tlm1")
+SPEED = 105.0
+JUMP_VELOCITY = -265.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
 texture = ExtResource("1_so3sg")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_mask = 255
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 5.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_3jps2")
