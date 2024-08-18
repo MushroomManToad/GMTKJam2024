@@ -42,38 +42,41 @@ func _physics_process(delta):
 		animated_sprite.flip_h = false
 	elif direction < 0:
 		animated_sprite.flip_h = true
-		
-	# Play Animations
-	if is_on_floor():
-		if direction == 0:
-			animated_sprite.play("idle")
-		else:
-			animated_sprite.play("run")
-	else:
-		if velocity.y < 0.0:
-			animated_sprite.play("jump")
-		else:
-			animated_sprite.play("fall")
 	
 	# Apply movement
 	if direction:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	var is_pushing = false
 
 	move_and_slide()
 	# after calling move_and_slide()
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
 		if c.get_collider() is IPushableObject:
-			animated_sprite.play("push")
 			var c_ = c.get_collider() as IPushableObject
 			var ypos = self.position[1] + 1.0
 			if ypos > c_._get_top() and ypos < c_._get_bottom():
+				is_pushing = true
 				if self.position[0] < c_.position.x:
 					c_.update_velocity(Vector2(c_.SPEED, 0))
 				else:
 					c_.update_velocity(Vector2(-c_.SPEED, 0))
+	# Play Animations
+	if is_pushing:
+		animated_sprite.play("push")
+	else:
+		if is_on_floor():
+			if direction == 0:
+				animated_sprite.play("idle")
+			else:
+				animated_sprite.play("run")
+		else:
+			if velocity.y < 0.0:
+				animated_sprite.play("jump")
+			else:
+				animated_sprite.play("fall")
 
 func camera_zoom_out() -> void:
 	camera_zoom = true

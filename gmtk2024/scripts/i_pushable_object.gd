@@ -2,7 +2,7 @@ class_name IPushableObject
 
 extends IFieldInteractable
 
-@export var SPEED = 5
+@export var SPEED = 60
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -14,7 +14,9 @@ func _physics_process(delta: float) -> void:
 		velocity.y += gravity * delta
 	velocity.x += updated_vel.x
 	if updated_vel == Vector2(0,0):
-		velocity.x = move_toward(velocity.x, 0, SPEED *3)
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+	if abs(velocity.x) > SPEED:
+		velocity.x = clamp(velocity.x, -SPEED, SPEED)
 	move_and_slide()
 	updated_vel = Vector2(0, 0)
 
