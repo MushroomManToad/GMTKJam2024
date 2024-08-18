@@ -250,9 +250,8 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5s4an"]
-radius = 5.0
-height = 18.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xcnd0"]
+size = Vector2(9, 18)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
@@ -266,11 +265,11 @@ JUMP_VELOCITY = -265.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_jje2q")
-animation = &"push"
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5)
-shape = SubResource("CapsuleShape2D_5s4an")
+position = Vector2(0.5, -5)
+shape = SubResource("RectangleShape2D_xcnd0")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
