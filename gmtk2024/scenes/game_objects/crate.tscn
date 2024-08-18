@@ -1,17 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://bua0oeua0358m"]
+[gd_scene load_steps=4 format=3 uid="uid://bua0oeua0358m"]
 
 [ext_resource type="Texture2D" uid="uid://cut56x68cvyav" path="res://sprites/game_objects/crate.png" id="1_oftx3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3dg3d"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ll8w2"]
+friction = 0.01
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcgat"]
 size = Vector2(16, 16)
 
-[node name="crate" type="Node2D"]
+[node name="Crate" type="RigidBody2D"]
+collision_mask = 255
+mass = 0.001
+physics_material_override = SubResource("PhysicsMaterial_ll8w2")
+gravity_scale = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lcgat")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_oftx3")
-
-[node name="RidgitBody2D" type="RigidBody2D" parent="."]
-collision_mask = 255
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RidgitBody2D"]
-shape = SubResource("RectangleShape2D_3dg3d")
