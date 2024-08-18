@@ -3,19 +3,29 @@
 [ext_resource type="Texture2D" uid="uid://dsjyfkwx3ggl8" path="res://sprites/game_objects/button.png" id="1_fcimx"]
 [ext_resource type="Script" path="res://scripts/assets/button.gd" id="1_jhnan"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0iu7u"]
-size = Vector2(12, 9)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wx8kc"]
+size = Vector2(12, 6)
 
 [node name="button" type="Node2D"]
 script = ExtResource("1_jhnan")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -3)
+position = Vector2(0, -8)
 texture = ExtResource("1_fcimx")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Crate Slide Region" type="StaticBody2D" parent="."]
 collision_mask = 255
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Crate Slide Region"]
 position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_0iu7u")
+polygon = PackedVector2Array(-10, 2, 10, 2, 2, -4, -2, -4)
+
+[node name="Detection Region" type="Area2D" parent="."]
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection Region"]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_wx8kc")
+
+[connection signal="body_entered" from="Detection Region" to="." method="_on_detection_region_body_entered"]
+[connection signal="body_exited" from="Detection Region" to="." method="_on_detection_region_body_exited"]

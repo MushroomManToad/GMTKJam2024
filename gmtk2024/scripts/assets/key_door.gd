@@ -4,7 +4,7 @@ extends ITogglable
 
 var is_closed : bool = true
 
-var power : int = 0
+@export var required_power : int = 1
 
 @onready var collision_shape_2d: CollisionShape2D = $StaticBody2D/CollisionShape2D
 @onready var nine_patch_rect: NinePatchRect = $NinePatchRect
@@ -32,6 +32,7 @@ func open_door():
 
 func close_door():
 	is_closed = true
+	collision_shape_2d.disabled = false
 
 func _on_toggle():
 	if is_closed:
@@ -40,11 +41,9 @@ func _on_toggle():
 	else:
 		close_door()
 
-# For handling number of buttons holding door open
-func add_power(val : int):
-	power = power + val
-	if is_closed and val > 0:
+func _add_power(val : int):
+	super._add_power(val)
+	if is_closed and power >= required_power:
 		open_door()
-	elif not is_closed and val <= 0:
-		val = 0
+	elif not is_closed and power < required_power:
 		close_door()

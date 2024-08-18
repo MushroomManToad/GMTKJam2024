@@ -62,7 +62,7 @@ func _physics_process(delta):
 		if c.get_collider() is IPushableObject:
 			var c_ = c.get_collider() as IPushableObject
 			var ypos = self.position[1] + 1.0
-			if ypos > c_._get_top() and ypos < c_._get_bottom():
+			if ypos > c_._get_top() and ypos < c_._get_bottom() + 6.0:
 				is_pushing = true
 				if self.position[0] < c_.position.x:
 					c_.update_velocity(Vector2(c_.SPEED, 0))
