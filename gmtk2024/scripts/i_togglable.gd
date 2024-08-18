@@ -5,7 +5,7 @@ extends Node2D
 var power : int = 0
 
 func _physics_process(_delta : float):
-	print(power)
+	pass
 
 func _on_toggle() -> void:
 	pass
