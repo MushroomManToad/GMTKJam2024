@@ -10,12 +10,17 @@ var is_closed : bool = true
 @onready var nine_patch_rect: NinePatchRect = $NinePatchRect
 @onready var door_center_sprite: Sprite2D = $NinePatchRect/DoorCenter
 
+var open_texture = preload("res://sprites/game_objects/doorStates.png")
+var closed_texture = preload("res://sprites/game_objects/door.png")
+#ty mushroom
+
 func _ready():
 	# Rescale the door's components to match the visual.
 	# First, align the collision box
 	var size = nine_patch_rect.size
 	var pos = nine_patch_rect.position
 	var shape = collision_shape_2d.shape
+
 	
 	# Gen new door shape
 	var rect = RectangleShape2D.new()
@@ -29,15 +34,19 @@ func _ready():
 func open_door():
 	is_closed = false
 	collision_shape_2d.set_deferred("disabled", true)
+	nine_patch_rect.set_texture(open_texture)
+	door_center_sprite.visible = false
 
 func close_door():
 	is_closed = true
 	collision_shape_2d.set_deferred("disabled", false)
+	nine_patch_rect.set_texture(closed_texture)
+	door_center_sprite.visible = true
 
 func _on_toggle():
 	if is_closed:
 		open_door()
-		nine_patch_rect.visible = false
+		nine_patch_rect.visible = true
 	else:
 		close_door()
 

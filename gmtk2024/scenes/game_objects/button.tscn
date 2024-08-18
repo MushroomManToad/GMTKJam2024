@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bp267ymmeq7fa"]
+[gd_scene load_steps=5 format=3 uid="uid://bp267ymmeq7fa"]
 
-[ext_resource type="Texture2D" uid="uid://dsjyfkwx3ggl8" path="res://sprites/game_objects/button.png" id="1_fcimx"]
 [ext_resource type="Script" path="res://scripts/assets/button.gd" id="1_jhnan"]
+[ext_resource type="Texture2D" uid="uid://h5ohjq03rjlh" path="res://sprites/game_objects/button-sheet.png" id="2_on3k5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5g6o"]
+atlas = ExtResource("2_on3k5")
+region = Rect2(0, 0, 32, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wx8kc"]
 size = Vector2(12, 6)
@@ -11,7 +15,8 @@ script = ExtResource("1_jhnan")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -8)
-texture = ExtResource("1_fcimx")
+texture = SubResource("AtlasTexture_o5g6o")
+hframes = 2
 
 [node name="Crate Slide Region" type="StaticBody2D" parent="."]
 collision_mask = 255
