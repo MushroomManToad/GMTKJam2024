@@ -2,14 +2,12 @@ class_name IFieldInteractable
 
 extends CharacterBody2D
 
-var is_in_field : bool = false
-
 var grow_active : int = 0
 var stretch_active : int = 0
 var rotate_active : int = 0
 
 func _physics_process(delta: float) -> void:
-	if is_in_field:
+	if active_fields_total() > 0:
 		_in_field_loop(delta)
 	else:
 		_out_field_loop(delta)
@@ -22,8 +20,8 @@ func _in_field_loop(_delta : float) -> void:
 func _out_field_loop(_delta : float) -> void:
 	pass
 
-func set_in_field(val : bool) -> void:
-	is_in_field = val
+func active_fields_total() -> int:
+	return grow_active + stretch_active + rotate_active
 
 # Fields, "grow", "stretch", "rotate"
 func add_field(field_name : String):

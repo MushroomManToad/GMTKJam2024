@@ -25,7 +25,6 @@ func _ready():
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is IFieldInteractable:
-		(body as IFieldInteractable).set_in_field(true)
 		if type_grow:
 			body.add_field("grow")
 		if type_stretch:
@@ -37,7 +36,6 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is IFieldInteractable:
-		(body as IFieldInteractable).set_in_field(false)
 		if type_grow:
 			body.remove_field("grow")
 		if type_stretch:
@@ -50,7 +48,6 @@ func _on_body_exited(body: Node2D) -> void:
 func dump_bodies() -> void:
 	for body in colliding_bodies:
 		if body is IFieldInteractable:
-			(body as IFieldInteractable).set_in_field(false)
 			if type_grow:
 				body.remove_field("grow")
 			if type_stretch:
