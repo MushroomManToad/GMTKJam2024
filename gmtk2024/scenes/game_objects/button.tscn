@@ -17,4 +17,5 @@ texture = ExtResource("1_fcimx")
 collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_0iu7u")
