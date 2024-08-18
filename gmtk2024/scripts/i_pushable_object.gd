@@ -1,6 +1,6 @@
 class_name IPushableObject
 
-extends CharacterBody2D
+extends IFieldInteractable
 
 @export var SPEED = 10
 

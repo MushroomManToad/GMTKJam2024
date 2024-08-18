@@ -1,6 +1,6 @@
 class_name IFieldInteractable
 
-extends Node2D
+extends CharacterBody2D
 
 var is_in_field : bool = false
 
