@@ -8,18 +8,14 @@ extends Area2D
 @export var type_stretch : bool
 @export var type_rotate : bool
 
-# Sprite holders
-@onready var grow_sprite: AnimatedSprite2D = $GrowSprite
-@onready var stretch_sprite: AnimatedSprite2D = $StretchSprite
-@onready var rotate_sprite: AnimatedSprite2D = $RotateSprite
-
 var colliding_bodies : Array
+@onready var grow_particles: CPUParticles2D = $GrowParticles
 
 func _ready():
 	# Set active sprite(s) by field
-	grow_sprite.visible = type_grow
-	stretch_sprite.visible = type_stretch
-	rotate_sprite.visible = type_rotate
+	grow_particles.visible = type_grow
+	#stretch_sprite.visible = type_stretch
+	#rotate_sprite.visible = type_rotate
 	align_collider()
 
 
@@ -68,3 +64,7 @@ func align_collider():
 	rect.extents = Vector2((size[0] / 2.0) - 2.0, (size[1] / 2.0) - 2.0)
 	collision_shape_2d.position = Vector2(size[0] / 2.0 + pos[0], size[1] / 2.0 + pos[1])
 	collision_shape_2d.shape = rect
+	
+	grow_particles.position = Vector2(size[0] / 2.0 + pos[0], size[1] / 2.0 + pos[1])
+	grow_particles.emission_rect_extents = Vector2((size[0] / 2.0) - 2.0, (size[1] / 2.0) - 2.0)
+	grow_particles.amount = 4 * sqrt(Vector2((size[0] / 2.0) - 2.0, (size[1] / 2.0) - 2.0).length_squared())

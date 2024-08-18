@@ -22,16 +22,8 @@ script = ExtResource("1_3lsog")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_tq16u")
 
-[node name="GrowSprite" type="AnimatedSprite2D" parent="."]
-visible = false
-
-[node name="StretchSprite" type="AnimatedSprite2D" parent="."]
-visible = false
-
-[node name="RotateSprite" type="AnimatedSprite2D" parent="."]
-visible = false
-
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
+z_index = -1
 offset_left = -16.0
 offset_top = -16.0
 offset_right = 16.0
@@ -44,8 +36,9 @@ patch_margin_bottom = 6
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-amount = 10
+[node name="GrowParticles" type="CPUParticles2D" parent="."]
+z_index = -1
+amount = 1
 lifetime = 2.3
 randomness = 0.31
 texture = ExtResource("3_y3vj6")
