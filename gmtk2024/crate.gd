@@ -6,9 +6,21 @@ extends IPushableObject
 @onready var nine_patch_rect: NinePatchRect = $Crate
 
 var center : Vector2
+var grown : bool = false
+
+var default_size : Vector2
+var default_pos : Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var size = nine_patch_rect.size
+	var pos = nine_patch_rect.position
+	var shape = collision_shape_2d.shape
+	
+	# Defaults!
+	default_size = Vector2(size[0], size[1])
+	default_pos = Vector2(pos[0], pos[1])
+	
 	align_collider()
 
 func align_collider():
@@ -39,3 +51,22 @@ func get_center() -> Vector2:
 
 func get_size() -> Vector2:
 	return nine_patch_rect.size
+
+func _in_field_loop(delta : float) -> void:
+	if grow_active > 0:
+		if not grown:
+			nine_patch_rect.size = default_size * 2
+			align_collider()
+			grown = true
+	else:
+		if grown:
+			nine_patch_rect.size = default_size
+			align_collider()
+			grown = false
+
+func _out_field_loop(delta : float) -> void:
+	print(grown)
+	if grown:
+		nine_patch_rect.size = default_size
+		align_collider()
+		grown = false

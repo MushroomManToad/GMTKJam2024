@@ -10,6 +10,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var updated_vel : Vector2 = Vector2(0, 0)
 
 func _physics_process(delta: float) -> void:
+	super._physics_process(delta)
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	velocity.x += updated_vel.x
