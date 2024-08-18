@@ -6,7 +6,10 @@ extends IPushableObject
 @onready var nine_patch_rect: NinePatchRect = $Crate
 
 var center : Vector2
-var grown : bool = false
+
+# Variables about growing
+var time_to_grow : float = 0.5
+var growth_timer : float = 0.0
 
 var default_size : Vector2
 var default_pos : Vector2
@@ -52,18 +55,27 @@ func get_size() -> Vector2:
 
 func _in_field_loop(_delta : float) -> void:
 	if grow_active > 0:
-		if not grown:
-			nine_patch_rect.size = default_size * 2
+		if growth_timer < time_to_grow:
+			growth_timer += _delta
+			nine_patch_rect.size = default_size * (((1.0 / time_to_grow) * growth_timer) + 1)
+			if growth_timer >= time_to_grow:
+				growth_timer = time_to_grow
+				nine_patch_rect.size = default_size * 2
 			align_collider()
-			grown = true
 	else:
-		if grown:
-			nine_patch_rect.size = default_size
+		if growth_timer > 0:
+			growth_timer -= _delta
+			nine_patch_rect.size = default_size * (((1.0 / time_to_grow) * growth_timer) + 1)
+			if growth_timer <= 0:
+				nine_patch_rect.size = default_size
+				growth_timer = 0
 			align_collider()
-			grown = false
 
 func _out_field_loop(_delta : float) -> void:
-	if grown:
-		nine_patch_rect.size = default_size
+	if growth_timer > 0:
+		growth_timer -= _delta
+		nine_patch_rect.size = default_size * (((1.0 / time_to_grow) * growth_timer) + 1)
+		if growth_timer <= 0:
+			nine_patch_rect.size = default_size
+			growth_timer = 0
 		align_collider()
-		grown = false
