@@ -14,11 +14,7 @@ size = Vector2(7, 13)
 collision_mask = 255
 script = ExtResource("1_6mkr0")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 2
-texture = ExtResource("1_ay57x")
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite2D"]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 show_behind_parent = true
 lifetime = 1.5
 texture = ExtResource("3_4u4ln")
@@ -26,6 +22,10 @@ emission_shape = 1
 emission_sphere_radius = 11.6
 gravity = Vector2(0, 0)
 color_ramp = SubResource("Gradient_udo87")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+texture = ExtResource("1_ay57x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.5)
