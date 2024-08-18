@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cui0fpu2gykur"]
+[gd_scene load_steps=4 format=3 uid="uid://5gnkrek3f15y"]
 
 [ext_resource type="Texture2D" uid="uid://p7kqf83ijgm" path="res://sprites/one_way.png" id="1_2q7wx"]
+[ext_resource type="Script" path="res://scripts/assets/one_way_tile.gd" id="1_qimim"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_36b8x"]
 a = Vector2(-8, -9)
 b = Vector2(8, -9)
 
 [node name="DevOneWay" type="Node2D"]
+script = ExtResource("1_qimim")
 
 [node name="OneWay" type="NinePatchRect" parent="."]
 offset_left = -8.0
