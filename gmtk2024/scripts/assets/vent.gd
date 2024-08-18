@@ -12,3 +12,15 @@ func _ready() -> void:
 	var rect = RectangleShape2D.new()
 	rect.extents = Vector2(5.0, height * 8.0)
 	collision_shape_2d.shape = rect
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is Player:
+		(body as Player).vent_count = (body as Player).vent_count + 1
+	if body is IPushableObject:
+		pass
+
+func _on_body_exited(body: Node2D) -> void:
+	if body is Player:
+		(body as Player).vent_count = (body as Player).vent_count - 1
+	if body is IPushableObject:
+		pass

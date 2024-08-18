@@ -5,6 +5,8 @@ extends CharacterBody2D
 @export var SPEED : float
 @export var JUMP_VELOCITY : float
 
+var vent_count : int = 0
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -36,6 +38,9 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("Up"):
 		velocity.y = JUMP_VELOCITY
+	
+	if vent_count > 0:
+		velocity.y = JUMP_VELOCITY / 2.0
 	
 	# Flip the Sprite
 	if direction > 0:
