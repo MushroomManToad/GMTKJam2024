@@ -61,7 +61,13 @@ func _physics_process(delta):
 		var c = get_slide_collision(i)
 		if c.get_collider() is IPushableObject:
 			var c_ = c.get_collider() as IPushableObject
-			c_.update_velocity(Vector2(-c_.SPEED, 0))
+			var ypos = self.position[1] + 1.0
+			print(ypos, " : ", c_._get_top(), " : ", c_._get_bottom())
+			if ypos > c_._get_top() and ypos < c_._get_bottom():
+				if self.position[0] < c_.position.x:
+					c_.update_velocity(Vector2(c_.SPEED, 0))
+				else:
+					c_.update_velocity(Vector2(-c_.SPEED, 0))
 
 func camera_zoom_out() -> void:
 	camera_zoom = true

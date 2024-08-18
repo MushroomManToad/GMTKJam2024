@@ -20,3 +20,9 @@ func _physics_process(delta: float) -> void:
 
 func update_velocity(amount : Vector2):
 	updated_vel += amount
+
+func _get_top() -> float:
+	return 0.0
+
+func _get_bottom() -> float:
+	return 0.0
