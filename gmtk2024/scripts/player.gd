@@ -13,6 +13,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var camera_zoom : bool = false
 
+# This represents the player's inertia.
+@export var push_force = 80.0
+
 func _process(delta: float) -> void:
 	if not camera_zoom and Input.is_action_pressed("Zoom"):
 		camera_zoom_out()
@@ -53,6 +56,12 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	# after calling move_and_slide()
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is IPushableObject:
+			var c_ = c.get_collider() as IPushableObject
+			c_.update_velocity(Vector2(-c_.SPEED, 0))
 
 func camera_zoom_out() -> void:
 	camera_zoom = true

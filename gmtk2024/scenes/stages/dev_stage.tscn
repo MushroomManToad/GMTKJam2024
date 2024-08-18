@@ -1,19 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://h63k08gvpiq0"]
+[gd_scene load_steps=6 format=4 uid="uid://h63k08gvpiq0"]
 
 [ext_resource type="TileSet" uid="uid://bqrfj2bs8wtig" path="res://tilesets/ground.tres" id="1_otguk"]
 [ext_resource type="PackedScene" uid="uid://dh7totc25gyx8" path="res://scenes/assets/clickable_scene_loader.tscn" id="2_txwh0"]
 [ext_resource type="TileSet" uid="uid://ctwi7yga7v2bk" path="res://tilesets/background.tres" id="2_wrnnh"]
 [ext_resource type="TileSet" uid="uid://pgaccxbahffk" path="res://tilesets/decor.tres" id="3_sc475"]
 [ext_resource type="PackedScene" uid="uid://c2fuwxxyo25yp" path="res://scenes/assets/dev/dev_one_way.tscn" id="4_vc718"]
-[ext_resource type="Script" path="res://crate.gd" id="6_vvwxp"]
-[ext_resource type="Texture2D" uid="uid://cut56x68cvyav" path="res://sprites/game_objects/crate.png" id="7_88cic"]
-[ext_resource type="Texture2D" uid="uid://dbty30ync70ca" path="res://sprites/game_objects/crate_icons.png" id="8_83mu0"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ll8w2"]
-friction = 0.01
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcgat"]
-size = Vector2(16, 16)
 
 [node name="DevStage" type="Node2D"]
 
@@ -46,30 +37,3 @@ position = Vector2(-8, -16)
 
 [node name="DevOneWay2" parent="." instance=ExtResource("4_vc718")]
 position = Vector2(8, -16)
-
-[node name="Crate" type="RigidBody2D" parent="."]
-position = Vector2(-67, -15)
-collision_mask = 255
-mass = 0.001
-physics_material_override = SubResource("PhysicsMaterial_ll8w2")
-gravity_scale = 0.1
-script = ExtResource("6_vvwxp")
-
-[node name="Crate" type="NinePatchRect" parent="Crate"]
-z_index = 100
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 36.0
-offset_bottom = 33.0
-texture = ExtResource("7_88cic")
-patch_margin_left = 1
-patch_margin_top = 4
-patch_margin_right = 1
-patch_margin_bottom = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Crate"]
-shape = SubResource("RectangleShape2D_lcgat")
-
-[node name="icons" type="Sprite2D" parent="Crate"]
-z_index = 130
-texture = ExtResource("8_83mu0")

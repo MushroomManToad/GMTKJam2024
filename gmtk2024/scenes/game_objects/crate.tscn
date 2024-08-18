@@ -1,21 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://d4csisfev404e"]
+[gd_scene load_steps=5 format=3 uid="uid://d4csisfev404e"]
 
 [ext_resource type="Script" path="res://crate.gd" id="1_almqp"]
 [ext_resource type="Texture2D" uid="uid://cut56x68cvyav" path="res://sprites/game_objects/crate.png" id="1_oftx3"]
 [ext_resource type="Texture2D" uid="uid://dbty30ync70ca" path="res://sprites/game_objects/crate_icons.png" id="2_j6gkv"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ll8w2"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_45w4p"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcgat"]
-size = Vector2(16, 16)
-
-[node name="Crate" type="RigidBody2D"]
+[node name="Crate" type="CharacterBody2D"]
+collision_layer = 8
 collision_mask = 255
-mass = 0.001
-physics_material_override = SubResource("PhysicsMaterial_ll8w2")
-continuous_cd = 2
-contact_monitor = true
-max_contacts_reported = 10
 script = ExtResource("1_almqp")
 
 [node name="Crate" type="NinePatchRect" parent="."]
@@ -30,9 +23,7 @@ patch_margin_right = 7
 patch_margin_bottom = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_lcgat")
+shape = SubResource("RectangleShape2D_45w4p")
 
 [node name="icons" type="Sprite2D" parent="."]
 texture = ExtResource("2_j6gkv")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
