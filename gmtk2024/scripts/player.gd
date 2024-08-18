@@ -77,6 +77,11 @@ func _physics_process(delta):
 					c_.update_velocity(Vector2(c_.SPEED, 0))
 				else:
 					c_.update_velocity(Vector2(-c_.SPEED, 0))
+			if ypos > c_._get_bottom() + 8.0:
+				if self.position[0] < c_.position.x:
+					c_.update_velocity(Vector2(c_.SPEED, -2.0))
+				else:
+					c_.update_velocity(Vector2(-c_.SPEED, -2.0))
 	# Play Animations
 	if is_pushing:
 		animated_sprite.play("push")

@@ -14,7 +14,8 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	velocity.x += updated_vel.x
-	if updated_vel == Vector2(0,0):
+	velocity.y += updated_vel.y
+	if updated_vel.x == 0.0:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	if abs(velocity.x) > SPEED:
 		velocity.x = clamp(velocity.x, -SPEED, SPEED)
@@ -22,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	updated_vel = Vector2(0, 0)
 
 func update_velocity(amount : Vector2):
-	updated_vel += amount
+	updated_vel = updated_vel + amount
 
 func _get_top() -> float:
 	return 0.0
