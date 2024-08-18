@@ -28,12 +28,12 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		(body as Player).vent_count = (body as Player).vent_count + 1
 	if body is IPushableObject:
-		body.is_in_vent = true
+		body.vent_count += 1
 		pushable_bodies_to_float.append(body)
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is Player:
 		(body as Player).vent_count = (body as Player).vent_count - 1
 	if body is IPushableObject:
-		body.is_in_vent = false
+		body.vent_count -= 1
 		pushable_bodies_to_float.erase(body)

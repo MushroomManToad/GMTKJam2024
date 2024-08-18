@@ -9,13 +9,13 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var updated_vel : Vector2 = Vector2(0, 0)
 
-var is_in_vent : bool = false
+var vent_count : int = 0
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
-	if not is_on_floor() and not is_in_vent:
+	if not is_on_floor() and vent_count == 0:
 		velocity.y += gravity * delta
-	if is_in_vent and velocity.y > 0:
+	if vent_count > 0 and velocity.y > 0:
 		velocity.y = 0
 	velocity.x += updated_vel.x
 	velocity.y += updated_vel.y
