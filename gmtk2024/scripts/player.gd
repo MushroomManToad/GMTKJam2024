@@ -18,7 +18,7 @@ var camera_zoom : bool = false
 # This represents the player's inertia.
 @export var push_force = 80.0
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not camera_zoom and Input.is_action_pressed("Zoom"):
 		camera_zoom_out()
 	if camera_zoom and not Input.is_action_pressed("Zoom"):

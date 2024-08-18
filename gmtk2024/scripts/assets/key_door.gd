@@ -28,11 +28,11 @@ func _ready():
 
 func open_door():
 	is_closed = false
-	collision_shape_2d.disabled = true
+	collision_shape_2d.set_deferred("disabled", true)
 
 func close_door():
 	is_closed = true
-	collision_shape_2d.disabled = false
+	collision_shape_2d.set_deferred("disabled", false)
 
 func _on_toggle():
 	if is_closed:

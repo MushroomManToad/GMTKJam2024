@@ -15,7 +15,6 @@ var default_pos : Vector2
 func _ready() -> void:
 	var size = nine_patch_rect.size
 	var pos = nine_patch_rect.position
-	var shape = collision_shape_2d.shape
 	
 	# Defaults!
 	default_size = Vector2(size[0], size[1])
@@ -51,7 +50,7 @@ func get_center() -> Vector2:
 func get_size() -> Vector2:
 	return nine_patch_rect.size
 
-func _in_field_loop(delta : float) -> void:
+func _in_field_loop(_delta : float) -> void:
 	if grow_active > 0:
 		if not grown:
 			nine_patch_rect.size = default_size * 2
@@ -63,7 +62,7 @@ func _in_field_loop(delta : float) -> void:
 			align_collider()
 			grown = false
 
-func _out_field_loop(delta : float) -> void:
+func _out_field_loop(_delta : float) -> void:
 	if grown:
 		nine_patch_rect.size = default_size
 		align_collider()

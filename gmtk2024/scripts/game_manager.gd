@@ -30,7 +30,7 @@ func load_player(pos: Vector2) -> void:
 	game.add_child(player_instance)
 	player = player_instance
 
-func load_background(pos: Vector2) -> void:
+func load_background(_pos: Vector2) -> void:
 	var bg_instance : ParallaxBackground = background_asset.instantiate()
 	game.add_child(bg_instance)
 	background = bg_instance
@@ -68,9 +68,9 @@ class Floor:
 	var scene_id : String
 	var pos : Vector2
 	
-	func _init(pos: Vector2, scene_id: String) -> void:
-		self.scene_id = scene_id
-		self.pos = pos
+	func _init(pos_: Vector2, s_id: String) -> void:
+		self.scene_id = s_id
+		self.pos = pos_
 	
 	# Returns an array of [Pos, Scene_ID]
 	func get_vals() -> Array:
