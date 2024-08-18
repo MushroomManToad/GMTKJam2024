@@ -37,8 +37,7 @@ func align_collider():
 	collision_shape_2d.shape = rect
 
 func _get_top():
-	get_size()[1] + nine_patch_rect.position[1]
-	return global_position[1] - (get_size()[1] + nine_patch_rect.position[1])
+	return global_position[1] + nine_patch_rect.position[1]
 
 func _get_bottom():
 	var c_1 = get_size()[1] + nine_patch_rect.position[1]
