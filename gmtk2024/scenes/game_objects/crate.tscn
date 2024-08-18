@@ -11,6 +11,7 @@ collision_mask = 255
 script = ExtResource("1_almqp")
 
 [node name="Crate" type="NinePatchRect" parent="."]
+z_index = 1
 offset_left = -8.0
 offset_top = -8.0
 offset_right = 8.0

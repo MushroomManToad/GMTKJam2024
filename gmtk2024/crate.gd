@@ -64,7 +64,6 @@ func _in_field_loop(delta : float) -> void:
 			grown = false
 
 func _out_field_loop(delta : float) -> void:
-	print(grown)
 	if grown:
 		nine_patch_rect.size = default_size
 		align_collider()

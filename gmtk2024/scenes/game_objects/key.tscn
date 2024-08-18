@@ -15,6 +15,7 @@ collision_mask = 255
 script = ExtResource("1_6mkr0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
 texture = ExtResource("1_ay57x")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite2D"]
