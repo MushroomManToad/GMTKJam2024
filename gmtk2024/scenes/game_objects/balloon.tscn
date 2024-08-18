@@ -1,7 +1,73 @@
-[gd_scene load_steps=5 format=3 uid="uid://2qu4k8jmv0gi"]
+[gd_scene load_steps=14 format=3 uid="uid://2qu4k8jmv0gi"]
 
 [ext_resource type="Texture2D" uid="uid://qa7ftkfi6nho" path="res://sprites/game_objects/balloon.png" id="1_fpggb"]
 [ext_resource type="Script" path="res://scripts/assets/balloon.gd" id="1_tcdp6"]
+[ext_resource type="Texture2D" uid="uid://75guyi47rbsr" path="res://sprites/game_objects/balloon_inflate.png" id="3_ol57a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajcjc"]
+atlas = ExtResource("3_ol57a")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_va4mq"]
+atlas = ExtResource("3_ol57a")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plmx1"]
+atlas = ExtResource("3_ol57a")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s14bh"]
+atlas = ExtResource("3_ol57a")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2aoa7"]
+atlas = ExtResource("3_ol57a")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rxy8"]
+atlas = ExtResource("3_ol57a")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2js6c"]
+atlas = ExtResource("3_ol57a")
+region = Rect2(96, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_taa6q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fpggb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajcjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_va4mq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plmx1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s14bh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2aoa7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rxy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2js6c")
+}],
+"loop": true,
+"name": &"inflating",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_apucd"]
 radius = 0.01
@@ -12,9 +78,10 @@ radius = 8.0
 [node name="balloon" type="CharacterBody2D"]
 script = ExtResource("1_tcdp6")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 8)
-texture = ExtResource("1_fpggb")
+sprite_frames = SubResource("SpriteFrames_taa6q")
+frame_progress = 0.593897
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_apucd")
