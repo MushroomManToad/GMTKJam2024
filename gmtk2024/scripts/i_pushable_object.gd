@@ -14,7 +14,7 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	velocity.x += updated_vel.x
-	velocity.y += updated_vel.y
+	velocity.y = updated_vel.y
 	if updated_vel.x == 0.0:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	if abs(velocity.x) > SPEED:
