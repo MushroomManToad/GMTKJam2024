@@ -1,7 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://sxnojnvbwnom"]
+[gd_scene load_steps=7 format=3 uid="uid://sxnojnvbwnom"]
 
 [ext_resource type="Texture2D" uid="uid://bh7o8hnac1dh1" path="res://sprites/game_objects/vent.png" id="1_fqtig"]
 [ext_resource type="Script" path="res://scripts/assets/vent.gd" id="1_pe2tj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_de0w5"]
+atlas = ExtResource("1_fqtig")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_it21b"]
+atlas = ExtResource("1_fqtig")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_476x7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_de0w5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_it21b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rwn53"]
 size = Vector2(10, 16)
@@ -9,9 +31,10 @@ size = Vector2(10, 16)
 [node name="vent" type="Area2D"]
 script = ExtResource("1_pe2tj")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
-texture = ExtResource("1_fqtig")
+sprite_frames = SubResource("SpriteFrames_476x7")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
