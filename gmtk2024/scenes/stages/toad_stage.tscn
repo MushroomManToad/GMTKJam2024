@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://dmjkk2cg57vpk"]
+[gd_scene load_steps=8 format=4 uid="uid://dmjkk2cg57vpk"]
 
 [ext_resource type="TileSet" uid="uid://c6sbug5hr28jf" path="res://tilesets/tileset_toad_dev.tres" id="1_wup54"]
 [ext_resource type="PackedScene" path="res://scenes/game_objects/one_way_tile.tscn" id="2_b1anm"]
 [ext_resource type="PackedScene" uid="uid://c80ll2o76ldle" path="res://scenes/game_objects/key_door.tscn" id="3_pw4kf"]
 [ext_resource type="PackedScene" uid="uid://bhsusyoycs3gi" path="res://scenes/game_objects/mimic_enemy.tscn" id="6_yyka2"]
 [ext_resource type="PackedScene" uid="uid://d4csisfev404e" path="res://scenes/game_objects/crate.tscn" id="7_0exg4"]
+[ext_resource type="PackedScene" uid="uid://2qu4k8jmv0gi" path="res://scenes/game_objects/balloon.tscn" id="7_xfn74"]
 [ext_resource type="PackedScene" uid="uid://bp267ymmeq7fa" path="res://scenes/game_objects/button.tscn" id="10_7cal4"]
 
 [node name="ToadStage" type="Node2D"]
@@ -45,3 +46,6 @@ position = Vector2(-71, -29)
 
 [node name="mimic_enemy" parent="." instance=ExtResource("6_yyka2")]
 position = Vector2(-55, -16)
+
+[node name="balloon" parent="." instance=ExtResource("7_xfn74")]
+position = Vector2(54, -45)

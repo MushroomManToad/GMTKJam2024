@@ -20,6 +20,7 @@ texture = ExtResource("1_fpggb")
 shape = SubResource("CircleShape2D_apucd")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_twyy1")
