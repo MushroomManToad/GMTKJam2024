@@ -270,9 +270,7 @@ JUMP_VELOCITY = -265.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_jje2q")
-animation = &"push"
-frame = 1
-frame_progress = 0.397255
+animation = &"fall"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -5)
