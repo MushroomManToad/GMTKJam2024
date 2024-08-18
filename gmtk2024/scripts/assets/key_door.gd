@@ -36,6 +36,7 @@ func close_door():
 func _on_toggle():
 	if is_closed:
 		open_door()
+		nine_patch_rect.visible = false
 	else:
 		close_door()
 
