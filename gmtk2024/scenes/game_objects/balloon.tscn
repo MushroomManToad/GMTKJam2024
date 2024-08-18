@@ -1,20 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://2qu4k8jmv0gi"]
+[gd_scene load_steps=5 format=3 uid="uid://2qu4k8jmv0gi"]
 
 [ext_resource type="Texture2D" uid="uid://qa7ftkfi6nho" path="res://sprites/game_objects/balloon.png" id="1_fpggb"]
 [ext_resource type="Script" path="res://scripts/assets/balloon.gd" id="1_tcdp6"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_apucd"]
+radius = 0.01
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_twyy1"]
 radius = 6.08276
 
-[node name="balloon" type="Node2D"]
+[node name="balloon" type="CharacterBody2D"]
 script = ExtResource("1_tcdp6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 3)
 texture = ExtResource("1_fpggb")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_mask = 255
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_apucd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_twyy1")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
