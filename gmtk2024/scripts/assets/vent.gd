@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var height : float
-@export var SPEED : float = -20.0
+@export var SPEED : float = -265.0
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
@@ -28,10 +28,12 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		(body as Player).vent_count = (body as Player).vent_count + 1
 	if body is IPushableObject:
+		body.is_in_vent = true
 		pushable_bodies_to_float.append(body)
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is Player:
 		(body as Player).vent_count = (body as Player).vent_count - 1
 	if body is IPushableObject:
+		body.is_in_vent = false
 		pushable_bodies_to_float.erase(body)

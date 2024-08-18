@@ -9,18 +9,30 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var updated_vel : Vector2 = Vector2(0, 0)
 
+var is_in_vent : bool = false
+
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
-	if not is_on_floor():
+	if not is_on_floor() and not is_in_vent:
 		velocity.y += gravity * delta
 	velocity.x += updated_vel.x
-	velocity.y = updated_vel.y
+	velocity.y += updated_vel.y
 	if updated_vel.x == 0.0:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	if abs(velocity.x) > SPEED:
 		velocity.x = clamp(velocity.x, -SPEED, SPEED)
 	move_and_slide()
 	updated_vel = Vector2(0, 0)
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is Player:
+			var c_ = c.get_collider() as Player
+			var ypos = c_.global_position[1] + 1.0
+			if ypos > _get_bottom() + 8.0:
+				if c_.global_position[0] < self.global_position.x:
+					self.update_velocity(Vector2(self.SPEED, -4.0))
+				else:
+					self.update_velocity(Vector2(-self.SPEED, -4.0))
 
 func update_velocity(amount : Vector2):
 	updated_vel = updated_vel + amount
