@@ -47,7 +47,10 @@ func _physics_process(delta):
 		else:
 			animated_sprite.play("run")
 	else:
-		animated_sprite.play("jump")
+		if velocity.y < 0.0:
+			animated_sprite.play("jump")
+		else:
+			animated_sprite.play("fall")
 	
 	# Apply movement
 	if direction:
@@ -60,9 +63,9 @@ func _physics_process(delta):
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
 		if c.get_collider() is IPushableObject:
+			animated_sprite.play("push")
 			var c_ = c.get_collider() as IPushableObject
 			var ypos = self.position[1] + 1.0
-			print(ypos, " : ", c_._get_top(), " : ", c_._get_bottom())
 			if ypos > c_._get_top() and ypos < c_._get_bottom():
 				if self.position[0] < c_.position.x:
 					c_.update_velocity(Vector2(c_.SPEED, 0))
