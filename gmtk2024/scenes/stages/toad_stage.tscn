@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://dmjkk2cg57vpk"]
+[gd_scene load_steps=10 format=4 uid="uid://dmjkk2cg57vpk"]
 
 [ext_resource type="TileSet" uid="uid://c6sbug5hr28jf" path="res://tilesets/tileset_toad_dev.tres" id="1_wup54"]
 [ext_resource type="PackedScene" path="res://scenes/game_objects/one_way_tile.tscn" id="2_b1anm"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bth3lkpq26jfx" path="res://scenes/game_objects/key.tscn" id="4_l4mer"]
 [ext_resource type="Texture2D" uid="uid://uda51qesa8tn" path="res://sprites/game_objects/door_center.png" id="5_tk3cb"]
 [ext_resource type="PackedScene" uid="uid://d4csisfev404e" path="res://scenes/game_objects/crate.tscn" id="7_0exg4"]
+[ext_resource type="PackedScene" uid="uid://sxnojnvbwnom" path="res://scenes/game_objects/vent.tscn" id="8_fsp8v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nillq"]
 size = Vector2(16, 16)
@@ -70,3 +71,7 @@ shape = SubResource("RectangleShape2D_nillq")
 
 [node name="Crate" parent="." instance=ExtResource("7_0exg4")]
 position = Vector2(-46, -29)
+
+[node name="vent" parent="." instance=ExtResource("8_fsp8v")]
+position = Vector2(40, -15)
+height = 5.0
