@@ -22,6 +22,8 @@ var camera_zoom : bool = false
 
 @onready var spells_handler : SpellsHandler = SpellsHandler.new(self)
 
+var oyv : bool = true
+
 func _process(_delta: float) -> void:
 	if not camera_zoom and Input.is_action_pressed("Zoom"):
 		camera_zoom_out()
@@ -34,6 +36,10 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
+
+	if oyv:
+		velocity.y = 0
+		oyv = false
 
 	# Handle jump.
 	if Input.is_action_just_pressed("Space") and is_on_floor():
@@ -113,6 +119,9 @@ func camera_zoom_reset() -> void:
 
 func add_extra_velocity(input_vel : Vector2):
 	extra_velocity += input_vel
+
+func override_y_velocity():
+	oyv = true
 
 class SpellsHandler:
 	var active_grow_field : Node2D = null

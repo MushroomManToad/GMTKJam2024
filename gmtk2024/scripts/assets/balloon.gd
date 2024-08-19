@@ -71,6 +71,7 @@ func _on_body_entered(body: Node2D) -> void:
 		launch_dir = launch_dir * default_launch_vel * size_modifier
 		
 		body.add_extra_velocity(Vector2(0.0, -default_launch_vel * size_modifier))
+		body.override_y_velocity()
 		pop_balloon()
 	pass # Replace with function body.
 
