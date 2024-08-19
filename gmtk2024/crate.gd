@@ -86,4 +86,11 @@ func get_scale_target_size_scalar() -> Vector2:
 		elif rotate_active > 0:
 			return Vector2(2.0, 4.0)
 		return Vector2(2.0, 2.0)
+	elif stretch_active > 0:
+			if rotate_active > 0:
+				return Vector2(4.0, 4.0)
+			else:
+				return Vector2(4.0, 1.0)
+	elif rotate_active > 0:
+		return Vector2(1.0, 4.0)
 	return Vector2(1.0, 1.0)

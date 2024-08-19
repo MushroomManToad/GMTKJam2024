@@ -15,6 +15,10 @@ const UI_BATTLE_SCREEN = preload("res://scenes/player/ui_battle_screen.tscn")
 var loaded_floors : Array
 var loaded_floors_nodes : Array
 
+# Signal for syncing UI
+signal health_update
+signal spell_update
+
 func _ready():
 	load_first_stage(Vector2(0, 0), "kristen_test_scene")
 
@@ -39,6 +43,7 @@ func load_background(_pos: Vector2) -> void:
 
 func load_ui() -> void:
 	var ui_instance : UI_Screen = UI_BATTLE_SCREEN.instantiate()
+	ui_instance.player = player
 	game.add_child(ui_instance)
 	ui = ui_instance
 
