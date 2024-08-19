@@ -1,6 +1,8 @@
 extends IFieldInteractable
 
 @export var default_launch_vel : float = 1000.0
+@export var launch_vel_big_mult : float = 2.0
+
 @onready var collision_shape_character: CollisionShape2D = $CollisionShape2D
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 
@@ -64,7 +66,7 @@ func _on_body_entered(body: Node2D) -> void:
 		
 		var size_modifier : float = 1.0
 		if grow_active > 0:
-			size_modifier = 2.0
+			size_modifier = launch_vel_big_mult
 		
 		launch_dir = launch_dir * default_launch_vel * size_modifier
 		
@@ -116,5 +118,4 @@ func pop_balloon():
 	collision_shape_2d.set_deferred("disabled", true)
 	is_popped = true
 	pop_timer = 0.0
-	print("HI")
 	nine_patch_rect.texture = BALLOON_INFLATE_1

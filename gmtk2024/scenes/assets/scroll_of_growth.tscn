@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cuafdeeudj243"]
 
-[ext_resource type="Texture2D" uid="uid://du4iykeoglg48" path="res://sprites/game_objects/scroll/grow_scroll.png" id="1_g0sat"]
+[ext_resource type="Texture2D" uid="uid://ygi52q0bl3e1" path="res://sprites/game_objects/scroll/grow_scroll.png" id="1_g0sat"]
 [ext_resource type="Script" path="res://scripts/assets/scroll_of_growth.gd" id="1_tdeww"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0kg5"]
