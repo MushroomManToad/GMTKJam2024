@@ -36,6 +36,7 @@ func _process(delta: float) -> void:
 			player.freeze()
 			var scale_var : float = 3.0 - (animation_timer * 2.0)
 			camera_2d.zoom = Vector2(scale_var, scale_var)
+			camera_2d.limit_bottom = ((curr_camera_base as float) + ((Game_Manager.loaded_floors_nodes[1].global_position[1] + scene_load_location[1] + camera_base as float) - (curr_camera_base as float)) * (animation_timer)) as int
 			if animation_timer >= 0.5:
 				Game_Manager.ftw_ui.animation_player.play("fade_to_white")
 		# 0.5 sec, fade to white
@@ -50,7 +51,6 @@ func _process(delta: float) -> void:
 				Game_Manager.ftw_ui.animation_player.play("fade_from_white")
 		# fade from white and zoom back in camera
 		elif animation_timer <= 3.0:
-			camera_2d.limit_bottom = ((curr_camera_base as float) + ((Game_Manager.loaded_floors_nodes[1].global_position[1] + camera_base as float) - (curr_camera_base as float)) * (animation_timer - 2.0)) as int
 			var scale_var : float = 1.0 + ((animation_timer - 2.0) * 2.0)
 			camera_2d.zoom = Vector2(scale_var, scale_var)
 		else:
