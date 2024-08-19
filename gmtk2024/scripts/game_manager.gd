@@ -73,6 +73,31 @@ func load_new_scene(pos: Vector2, scene_id: String, prs_loc: Vector2):
 	else:
 		printerr("Major floor error. Blame MMT and tell him he typecast wrong")
 
+func reload_new_scene(pos: Vector2, scene_id: String, prs_loc: Vector2):
+	# A lil crash failsafe
+	if loaded_floors[1] is Floor:
+		# Load the new scene
+		var new_scene : Node2D = load_scene(pos, scene_id, prs_loc)
+		
+		# Unload any scene 2+ scenes ago
+		if not loaded_floors[0] == null and loaded_floors_nodes[0] is Node2D:
+			(loaded_floors_nodes[0] as Node2D).queue_free()
+		
+		# Push current scene to prev scene
+		loaded_floors[0] = loaded_floors[1]
+		loaded_floors_nodes[0] = loaded_floors_nodes[1]
+		
+		# Load new floor
+		loaded_floors[1] = Floor.new(pos, scene_id, prs_loc)
+		loaded_floors_nodes[1] = new_scene
+		
+		player.global_position = pos + prs_loc
+	else:
+		var new_scene : Node2D = load_scene(pos, scene_id, prs_loc)
+		loaded_floors = [null, Floor.new(pos, scene_id, prs_loc), null]
+		loaded_floors_nodes = [null, new_scene, null]
+		player.global_position = pos + prs_loc
+
 # Special variable setting for loading the tower's first floor
 func load_first_stage(pos: Vector2, scene_id: String, prs_loc: Vector2):
 	load_background(Vector2(0, 0))
@@ -86,8 +111,18 @@ func load_first_stage(pos: Vector2, scene_id: String, prs_loc: Vector2):
 # Resets player HP
 # Resets player to start of room
 func restart_stage():
-	
-	pass
+	var floor_0 : Floor = null
+	if not loaded_floors[0] == null:
+		floor_0 = loaded_floors[0]
+	var floor_1 : Floor = loaded_floors[1]
+	for f : Node2D in loaded_floors_nodes:
+		if not f == null:
+			f.queue_free()
+	loaded_floors_nodes = [null, null, null]
+	loaded_floors = [null, null, null]
+	if not floor_0 == null:
+		reload_new_scene(floor_0.get_vals()[0], floor_0.get_vals()[1], floor_0.get_vals()[2])
+	reload_new_scene(floor_1.get_vals()[0], floor_1.get_vals()[1], floor_1.get_vals()[2])
 
 # Internal class for storing loaded floor data
 class Floor:
