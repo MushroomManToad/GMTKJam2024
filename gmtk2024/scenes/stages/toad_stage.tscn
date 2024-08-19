@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dmjkk2cg57vpk"]
+[gd_scene load_steps=14 format=4 uid="uid://dmjkk2cg57vpk"]
 
 [ext_resource type="TileSet" uid="uid://c6sbug5hr28jf" path="res://tilesets/tileset_toad_dev.tres" id="1_wup54"]
 [ext_resource type="PackedScene" uid="uid://5gnkrek3f15y" path="res://scenes/game_objects/one_way_tile.tscn" id="2_b1anm"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bfppn2sxagjue" path="res://sprites/particle/expand.png" id="5_lcl6w"]
 [ext_resource type="Texture2D" uid="uid://p7kqf83ijgm" path="res://sprites/one_way.png" id="5_r06ma"]
 [ext_resource type="PackedScene" uid="uid://d4csisfev404e" path="res://scenes/game_objects/crate.tscn" id="7_0exg4"]
+[ext_resource type="PackedScene" uid="uid://2qu4k8jmv0gi" path="res://scenes/game_objects/balloon.tscn" id="7_xfn74"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tq16u"]
 
@@ -197,6 +198,12 @@ collision_mask = 255
 shape = SubResource("SegmentShape2D_36b8x")
 one_way_collision = true
 one_way_collision_margin = 4.0
+
+[node name="balloon" parent="." instance=ExtResource("7_xfn74")]
+position = Vector2(94, -49)
+
+[node name="balloon2" parent="." instance=ExtResource("7_xfn74")]
+position = Vector2(23, -57)
 
 [connection signal="body_entered" from="Field" to="Field" method="_on_body_entered"]
 [connection signal="body_exited" from="Field" to="Field" method="_on_body_exited"]
