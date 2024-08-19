@@ -22,10 +22,10 @@ signal health_update
 signal spell_update
 
 func _ready():
-	load_first_stage(Vector2(0, 0), "kristen_test_scene")
+	load_first_stage(Vector2(0, 0), "kristen_test_scene", Vector2(0.0, -16.0))
 
 # Generic Stage Loading Function. Called by relevant functions "first and "new
-func load_scene(pos: Vector2, scene_id: String) -> Node2D:
+func load_scene(pos: Vector2, scene_id: String, prs_loc: Vector2) -> Node2D:
 	var stage = load("res://scenes/stages/" + scene_id + ".tscn")
 	var stage_instance : Node2D = stage.instantiate()
 	stage_instance.global_position = pos
@@ -53,11 +53,11 @@ func load_ui() -> void:
 	game.add_child(ftw_instance)
 	ftw_ui = ftw_instance
 
-func load_new_scene(pos: Vector2, scene_id: String):
+func load_new_scene(pos: Vector2, scene_id: String, prs_loc: Vector2):
 	# A lil crash failsafe
 	if loaded_floors[1] is Floor:
 		# Load the new scene
-		var new_scene : Node2D = load_scene(pos + (loaded_floors[1] as Floor).get_vals()[0], scene_id)
+		var new_scene : Node2D = load_scene(pos + (loaded_floors[1] as Floor).get_vals()[0], scene_id, prs_loc)
 		
 		# Unload any scene 2+ scenes ago
 		if not loaded_floors[0] == null and loaded_floors_nodes[0] is Node2D:
@@ -68,32 +68,41 @@ func load_new_scene(pos: Vector2, scene_id: String):
 		loaded_floors_nodes[0] = loaded_floors_nodes[1]
 		
 		# Load new floor
-		loaded_floors[1] = Floor.new(pos + (loaded_floors[1] as Floor).get_vals()[0], scene_id)
+		loaded_floors[1] = Floor.new(pos + (loaded_floors[1] as Floor).get_vals()[0], scene_id, prs_loc)
 		loaded_floors_nodes[1] = new_scene
 	else:
 		printerr("Major floor error. Blame MMT and tell him he typecast wrong")
 
 # Special variable setting for loading the tower's first floor
-func load_first_stage(pos: Vector2, scene_id: String):
+func load_first_stage(pos: Vector2, scene_id: String, prs_loc: Vector2):
 	load_background(Vector2(0, 0))
-	var new_scene : Node2D = load_scene(pos, scene_id)
-	load_player(Vector2(0,0))
-	loaded_floors = [null, Floor.new(pos, scene_id), null]
+	var new_scene : Node2D = load_scene(pos, scene_id, prs_loc)
+	load_player(pos + prs_loc)
+	loaded_floors = [null, Floor.new(pos, scene_id, prs_loc), null]
 	loaded_floors_nodes = [null, new_scene, null]
 	load_ui()
+
+# Reloads the current and previous stages to default states
+# Resets player HP
+# Resets player to start of room
+func restart_stage():
+	
+	pass
 
 # Internal class for storing loaded floor data
 class Floor:
 	var scene_id : String
 	var pos : Vector2
+	var player_respawn_location : Vector2
 	
-	func _init(pos_: Vector2, s_id: String) -> void:
+	func _init(pos_: Vector2, s_id: String, prs_loc : Vector2) -> void:
 		self.scene_id = s_id
 		self.pos = pos_
+		self.player_respawn_location = prs_loc
 	
 	# Returns an array of [Pos, Scene_ID]
 	func get_vals() -> Array:
-		return [pos, scene_id]
+		return [pos, scene_id, player_respawn_location]
 	
 	func _to_string() -> String:
-		return "(" + str(pos) + ", " + str(scene_id) + ")"
+		return "(" + str(pos) + ", " + str(scene_id) + ", " + str(player_respawn_location) + ")"

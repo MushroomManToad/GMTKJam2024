@@ -33,14 +33,18 @@ func _process(_delta: float) -> void:
 		if camera_zoom and not Input.is_action_pressed("Zoom"):
 			camera_zoom_reset()
 
-func _physics_process(delta):
+func _physics_process(delta):	
 	if not frozen:
 		spells_handler.physics_loop()
 		
 		# Add the gravity.
 		if not is_on_floor():
 			velocity.y += gravity * delta
-
+		
+		if Input.is_action_just_pressed("Restart"):
+			velocity = Vector2(0.0, 0.0)
+			Game_Manager.restart_stage()
+		
 		if oyv:
 			velocity.y = 0
 			oyv = false

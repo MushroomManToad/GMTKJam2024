@@ -45,7 +45,7 @@ func _process(delta: float) -> void:
 		# Load screen and move up player
 		elif animation_timer <= 2.0:
 			if not loaded:
-				Game_Manager.load_new_scene(scene_load_location, scene_id)
+				Game_Manager.load_new_scene(scene_load_location, scene_id, player_jump_target)
 				player.global_position = Game_Manager.loaded_floors_nodes[0].global_position + scene_load_location + player_jump_target
 				loaded = true
 				Game_Manager.ftw_ui.animation_player.play("fade_from_white")

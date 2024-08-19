@@ -8,6 +8,7 @@ extends Node2D
 
 @export var scene_id : String
 @export var pos : Vector2
+@export var player_respawn_location: Vector2
 
 var hovered: bool = false
 var primed: bool = false
@@ -22,7 +23,7 @@ func _process(_delta: float) -> void:
 	if not Input.is_action_pressed("LeftClick") and hovered:
 		set_visible_layer(1)
 		if primed:
-			Game_Manager.load_new_scene(pos, scene_id)
+			Game_Manager.load_new_scene(pos, scene_id, player_respawn_location)
 			primed = false
 
 func _on_area_2d_mouse_entered() -> void:
