@@ -1,3 +1,5 @@
+class_name Field
+
 extends Area2D
 
 @onready var nine_patch_rect: NinePatchRect = $NinePatchRect
@@ -70,3 +72,11 @@ func align_collider():
 	grow_particles.position = Vector2(size[0] / 2.0 + pos[0], size[1] / 2.0 + pos[1])
 	grow_particles.emission_rect_extents = Vector2((size[0] / 2.0) - 2.0, (size[1] / 2.0) - 2.0)
 	grow_particles.amount = 4 * sqrt(Vector2((size[0] / 2.0) - 2.0, (size[1] / 2.0) - 2.0).length_squared())
+	
+	stretch_particles.position = Vector2(size[0] / 2.0 + pos[0], size[1] / 2.0 + pos[1])
+	stretch_particles.emission_rect_extents = Vector2((size[0] / 2.0) - 2.0, (size[1] / 2.0) - 2.0)
+	stretch_particles.amount = 4 * sqrt(Vector2((size[0] / 2.0) - 2.0, (size[1] / 2.0) - 2.0).length_squared())
+	
+	rotate_particles.position = Vector2(size[0] / 2.0 + pos[0], size[1] / 2.0 + pos[1])
+	rotate_particles.emission_rect_extents = Vector2((size[0] / 2.0) - 2.0, (size[1] / 2.0) - 2.0)
+	rotate_particles.amount = 4 * sqrt(Vector2((size[0] / 2.0) - 2.0, (size[1] / 2.0) - 2.0).length_squared())

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://2qu4k8jmv0gi"]
 
+[ext_resource type="Texture2D" uid="uid://qa7ftkfi6nho" path="res://sprites/game_objects/balloon.png" id="1_fpggb"]
 [ext_resource type="Script" path="res://scripts/assets/balloon.gd" id="1_tcdp6"]
-[ext_resource type="Texture2D" uid="uid://chs7ai8o0q63" path="res://scenes/game_objects/animated_texture/inflate_balloon.tres" id="2_xldds"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_apucd"]
 radius = 0.01
@@ -10,6 +10,7 @@ radius = 0.01
 radius = 8.0
 
 [node name="balloon" type="CharacterBody2D"]
+collision_layer = 64
 script = ExtResource("1_tcdp6")
 
 [node name="Sprite2D" type="NinePatchRect" parent="."]
@@ -17,7 +18,7 @@ offset_left = -8.0
 offset_top = -8.0
 offset_right = 8.0
 offset_bottom = 11.0
-texture = ExtResource("2_xldds")
+texture = ExtResource("1_fpggb")
 region_rect = Rect2(0, 0, 16, 19)
 patch_margin_left = 3
 patch_margin_top = 3

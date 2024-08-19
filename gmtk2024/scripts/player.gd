@@ -20,6 +20,8 @@ var camera_zoom : bool = false
 
 @export var extra_velocity : Vector2 = Vector2(0, 0)
 
+@onready var spells_handler : SpellsHandler = SpellsHandler.new(self)
+
 func _process(_delta: float) -> void:
 	if not camera_zoom and Input.is_action_pressed("Zoom"):
 		camera_zoom_out()
@@ -27,6 +29,8 @@ func _process(_delta: float) -> void:
 		camera_zoom_reset()
 
 func _physics_process(delta):
+	spells_handler.physics_loop()
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -109,3 +113,47 @@ func camera_zoom_reset() -> void:
 
 func add_extra_velocity(input_vel : Vector2):
 	extra_velocity += input_vel
+
+class SpellsHandler:
+	var active_grow_field : Node2D = null
+	var active_stretch_field : Node2D = null
+	var active_rotate_field : Node2D = null
+	
+	var grow_unlocked : bool = false
+	var stretch_unlocked : bool = false
+	var rotate_unlocked : bool = false
+	
+	var selected_spell : String = "none"
+	
+	var player : Player
+	
+	const SPELL_CASTER = preload("res://scenes/player/spell_caster.tscn")
+	
+	func _init(player_ : Player) -> void:
+		self.player = player_
+	
+	func physics_loop():
+		if Input.is_action_just_pressed("LeftClick"):
+			if not selected_spell == "none":
+				cast()
+	
+	func cast():
+		var offset = 0.0
+		if not player.animated_sprite.flip_h:
+			offset = 5.0
+		else:
+			offset = -5.0
+		
+		var source : Vector2 = player.global_position + Vector2(offset, -6.0)
+		var mousePosInWorld : Vector2 = player.get_global_mouse_position()
+		
+		var direction = (mousePosInWorld - source).normalized()
+		
+		var spell_instance : SpellCaster = SPELL_CASTER.instantiate()
+
+		spell_instance.global_position = source
+		spell_instance.set_direction(direction)
+		spell_instance.set_spell(selected_spell)
+		spell_instance.set_destination(mousePosInWorld)
+		spell_instance.player = player
+		Game_Manager.game.add_child(spell_instance)
