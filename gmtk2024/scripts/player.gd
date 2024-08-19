@@ -24,88 +24,92 @@ var camera_zoom : bool = false
 
 var oyv : bool = true
 
+var frozen : bool = false
+
 func _process(_delta: float) -> void:
-	if not camera_zoom and Input.is_action_pressed("Zoom"):
-		camera_zoom_out()
-	if camera_zoom and not Input.is_action_pressed("Zoom"):
-		camera_zoom_reset()
+	if not frozen:
+		if not camera_zoom and Input.is_action_pressed("Zoom"):
+			camera_zoom_out()
+		if camera_zoom and not Input.is_action_pressed("Zoom"):
+			camera_zoom_reset()
 
 func _physics_process(delta):
-	spells_handler.physics_loop()
-	
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += gravity * delta
+	if not frozen:
+		spells_handler.physics_loop()
+		
+		# Add the gravity.
+		if not is_on_floor():
+			velocity.y += gravity * delta
 
-	if oyv:
-		velocity.y = 0
-		oyv = false
+		if oyv:
+			velocity.y = 0
+			oyv = false
 
-	# Handle jump.
-	if Input.is_action_just_pressed("Space") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		# Handle jump.
+		if Input.is_action_just_pressed("Space") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
 
-	# Get the input direction: -1, 0, 1
-	var direction = Input.get_axis("Left", "Right")
-	
-	if Input.is_action_just_pressed("Up"):
-		velocity.y = JUMP_VELOCITY
-	
-	if vent_count > 0:
-		velocity.y = JUMP_VELOCITY / 2.0
-	
-	# Flip the Sprite
-	if direction > 0:
-		animated_sprite.flip_h = false
-	elif direction < 0:
-		animated_sprite.flip_h = true
-	
-	# Apply movement
-	if direction:
-		if abs(velocity.x) <= SPEED:
-			velocity.x = direction * SPEED
-		else:
-			velocity.x = velocity.x + direction * SPEED * 0.05
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	var is_pushing = false
-
-	velocity += extra_velocity
-	
-	extra_velocity = Vector2(0, 0)
-	
-	move_and_slide()
-	# after calling move_and_slide()
-	for i in get_slide_collision_count():
-		var c = get_slide_collision(i)
-		if c.get_collider() is IPushableObject:
-			var c_ = c.get_collider() as IPushableObject
-			var ypos = self.position[1] + 1.0
-			if ypos > c_._get_top() and ypos < c_._get_bottom() + 6.0:
-				is_pushing = true
-				if self.position[0] < c_.position.x:
-					c_.update_velocity(Vector2(c_.SPEED, 0))
-				else:
-					c_.update_velocity(Vector2(-c_.SPEED, 0))
-			if ypos > c_._get_bottom() + 8.0:
-				if self.position[0] < c_.position.x:
-					c_.update_velocity(Vector2(c_.SPEED, -4.0))
-				else:
-					c_.update_velocity(Vector2(-c_.SPEED, -4.0))
-	# Play Animations
-	if is_pushing:
-		animated_sprite.play("push")
-	else:
-		if is_on_floor():
-			if direction == 0:
-				animated_sprite.play("idle")
+		# Get the input direction: -1, 0, 1
+		var direction = Input.get_axis("Left", "Right")
+		
+		if Input.is_action_just_pressed("Up"):
+			velocity.y = JUMP_VELOCITY
+		
+		if vent_count > 0:
+			velocity.y = JUMP_VELOCITY / 2.0
+		
+		# Flip the Sprite
+		if direction > 0:
+			animated_sprite.flip_h = false
+		elif direction < 0:
+			animated_sprite.flip_h = true
+		
+		# Apply movement
+		if direction:
+			if abs(velocity.x) <= SPEED:
+				velocity.x = direction * SPEED
 			else:
-				animated_sprite.play("run")
+				velocity.x = velocity.x + direction * SPEED * 0.05
 		else:
-			if velocity.y < 0.0:
-				animated_sprite.play("jump")
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+		var is_pushing = false
+
+		velocity += extra_velocity
+		
+		extra_velocity = Vector2(0, 0)
+		
+		move_and_slide()
+		# after calling move_and_slide()
+		for i in get_slide_collision_count():
+			var c = get_slide_collision(i)
+			if c.get_collider() is IPushableObject:
+				var c_ = c.get_collider() as IPushableObject
+				var ypos = self.position[1] + 1.0
+				if ypos > c_._get_top() and ypos < c_._get_bottom() + 6.0:
+					is_pushing = true
+					if self.position[0] < c_.position.x:
+						c_.update_velocity(Vector2(c_.SPEED, 0))
+					else:
+						c_.update_velocity(Vector2(-c_.SPEED, 0))
+				if ypos > c_._get_bottom() + 8.0:
+					if self.position[0] < c_.position.x:
+						c_.update_velocity(Vector2(c_.SPEED, -4.0))
+					else:
+						c_.update_velocity(Vector2(-c_.SPEED, -4.0))
+		# Play Animations
+		if is_pushing:
+			animated_sprite.play("push")
+		else:
+			if is_on_floor():
+				if direction == 0:
+					animated_sprite.play("idle")
+				else:
+					animated_sprite.play("run")
 			else:
-				animated_sprite.play("fall")
+				if velocity.y < 0.0:
+					animated_sprite.play("jump")
+				else:
+					animated_sprite.play("fall")
 
 func camera_zoom_out() -> void:
 	camera_zoom = true
@@ -122,6 +126,12 @@ func add_extra_velocity(input_vel : Vector2):
 
 func override_y_velocity():
 	oyv = true
+
+func freeze():
+	frozen = true
+
+func unfreeze():
+	frozen = false
 
 class SpellsHandler:
 	var active_grow_field : Node2D = null

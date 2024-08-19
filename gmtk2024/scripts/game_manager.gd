@@ -6,10 +6,12 @@ extends Node
 var player : Player
 var background : ParallaxBackground
 var ui : UI_Screen
+var ftw_ui : FTW_UI_Screen
 
 const player_asset = preload("res://scenes/player/player.tscn")
 const background_asset = preload("res://scenes/global/background.tscn")
 const UI_BATTLE_SCREEN = preload("res://scenes/player/ui_battle_screen.tscn")
+const UI_FADE_TO_WHITE = preload("res://scenes/player/ui_fade_to_white.tscn")
 
 # Current array of loaded floor objects
 var loaded_floors : Array
@@ -46,6 +48,10 @@ func load_ui() -> void:
 	ui_instance.player = player
 	game.add_child(ui_instance)
 	ui = ui_instance
+	
+	var ftw_instance : FTW_UI_Screen = UI_FADE_TO_WHITE.instantiate()
+	game.add_child(ftw_instance)
+	ftw_ui = ftw_instance
 
 func load_new_scene(pos: Vector2, scene_id: String):
 	# A lil crash failsafe
