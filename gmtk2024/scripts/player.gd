@@ -145,6 +145,27 @@ class SpellsHandler:
 		if Input.is_action_just_pressed("LeftClick"):
 			if not selected_spell == "none":
 				cast()
+		
+		if Input.is_action_just_pressed("Q"):
+			if not active_grow_field == null:
+				active_grow_field.queue_free()
+				active_grow_field = null
+			if not active_stretch_field == null:
+				active_stretch_field.queue_free()
+				active_stretch_field = null
+			if not active_rotate_field == null:
+				active_rotate_field.queue_free()
+				active_rotate_field = null
+		
+		if Input.is_action_just_pressed("Spell1") and grow_unlocked:
+			selected_spell = "grow"
+			Game_Manager.spell_update.emit()
+		if Input.is_action_just_pressed("Spell2") and stretch_unlocked:
+			selected_spell = "stretch"
+			Game_Manager.spell_update.emit()
+		if Input.is_action_just_pressed("Spell3") and rotate_unlocked:
+			selected_spell = "rotate"
+			Game_Manager.spell_update.emit()
 	
 	func cast():
 		var offset = 0.0
@@ -166,3 +187,16 @@ class SpellsHandler:
 		spell_instance.set_destination(mousePosInWorld)
 		spell_instance.player = player
 		Game_Manager.game.add_child(spell_instance)
+	
+	func unlock_spell(spell_id : String):
+		match spell_id:
+			"grow":
+				grow_unlocked = true
+				selected_spell = "grow"
+			"stretch":
+				stretch_unlocked = true
+				selected_spell = "stretch"
+			"rotate":
+				rotate_unlocked = true
+				selected_spell = "rotate"
+		Game_Manager.spell_update.emit()
