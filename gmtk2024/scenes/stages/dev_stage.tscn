@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://h63k08gvpiq0"]
+[gd_scene load_steps=33 format=4 uid="uid://h63k08gvpiq0"]
 
 [ext_resource type="TileSet" uid="uid://bqrfj2bs8wtig" path="res://tilesets/ground.tres" id="1_otguk"]
 [ext_resource type="PackedScene" uid="uid://dh7totc25gyx8" path="res://scenes/assets/clickable_scene_loader.tscn" id="2_txwh0"]
@@ -16,8 +16,12 @@
 [ext_resource type="Texture2D" uid="uid://uda51qesa8tn" path="res://sprites/game_objects/door_center.png" id="12_1r5h6"]
 [ext_resource type="Script" path="res://scripts/assets/vent.gd" id="13_a80to"]
 [ext_resource type="Texture2D" uid="uid://bh7o8hnac1dh1" path="res://sprites/game_objects/vent.png" id="14_h4qap"]
+[ext_resource type="Texture2D" uid="uid://b7v4woixtvvpx" path="res://sprites/tiles/decor/giraffe.png" id="15_vpkbr"]
+[ext_resource type="Texture2D" uid="uid://cjxsnaquy2emy" path="res://sprites/tiles/decor/pencil.png" id="16_janwr"]
+[ext_resource type="Texture2D" uid="uid://b1ronwy4qdjf7" path="res://sprites/tiles/decor/hippo.png" id="17_bulno"]
 [ext_resource type="PackedScene" uid="uid://bp267ymmeq7fa" path="res://scenes/game_objects/button.tscn" id="17_yq3aj"]
 [ext_resource type="Texture2D" uid="uid://dunf4d3fpih7c" path="res://sprites/game_objects/button_door_center.png" id="18_86e65"]
+[ext_resource type="Texture2D" uid="uid://bm1cppx828il1" path="res://sprites/tiles/decor/decor_2.png" id="18_c75qf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tq16u"]
 
@@ -56,6 +60,10 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rwn53"]
 size = Vector2(10, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwni1"]
+atlas = ExtResource("18_c75qf")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jecn8"]
 size = Vector2(16, 16)
@@ -215,6 +223,22 @@ gravity = Vector2(0, 0)
 initial_velocity_min = 32.0
 initial_velocity_max = 32.0
 color = Color(1, 1, 1, 0.545098)
+
+[node name="Giraffe" type="Sprite2D" parent="Tilemap"]
+position = Vector2(240, -56)
+texture = ExtResource("15_vpkbr")
+
+[node name="Pencil" type="Sprite2D" parent="Tilemap"]
+position = Vector2(592, 24)
+texture = ExtResource("16_janwr")
+
+[node name="Hippo" type="Sprite2D" parent="Tilemap"]
+position = Vector2(248, 40)
+texture = ExtResource("17_bulno")
+
+[node name="False_Door" type="Sprite2D" parent="Tilemap"]
+position = Vector2(192, 0)
+texture = SubResource("AtlasTexture_gwni1")
 
 [node name="ClickableSceneLoader" parent="." instance=ExtResource("2_txwh0")]
 z_index = -4
