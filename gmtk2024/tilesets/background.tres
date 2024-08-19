@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://u03l76y4mw8l" path="res://sprites/tiles/background/default_background.png" id="1_kx33h"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_02pvx"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u5la4"]
 texture = ExtResource("1_kx33h")
 0:0/0 = 0
 
 [resource]
-sources/0 = SubResource("TileSetAtlasSource_02pvx")
+sources/2 = SubResource("TileSetAtlasSource_u5la4")

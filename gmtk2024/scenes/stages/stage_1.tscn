@@ -1,9 +1,9 @@
 [gd_scene load_steps=27 format=4 uid="uid://y5m5g37hekfd"]
 
-[ext_resource type="TileSet" uid="uid://bqrfj2bs8wtig" path="res://tilesets/ground.tres" id="1_u68vg"]
+[ext_resource type="TileSet" uid="uid://or6o82ixexje" path="res://tilesets/ground.tres" id="1_u68vg"]
 [ext_resource type="TileSet" uid="uid://ctwi7yga7v2bk" path="res://tilesets/background.tres" id="2_4s2oa"]
 [ext_resource type="TileSet" uid="uid://pgaccxbahffk" path="res://tilesets/decor.tres" id="3_pwxo7"]
-[ext_resource type="PackedScene" path="res://scenes/assets/field.tscn" id="4_w4qvc"]
+[ext_resource type="PackedScene" uid="uid://dmx2r4ceb4x8i" path="res://scenes/assets/field.tscn" id="4_w4qvc"]
 [ext_resource type="PackedScene" uid="uid://d4csisfev404e" path="res://scenes/game_objects/crate.tscn" id="5_6vdi1"]
 [ext_resource type="PackedScene" uid="uid://bth3lkpq26jfx" path="res://scenes/game_objects/key.tscn" id="7_avaqi"]
 [ext_resource type="Script" path="res://scripts/assets/key_door.gd" id="8_phltj"]
