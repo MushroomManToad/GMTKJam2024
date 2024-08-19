@@ -5,9 +5,11 @@ extends Node
 @onready var game = $"/root/Game/"
 var player : Player
 var background : ParallaxBackground
+var ui : UI_Screen
 
 const player_asset = preload("res://scenes/player/player.tscn")
 const background_asset = preload("res://scenes/global/background.tscn")
+const UI_BATTLE_SCREEN = preload("res://scenes/player/ui_battle_screen.tscn")
 
 # Current array of loaded floor objects
 var loaded_floors : Array
@@ -34,6 +36,11 @@ func load_background(_pos: Vector2) -> void:
 	var bg_instance : ParallaxBackground = background_asset.instantiate()
 	game.add_child(bg_instance)
 	background = bg_instance
+
+func load_ui() -> void:
+	var ui_instance : UI_Screen = UI_BATTLE_SCREEN.instantiate()
+	game.add_child(ui_instance)
+	ui = ui_instance
 
 func load_new_scene(pos: Vector2, scene_id: String):
 	# A lil crash failsafe
@@ -62,6 +69,7 @@ func load_first_stage(pos: Vector2, scene_id: String):
 	load_player(Vector2(0,0))
 	loaded_floors = [null, Floor.new(pos, scene_id), null]
 	loaded_floors_nodes = [null, new_scene, null]
+	load_ui()
 
 # Internal class for storing loaded floor data
 class Floor:

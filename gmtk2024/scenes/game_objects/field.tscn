@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://7ik2bbfal7fp"]
+[gd_scene load_steps=9 format=3 uid="uid://cvc50t42jfdcn"]
 
 [ext_resource type="Script" path="res://scripts/assets/field.gd" id="1_3lsog"]
-[ext_resource type="Texture2D" uid="uid://b7o23ptkv1cvb" path="res://sprites/player/field/field.png" id="2_2co1w"]
+[ext_resource type="Texture2D" uid="uid://dn7rrfcyo7ugk" path="res://sprites/player/field/wizard_field.png" id="2_3p4mb"]
 [ext_resource type="Texture2D" uid="uid://bfppn2sxagjue" path="res://sprites/particle/expand.png" id="3_y3vj6"]
+[ext_resource type="Texture2D" uid="uid://bwy6wxq41oaf" path="res://sprites/particle/stretch.png" id="4_nerep"]
+[ext_resource type="Texture2D" uid="uid://mdmnldtvhy67" path="res://sprites/particle/rotate.png" id="5_dydjn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tq16u"]
 
@@ -28,13 +30,11 @@ offset_left = -16.0
 offset_top = -16.0
 offset_right = 16.0
 offset_bottom = 16.0
-texture = ExtResource("2_2co1w")
+texture = ExtResource("2_3p4mb")
 patch_margin_left = 5
 patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
 
 [node name="GrowParticles" type="CPUParticles2D" parent="."]
 visible = false
@@ -55,7 +55,7 @@ z_index = -1
 amount = 1
 lifetime = 2.3
 randomness = 0.31
-texture = ExtResource("3_y3vj6")
+texture = ExtResource("4_nerep")
 emission_shape = 3
 emission_rect_extents = Vector2(8, 8)
 gravity = Vector2(0, 0)
@@ -68,7 +68,7 @@ z_index = -1
 amount = 1
 lifetime = 2.3
 randomness = 0.31
-texture = ExtResource("3_y3vj6")
+texture = ExtResource("5_dydjn")
 emission_shape = 3
 emission_rect_extents = Vector2(8, 8)
 gravity = Vector2(0, 0)

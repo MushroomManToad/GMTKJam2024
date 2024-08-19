@@ -54,6 +54,7 @@ func get_size() -> Vector2:
 	return nine_patch_rect.size
 
 func _in_field_loop(_delta : float) -> void:
+	# Growth
 	if grow_active > 0:
 		if growth_timer < time_to_grow:
 			growth_timer += _delta
@@ -70,6 +71,11 @@ func _in_field_loop(_delta : float) -> void:
 				nine_patch_rect.size = default_size
 				growth_timer = 0
 			align_collider()
+	
+	# Stretch H
+	
+	
+	# Stretch V
 
 func _out_field_loop(_delta : float) -> void:
 	if growth_timer > 0:

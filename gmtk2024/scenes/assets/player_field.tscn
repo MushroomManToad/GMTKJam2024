@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://me0bfqptpqgi"]
+[gd_scene load_steps=9 format=3 uid="uid://me0bfqptpqgi"]
 
 [ext_resource type="Script" path="res://scripts/assets/field.gd" id="1_mvjbw"]
 [ext_resource type="Texture2D" uid="uid://b7o23ptkv1cvb" path="res://sprites/player/field/field.png" id="2_r442a"]
 [ext_resource type="Texture2D" uid="uid://bfppn2sxagjue" path="res://sprites/particle/expand.png" id="3_t20rx"]
+[ext_resource type="Texture2D" uid="uid://bwy6wxq41oaf" path="res://sprites/particle/stretch.png" id="4_w1xod"]
+[ext_resource type="Texture2D" uid="uid://mdmnldtvhy67" path="res://sprites/particle/rotate.png" id="5_e6es7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tq16u"]
 
@@ -23,7 +25,7 @@ script = ExtResource("1_mvjbw")
 shape = SubResource("RectangleShape2D_tq16u")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-z_index = -1
+z_index = 5
 offset_left = -16.0
 offset_top = -16.0
 offset_right = 16.0
@@ -38,7 +40,7 @@ axis_stretch_vertical = 1
 
 [node name="GrowParticles" type="CPUParticles2D" parent="."]
 visible = false
-z_index = -1
+z_index = 6
 amount = 1
 lifetime = 2.3
 randomness = 0.31
@@ -51,11 +53,11 @@ color_ramp = SubResource("Gradient_bxgrd")
 
 [node name="StretchParticles" type="CPUParticles2D" parent="."]
 visible = false
-z_index = -1
+z_index = 6
 amount = 1
 lifetime = 2.3
 randomness = 0.31
-texture = ExtResource("3_t20rx")
+texture = ExtResource("4_w1xod")
 emission_shape = 3
 emission_rect_extents = Vector2(8, 8)
 gravity = Vector2(0, 0)
@@ -64,11 +66,11 @@ color_ramp = SubResource("Gradient_bxgrd")
 
 [node name="RotateParticles" type="CPUParticles2D" parent="."]
 visible = false
-z_index = -1
+z_index = 6
 amount = 1
 lifetime = 2.3
 randomness = 0.31
-texture = ExtResource("3_t20rx")
+texture = ExtResource("5_e6es7")
 emission_shape = 3
 emission_rect_extents = Vector2(8, 8)
 gravity = Vector2(0, 0)

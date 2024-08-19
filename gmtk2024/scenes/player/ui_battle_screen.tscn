@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://76ku3vs6kiws"]
+
+[ext_resource type="Script" path="res://scenes/player/ui_screen.gd" id="1_5vdsw"]
+[ext_resource type="Texture2D" uid="uid://cyy5rtgpby4o0" path="res://sprites/ui/spell selection.png" id="1_84pnb"]
+[ext_resource type="Texture2D" uid="uid://co76vtlbcwqy7" path="res://sprites/ui/heart.png" id="2_7mn85"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_5vdsw")
+
+[node name="MainGameUI" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Health" type="HBoxContainer" parent="MainGameUI"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MainGameUI/Health"]
+layout_mode = 2
+texture = ExtResource("2_7mn85")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MainGameUI/Health"]
+layout_mode = 2
+texture = ExtResource("2_7mn85")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="MainGameUI/Health"]
+layout_mode = 2
+texture = ExtResource("2_7mn85")
+expand_mode = 2
+
+[node name="Spell UI" type="HBoxContainer" parent="MainGameUI"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MainGameUI/Spell UI"]
+layout_mode = 2
+texture = ExtResource("1_84pnb")
+expand_mode = 3
+
+[node name="Middle" type="HBoxContainer" parent="MainGameUI"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Bottom" type="HBoxContainer" parent="MainGameUI"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
