@@ -1,6 +1,10 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://pgaccxbahffk"]
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://pgaccxbahffk"]
 
 [ext_resource type="Texture2D" uid="uid://3xhaqxamow43" path="res://sprites/tiles/decor/decor_1.png" id="1_6q3od"]
+[ext_resource type="Texture2D" uid="uid://b3ej4rdyl03o3" path="res://sprites/tiles/decor/elephant.png" id="2_kjdhy"]
+[ext_resource type="Texture2D" uid="uid://d3kj48g0nhoio" path="res://sprites/tiles/decor/giraffe.png" id="3_dhqbi"]
+[ext_resource type="Texture2D" uid="uid://bc416f6hwtn0p" path="res://sprites/tiles/decor/hippo.png" id="4_sklmc"]
+[ext_resource type="Texture2D" uid="uid://cy3231p54x5gu" path="res://sprites/tiles/decor/pencil.png" id="5_2r4ca"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kydg8"]
 texture = ExtResource("1_6q3od")
@@ -37,5 +41,31 @@ texture = ExtResource("1_6q3od")
 9:2/0 = 0
 12:2/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_82jkw"]
+texture = ExtResource("2_kjdhy")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_20tli"]
+texture = ExtResource("3_dhqbi")
+texture_region_size = Vector2i(16, 48)
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0vldt"]
+texture = ExtResource("4_sklmc")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tdo7c"]
+texture = ExtResource("5_2r4ca")
+texture_region_size = Vector2i(16, 48)
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+
 [resource]
 sources/0 = SubResource("TileSetAtlasSource_kydg8")
+sources/1 = SubResource("TileSetAtlasSource_82jkw")
+sources/2 = SubResource("TileSetAtlasSource_20tli")
+sources/3 = SubResource("TileSetAtlasSource_0vldt")
+sources/4 = SubResource("TileSetAtlasSource_tdo7c")

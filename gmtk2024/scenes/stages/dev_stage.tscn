@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://h63k08gvpiq0"]
+[gd_scene load_steps=32 format=4 uid="uid://h63k08gvpiq0"]
 
 [ext_resource type="TileSet" uid="uid://bqrfj2bs8wtig" path="res://tilesets/ground.tres" id="1_otguk"]
 [ext_resource type="PackedScene" uid="uid://dh7totc25gyx8" path="res://scenes/assets/clickable_scene_loader.tscn" id="2_txwh0"]
@@ -16,12 +16,12 @@
 [ext_resource type="Texture2D" uid="uid://uda51qesa8tn" path="res://sprites/game_objects/door_center.png" id="12_1r5h6"]
 [ext_resource type="Script" path="res://scripts/assets/vent.gd" id="13_a80to"]
 [ext_resource type="Texture2D" uid="uid://bh7o8hnac1dh1" path="res://sprites/game_objects/vent.png" id="14_h4qap"]
-[ext_resource type="Texture2D" uid="uid://b7v4woixtvvpx" path="res://sprites/tiles/decor/giraffe.png" id="15_vpkbr"]
-[ext_resource type="Texture2D" uid="uid://cjxsnaquy2emy" path="res://sprites/tiles/decor/pencil.png" id="16_janwr"]
-[ext_resource type="Texture2D" uid="uid://b1ronwy4qdjf7" path="res://sprites/tiles/decor/hippo.png" id="17_bulno"]
+[ext_resource type="Texture2D" uid="uid://d3kj48g0nhoio" path="res://sprites/tiles/decor/giraffe.png" id="15_vpkbr"]
+[ext_resource type="Texture2D" uid="uid://cy3231p54x5gu" path="res://sprites/tiles/decor/pencil.png" id="16_janwr"]
+[ext_resource type="Texture2D" uid="uid://bc416f6hwtn0p" path="res://sprites/tiles/decor/hippo.png" id="17_bulno"]
 [ext_resource type="PackedScene" uid="uid://bp267ymmeq7fa" path="res://scenes/game_objects/button.tscn" id="17_yq3aj"]
 [ext_resource type="Texture2D" uid="uid://dunf4d3fpih7c" path="res://sprites/game_objects/button_door_center.png" id="18_86e65"]
-[ext_resource type="Texture2D" uid="uid://bm1cppx828il1" path="res://sprites/tiles/decor/decor_2.png" id="18_c75qf"]
+[ext_resource type="PackedScene" uid="uid://cniki3yqqc641" path="res://scenes/decor/false_door.tscn" id="18_ygrbp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tq16u"]
 
@@ -60,10 +60,6 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rwn53"]
 size = Vector2(10, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gwni1"]
-atlas = ExtResource("18_c75qf")
-region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jecn8"]
 size = Vector2(16, 16)
@@ -190,7 +186,7 @@ visible = false
 shape = SubResource("RectangleShape2D_nillq")
 
 [node name="Key2" parent="Tilemap" node_paths=PackedStringArray("door") instance=ExtResource("5_5235r")]
-position = Vector2(-104, -3)
+position = Vector2(-104, -8)
 door = NodePath("../door2")
 
 [node name="vent" type="Area2D" parent="Tilemap"]
@@ -236,9 +232,7 @@ texture = ExtResource("16_janwr")
 position = Vector2(248, 40)
 texture = ExtResource("17_bulno")
 
-[node name="False_Door" type="Sprite2D" parent="Tilemap"]
-position = Vector2(192, 0)
-texture = SubResource("AtlasTexture_gwni1")
+[node name="False_Door" parent="Tilemap" instance=ExtResource("18_ygrbp")]
 
 [node name="ClickableSceneLoader" parent="." instance=ExtResource("2_txwh0")]
 z_index = -4
@@ -251,6 +245,12 @@ position = Vector2(-8, -16)
 
 [node name="DevOneWay2" parent="." instance=ExtResource("4_vc718")]
 position = Vector2(8, -16)
+
+[node name="DevOneWay3" parent="." instance=ExtResource("4_vc718")]
+position = Vector2(-8, 24)
+
+[node name="DevOneWay4" parent="." instance=ExtResource("4_vc718")]
+position = Vector2(8, 24)
 
 [node name="button" parent="." node_paths=PackedStringArray("to_toggle") instance=ExtResource("17_yq3aj")]
 position = Vector2(408, 32)
