@@ -7,6 +7,7 @@
 size = Vector2(28, 30)
 
 [node name="ScrollOfGrowth" type="Area2D"]
+collision_mask = 255
 script = ExtResource("1_tdeww")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
