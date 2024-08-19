@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccnjr8df87yj2"]
+
+[ext_resource type="Script" path="res://scripts/assets/scroll_of_rotate.gd" id="1_e3nsj"]
+[ext_resource type="Texture2D" uid="uid://6akfspcii70i" path="res://sprites/game_objects/scroll/rotate_scroll.png" id="2_ay42u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0kg5"]
+size = Vector2(28, 30)
+
+[node name="ScrollOfRotate" type="Area2D"]
+collision_mask = 255
+script = ExtResource("1_e3nsj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_e0kg5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ay42u")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
