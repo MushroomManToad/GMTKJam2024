@@ -10,6 +10,7 @@
 [resource]
 frames = 6
 one_shot = true
+speed_scale = 2.0
 frame_0/texture = ExtResource("1_4f710")
 frame_1/texture = ExtResource("2_mause")
 frame_1/duration = 1.0

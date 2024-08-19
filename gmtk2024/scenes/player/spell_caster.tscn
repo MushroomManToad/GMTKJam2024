@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://jp81jyr2np3x"]
+
+[ext_resource type="Script" path="res://scripts/spell_caster.gd" id="1_ry1cd"]
+[ext_resource type="Texture2D" uid="uid://dojdbdehjp8r3" path="res://sprites/player/letter.png" id="2_fov35"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2c0t5"]
+radius = 1.0
+
+[node name="SpellCaster" type="Area2D"]
+collision_layer = 32
+collision_mask = 95
+script = ExtResource("1_ry1cd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2c0t5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_fov35")
