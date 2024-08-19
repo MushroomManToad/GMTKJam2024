@@ -12,7 +12,7 @@ const FIELD = preload("res://scenes/assets/player_field.tscn")
 
 var player : Player
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var space_state = get_world_2d().direct_space_state
 	var query = PhysicsRayQueryParameters2D.create(global_position, global_position + direction * speed, 0b00000000_00000000_00000000_01011111, [self])
 	var result = space_state.intersect_ray(query)
