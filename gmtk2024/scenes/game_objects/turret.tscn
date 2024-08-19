@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://brhn03sv5j6dx"]
+
+[ext_resource type="Texture2D" uid="uid://djf0agha2rme8" path="res://sprites/game_objects/turret.png" id="1_rm4nv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeuup"]
+atlas = ExtResource("1_rm4nv")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ab8p4"]
+atlas = ExtResource("1_rm4nv")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbte4"]
+atlas = ExtResource("1_rm4nv")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4kgf"]
+atlas = ExtResource("1_rm4nv")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_87frw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jeuup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ab8p4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbte4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4kgf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Turret" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_87frw")
+frame = 2
+frame_progress = 0.72984
