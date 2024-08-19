@@ -70,7 +70,7 @@ func _on_body_entered(body: Node2D) -> void:
 		
 		launch_dir = launch_dir * default_launch_vel * size_modifier
 		
-		body.add_extra_velocity(launch_dir)
+		body.add_extra_velocity(Vector2(0.0, -default_launch_vel * size_modifier))
 		pop_balloon()
 	pass # Replace with function body.
 
@@ -91,6 +91,8 @@ func _in_field_loop(_delta : float) -> void:
 	if grow_active > 0:
 		if growth_timer < time_to_grow:
 			growth_timer += _delta
+			nine_patch_rect.position.y -= _delta * (1.0 / time_to_grow) * 16.0
+			nine_patch_rect.position.x -= _delta * (1.0 / time_to_grow) * 8.0
 			nine_patch_rect.size = default_size * (((1.0 / time_to_grow) * growth_timer) + 1)
 			if growth_timer >= time_to_grow:
 				growth_timer = time_to_grow
@@ -99,6 +101,8 @@ func _in_field_loop(_delta : float) -> void:
 	else:
 		if growth_timer > 0:
 			growth_timer -= _delta
+			nine_patch_rect.position.y += _delta * (1.0 / time_to_grow) * 16.0
+			nine_patch_rect.position.x += _delta * (1.0 / time_to_grow) * 8.0
 			nine_patch_rect.size = default_size * (((1.0 / time_to_grow) * growth_timer) + 1)
 			if growth_timer <= 0:
 				nine_patch_rect.size = default_size
@@ -108,6 +112,8 @@ func _in_field_loop(_delta : float) -> void:
 func _out_field_loop(_delta : float) -> void:
 	if growth_timer > 0:
 		growth_timer -= _delta
+		nine_patch_rect.position.y += _delta * (1.0 / time_to_grow) * 16.0
+		nine_patch_rect.position.x += _delta * (1.0 / time_to_grow) * 8.0
 		nine_patch_rect.size = default_size * (((1.0 / time_to_grow) * growth_timer) + 1)
 		if growth_timer <= 0:
 			nine_patch_rect.size = default_size
