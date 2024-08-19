@@ -22,17 +22,17 @@ grow_vertical = 2
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MainGameUI/Health"]
+[node name="H1" type="TextureRect" parent="MainGameUI/Health"]
 layout_mode = 2
 texture = ExtResource("2_7mn85")
 expand_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="MainGameUI/Health"]
+[node name="H2" type="TextureRect" parent="MainGameUI/Health"]
 layout_mode = 2
 texture = ExtResource("2_7mn85")
 expand_mode = 2
 
-[node name="TextureRect3" type="TextureRect" parent="MainGameUI/Health"]
+[node name="H3" type="TextureRect" parent="MainGameUI/Health"]
 layout_mode = 2
 texture = ExtResource("2_7mn85")
 expand_mode = 2
@@ -41,7 +41,7 @@ expand_mode = 2
 custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MainGameUI/Spell UI"]
+[node name="SpellSelector" type="TextureRect" parent="MainGameUI/Spell UI"]
 layout_mode = 2
 texture = ExtResource("1_84pnb")
 expand_mode = 3

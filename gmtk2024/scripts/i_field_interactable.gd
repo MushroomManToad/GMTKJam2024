@@ -20,6 +20,9 @@ func _in_field_loop(_delta : float) -> void:
 func _out_field_loop(_delta : float) -> void:
 	pass
 
+func _on_field_update() -> void:
+	pass
+
 func active_fields_total() -> int:
 	return grow_active + stretch_active + rotate_active
 

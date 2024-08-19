@@ -9,10 +9,12 @@ var center : Vector2
 
 # Variables about growing
 var time_to_grow : float = 0.5
-var growth_timer : float = 0.0
+var growth_timer : float = 0.5
 
 var default_size : Vector2
 var default_pos : Vector2
+
+var amount_to_scale : Vector2 = Vector2(1, 1)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -53,35 +55,35 @@ func get_center() -> Vector2:
 func get_size() -> Vector2:
 	return nine_patch_rect.size
 
-func _in_field_loop(_delta : float) -> void:
-	# Growth
-	if grow_active > 0:
-		if growth_timer < time_to_grow:
-			growth_timer += _delta
-			nine_patch_rect.size = default_size * (((1.0 / time_to_grow) * growth_timer) + 1)
-			if growth_timer >= time_to_grow:
-				growth_timer = time_to_grow
-				nine_patch_rect.size = default_size * 2
-			align_collider()
-	else:
-		if growth_timer > 0:
-			growth_timer -= _delta
-			nine_patch_rect.size = default_size * (((1.0 / time_to_grow) * growth_timer) + 1)
-			if growth_timer <= 0:
-				nine_patch_rect.size = default_size
-				growth_timer = 0
-			align_collider()
-	
-	# Stretch H
-	
-	
-	# Stretch V
-
-func _out_field_loop(_delta : float) -> void:
-	if growth_timer > 0:
-		growth_timer -= _delta
-		nine_patch_rect.size = default_size * (((1.0 / time_to_grow) * growth_timer) + 1)
-		if growth_timer <= 0:
-			nine_patch_rect.size = default_size
-			growth_timer = 0
+func _physics_process(delta: float) -> void:
+	super._physics_process(delta)
+	if growth_timer < time_to_grow:
+		growth_timer += delta
+		nine_patch_rect.size += amount_to_scale * (delta / time_to_grow)
+		if growth_timer >= time_to_grow:
+			growth_timer = time_to_grow
+			nine_patch_rect.size = default_size * get_scale_target_size_scalar()
 		align_collider()
+
+func _on_field_update():
+	# Get relative scales at present and at target.
+	var current_size : Vector2 = nine_patch_rect.size
+	var target_size : Vector2 = default_size * get_scale_target_size_scalar()
+	# Don't do anything if scaling doesn't need to change after the field updates
+	amount_to_scale = target_size - current_size
+	
+	# Reset scaling timer
+	growth_timer = 0
+
+func get_scale_target_size_scalar() -> Vector2:
+	# Cases
+	if grow_active > 0:
+		if stretch_active > 0:
+			if rotate_active > 0:
+				return Vector2(8.0, 8.0)
+			else:
+				return Vector2(8.0, 2.0)
+		elif rotate_active > 0:
+			return Vector2(2.0, 4.0)
+		return Vector2(2.0, 2.0)
+	return Vector2(1.0, 1.0)

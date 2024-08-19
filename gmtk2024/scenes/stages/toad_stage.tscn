@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://c6sbug5hr28jf" path="res://tilesets/tileset_toad_dev.tres" id="1_wup54"]
 [ext_resource type="PackedScene" uid="uid://5gnkrek3f15y" path="res://scenes/game_objects/one_way_tile.tscn" id="2_b1anm"]
-[ext_resource type="PackedScene" uid="uid://cvc50t42jfdcn" path="res://scenes/game_objects/field.tscn" id="4_0fb52"]
+[ext_resource type="PackedScene" uid="uid://d4csisfev404e" path="res://scenes/game_objects/crate.tscn" id="7_0exg4"]
 [ext_resource type="PackedScene" uid="uid://cuafdeeudj243" path="res://scenes/assets/scroll_of_growth.tscn" id="10_uaysk"]
 
 [node name="ToadStage" type="Node2D"]
@@ -31,10 +31,5 @@ position = Vector2(0, 24)
 [node name="ScrollOfGrowth" parent="." instance=ExtResource("10_uaysk")]
 position = Vector2(-18, -35)
 
-[node name="Field" parent="." instance=ExtResource("4_0fb52")]
-position = Vector2(-94, -44)
-type_rotate = true
-
-[node name="Field2" parent="." instance=ExtResource("4_0fb52")]
-position = Vector2(-45, -77)
-type_stretch = true
+[node name="Crate" parent="." instance=ExtResource("7_0exg4")]
+position = Vector2(-77, -58)

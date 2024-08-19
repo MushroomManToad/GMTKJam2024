@@ -31,6 +31,7 @@ func _on_body_entered(body: Node2D) -> void:
 			body.add_field("stretch")
 		if type_rotate:
 			body.add_field("rotate")
+		body._on_field_update()
 		colliding_bodies.append(body)
 
 
@@ -42,6 +43,7 @@ func _on_body_exited(body: Node2D) -> void:
 			body.remove_field("stretch")
 		if type_rotate:
 			body.remove_field("rotate")
+		body._on_field_update()
 		colliding_bodies.erase(body)
 
 
@@ -54,6 +56,7 @@ func dump_bodies() -> void:
 				body.remove_field("stretch")
 			if type_rotate:
 				body.remove_field("rotate")
+		body._on_field_update()
 	colliding_bodies.clear()
 
 func align_collider():
