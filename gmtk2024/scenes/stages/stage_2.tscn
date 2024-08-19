@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxm0x5633n2f7"]
+
+[ext_resource type="TileSet" uid="uid://bqrfj2bs8wtig" path="res://tilesets/ground.tres" id="1_mam26"]
+[ext_resource type="TileSet" uid="uid://ctwi7yga7v2bk" path="res://tilesets/background.tres" id="2_7lijs"]
+[ext_resource type="TileSet" uid="uid://pgaccxbahffk" path="res://tilesets/decor.tres" id="3_n4wq4"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" type="Node2D" parent="."]
+
+[node name="Ground" type="TileMapLayer" parent="TileMap"]
+tile_set = ExtResource("1_mam26")
+
+[node name="Background Trees" type="TileMapLayer" parent="TileMap/Ground"]
+z_index = -2
+tile_set = ExtResource("2_7lijs")
+
+[node name="Decor" type="TileMapLayer" parent="TileMap/Ground"]
+z_index = -1
+tile_set = ExtResource("3_n4wq4")
