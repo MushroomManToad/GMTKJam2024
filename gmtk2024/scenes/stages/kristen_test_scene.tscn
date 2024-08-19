@@ -29,3 +29,13 @@ pos = Vector2(0, -72)
 position = Vector2(100, 8)
 scene_id = "stage_1"
 pos = Vector2(0, -37)
+
+[node name="ClickableSceneLoader3" parent="." instance=ExtResource("3_28jqa")]
+position = Vector2(99, -55)
+scene_id = "stage_2"
+pos = Vector2(0, -37)
+
+[node name="ClickableSceneLoader4" parent="." instance=ExtResource("3_28jqa")]
+position = Vector2(-56, -59)
+scene_id = "toad_stage"
+pos = Vector2(0, -37)
