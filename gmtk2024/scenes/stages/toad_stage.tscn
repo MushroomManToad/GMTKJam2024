@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://dmjkk2cg57vpk"]
+[gd_scene load_steps=8 format=4 uid="uid://dmjkk2cg57vpk"]
 
 [ext_resource type="TileSet" uid="uid://c6sbug5hr28jf" path="res://tilesets/tileset_toad_dev.tres" id="1_wup54"]
 [ext_resource type="PackedScene" uid="uid://5gnkrek3f15y" path="res://scenes/game_objects/one_way_tile.tscn" id="2_b1anm"]
 [ext_resource type="PackedScene" uid="uid://dme6v86lkfv4c" path="res://scenes/game_objects/turret.tscn" id="3_k600t"]
 [ext_resource type="PackedScene" uid="uid://bkvojngy3wtf0" path="res://scenes/game_objects/scroll_of_growth.tscn" id="4_fup3c"]
 [ext_resource type="PackedScene" uid="uid://brn8vuc1wujwo" path="res://scenes/game_objects/scroll_of_stretch.tscn" id="7_7f7k8"]
+[ext_resource type="PackedScene" uid="uid://d4csisfev404e" path="res://scenes/game_objects/crate.tscn" id="7_uph87"]
 [ext_resource type="PackedScene" uid="uid://dnphvhjathph1" path="res://scenes/game_objects/scroll_of_rotate.tscn" id="8_q1no6"]
 
 [node name="ToadStage" type="Node2D"]
@@ -42,3 +43,6 @@ position = Vector2(-13, -77)
 
 [node name="ScrollOfStretch" parent="." instance=ExtResource("7_7f7k8")]
 position = Vector2(-65, -75)
+
+[node name="Crate" parent="." instance=ExtResource("7_uph87")]
+position = Vector2(-34, -27)

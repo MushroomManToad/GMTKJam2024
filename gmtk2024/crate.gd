@@ -78,7 +78,7 @@ func get_scale_target_size_scalar() -> Vector2:
 	var size = Vector2(1.0, 1.0)
 	# Cases
 	if grow_active > 0:
-		size * 2.0
+		size = Vector2(size[0] * 2.0, size[1] * 2.0)
 	if stretch_active > 0:
 		size = Vector2(size[0] * 6.0, size[1])
 	if rotate_active > 0:
