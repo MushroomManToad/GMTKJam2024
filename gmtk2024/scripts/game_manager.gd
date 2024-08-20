@@ -25,11 +25,11 @@ signal spell_update
 
 func _ready():
 	# Comment this out for release
-	#load_first_stage(Vector2(0, 0), "kristen_test_scene", Vector2(0.0, -16.0))
+	load_first_stage(Vector2(0, 0), "kristen_test_scene", Vector2(0.0, -16.0))
 	
 	# Load Title Screen
-	var title_instance = TITLE.instantiate()
-	game.add_child(title_instance)
+	#var title_instance = TITLE.instantiate()
+	#game.add_child(title_instance)
 
 # Called on start button press
 func start_game():
