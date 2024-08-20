@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://clog8cddg0rk2"]
+[gd_scene load_steps=14 format=3 uid="uid://clog8cddg0rk2"]
 
 [ext_resource type="Texture2D" uid="uid://e6l10yg17fnw" path="res://sprites/splash/Intro1.png" id="1_indwb"]
 [ext_resource type="Script" path="res://scripts/intro_scene.gd" id="1_w0t0k"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cchaybcttp0pr" path="res://sprites/splash/Intro4.png" id="4_aqxl0"]
 [ext_resource type="AudioStream" uid="uid://c56lf3g4fd1dp" path="res://sound/effect/8bit rumble.wav" id="6_fkuus"]
 [ext_resource type="Theme" uid="uid://b7w4nu451j121" path="res://fonts/new_theme.tres" id="6_g8exw"]
+[ext_resource type="Texture2D" uid="uid://c404rh0hpkw36" path="res://sprites/ui/menu_button.png" id="8_b3uyg"]
+[ext_resource type="Texture2D" uid="uid://pftbx5ouj4j6" path="res://sprites/ui/menu_button_selected.png" id="9_qt4wl"]
+[ext_resource type="Theme" uid="uid://bk8t7aafq4xyp" path="res://fonts/new_theme2.tres" id="10_w33jj"]
 
 [sub_resource type="Animation" id="Animation_ax8ua"]
 resource_name = "Intro Cutscene"
@@ -151,5 +154,20 @@ size_flags_horizontal = 3
 [node name="Play" type="TextureButton" parent="BoxContainer3/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("6_g8exw")
+texture_normal = ExtResource("8_b3uyg")
+texture_pressed = ExtResource("9_qt4wl")
+texture_hover = ExtResource("9_qt4wl")
+texture_disabled = ExtResource("8_b3uyg")
+texture_focused = ExtResource("8_b3uyg")
+
+[node name="Label" type="Label" parent="BoxContainer3/VBoxContainer/Play"]
+layout_mode = 0
+offset_right = 93.0
+offset_bottom = 31.0
+theme = ExtResource("10_w33jj")
+theme_override_font_sizes/font_size = 16
+text = "Skip..."
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="BoxContainer3/VBoxContainer/Play" to="." method="load_real_game"]

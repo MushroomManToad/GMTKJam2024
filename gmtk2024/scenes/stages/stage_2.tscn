@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://bxm0x5633n2f7"]
+[gd_scene load_steps=27 format=4 uid="uid://bxm0x5633n2f7"]
 
 [ext_resource type="TileSet" uid="uid://or6o82ixexje" path="res://tilesets/ground.tres" id="1_mam26"]
 [ext_resource type="TileSet" uid="uid://ctwi7yga7v2bk" path="res://tilesets/background.tres" id="2_7lijs"]
@@ -44,7 +44,11 @@ b = Vector2(8, -9)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_22yi8"]
 size = Vector2(16, 16)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_xmd45"]
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5jg6r"]
+a = Vector2(-8, -9)
+b = Vector2(8, -9)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5718b"]
 a = Vector2(-8, -9)
 b = Vector2(8, -9)
 
@@ -628,11 +632,33 @@ scene_id = "stage_3"
 scene_load_location = Vector2(0, -912)
 player_jump_target = Vector2(0, -32)
 
-[node name="Crate2" parent="." instance=ExtResource("4_v2why")]
-position = Vector2(-104, -232)
+[node name="DevOneWay12" type="Node2D" parent="."]
+position = Vector2(-8, -7)
+script = ExtResource("14_oqr60")
+
+[node name="OneWay" type="NinePatchRect" parent="DevOneWay12"]
+offset_left = -8.0
+offset_top = -9.0
+offset_right = 88.0
+offset_bottom = 7.0
+texture = ExtResource("9_grb26")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 12
+metadata/_edit_use_anchors_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="DevOneWay12"]
+collision_layer = 129
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DevOneWay12/StaticBody2D"]
+shape = SubResource("SegmentShape2D_5jg6r")
+one_way_collision = true
+one_way_collision_margin = 4.0
 
 [node name="DevOneWay3" type="Node2D" parent="."]
-position = Vector2(-56, -216)
+position = Vector2(-56, -215)
 script = ExtResource("14_oqr60")
 
 [node name="OneWay" type="NinePatchRect" parent="DevOneWay3"]
@@ -645,15 +671,19 @@ patch_margin_left = 4
 patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 12
+metadata/_edit_use_anchors_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="DevOneWay3"]
 collision_layer = 129
 collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DevOneWay3/StaticBody2D"]
-shape = SubResource("SegmentShape2D_xmd45")
+shape = SubResource("SegmentShape2D_5718b")
 one_way_collision = true
 one_way_collision_margin = 4.0
 
+[node name="Crate2" parent="." instance=ExtResource("4_v2why")]
+position = Vector2(-100, -240)
+
 [node name="DevOneWay9" parent="." instance=ExtResource("5_tphlk")]
-position = Vector2(-56, -192)
+position = Vector2(-56, -188)
