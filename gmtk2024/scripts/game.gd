@@ -19,7 +19,7 @@ func play_boss_music():
 func play_stage_3_4_music():
 	if not music.playing or not music.stream == A_WORTHY_CHALLENGE__LOOP_:
 		music.stop()
-		music.volume_db = -10.0
+		music.volume_db = 0.0
 		music.stream = A_WORTHY_CHALLENGE__LOOP_
 		music.play()
 
