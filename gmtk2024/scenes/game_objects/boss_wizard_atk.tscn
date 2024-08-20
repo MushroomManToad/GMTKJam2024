@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://0w0w1aowacbo"]
+
+[ext_resource type="Texture2D" uid="uid://b745vsnxtqmfe" path="res://sprites/bosswizard/WizardCast.png" id="1_0b1oq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uaa85"]
+atlas = ExtResource("1_0b1oq")
+region = Rect2(0, 0, 944, 848)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7xyl"]
+atlas = ExtResource("1_0b1oq")
+region = Rect2(944, 0, 944, 848)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pogc3"]
+atlas = ExtResource("1_0b1oq")
+region = Rect2(1888, 0, 944, 848)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fruwd"]
+atlas = ExtResource("1_0b1oq")
+region = Rect2(2832, 0, 944, 848)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_75fpf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uaa85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7xyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pogc3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fruwd")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_74bxp"]
+size = Vector2(112, 64)
+
+[node name="BossWizardAtk" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+position = Vector2(-1, -75)
+sprite_frames = SubResource("SpriteFrames_75fpf")
+animation = &"Attack"
+frame = 3
+frame_progress = 0.674967
+offset = Vector2(-72, 80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -96)
+shape = SubResource("RectangleShape2D_74bxp")
