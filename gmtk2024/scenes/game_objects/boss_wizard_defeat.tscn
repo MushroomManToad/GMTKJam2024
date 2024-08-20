@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm4qogr27jug0"]
+
+[ext_resource type="Texture2D" uid="uid://blf5mpsj1p0ti" path="res://sprites/bosswizard/WizardDefeat.png" id="1_s17yq"]
+
+[node name="BossWizardDefeat" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_s17yq")
