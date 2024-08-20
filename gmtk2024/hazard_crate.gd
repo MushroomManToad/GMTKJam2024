@@ -59,31 +59,31 @@ func get_size() -> Vector2:
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
-	#if growth_timer < time_to_grow:
-		#growth_timer += delta
-		#nine_patch_rect.size += amount_to_scale * (delta / time_to_grow)
-		#if growth_timer >= time_to_grow:
-			#growth_timer = time_to_grow
-			#nine_patch_rect.size = default_size * get_scale_target_size_scalar()
-		#align_collider()
-#
-#func _on_field_update():
-	## Get relative scales at present and at target.
-	#var current_size : Vector2 = nine_patch_rect.size
-	#var target_size : Vector2 = default_size * get_scale_target_size_scalar()
-	## Don't do anything if scaling doesn't need to change after the field updates
-	#amount_to_scale = target_size - current_size
-	#
-	## Reset scaling timer
-	#growth_timer = 0
-#
-#func get_scale_target_size_scalar() -> Vector2:
-	#var size = Vector2(1.0, 1.0)
-	## Cases
-	#if grow_active > 0:
-		#size = Vector2(size[0] * 2.0, size[1] * 2.0)
-	#if stretch_active > 0:
-		#size = Vector2(size[0] * 3.0, size[1])
-	#if rotate_active > 0:
-		#size = Vector2(size[0], size[1]* 2.5)
-	#return size
+	if growth_timer < time_to_grow:
+		growth_timer += delta
+		nine_patch_rect.size += amount_to_scale * (delta / time_to_grow)
+		if growth_timer >= time_to_grow:
+			growth_timer = time_to_grow
+			nine_patch_rect.size = default_size * get_scale_target_size_scalar()
+		align_collider()
+
+func _on_field_update():
+	# Get relative scales at present and at target.
+	var current_size : Vector2 = nine_patch_rect.size
+	var target_size : Vector2 = default_size * get_scale_target_size_scalar()
+	# Don't do anything if scaling doesn't need to change after the field updates
+	amount_to_scale = target_size - current_size
+	
+	# Reset scaling timer
+	growth_timer = 0
+
+func get_scale_target_size_scalar() -> Vector2:
+	var size = Vector2(1.0, 1.0)
+	# Cases
+	if grow_active > 0:
+		size = Vector2(size[0] * 2.0, size[1] * 2.0)
+	if stretch_active > 0:
+		size = Vector2(size[0] * 3.0, size[1])
+	if rotate_active > 0:
+		size = Vector2(size[0], size[1]* 2.5)
+	return size

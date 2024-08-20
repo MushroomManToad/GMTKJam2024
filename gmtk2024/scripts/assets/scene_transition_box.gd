@@ -41,9 +41,11 @@ func _process(delta: float) -> void:
 			camera_2d.limit_bottom = ((curr_camera_base as float) + ((Game_Manager.loaded_floors_nodes[1].global_position[1] + scene_load_location[1] + camera_base as float) - (curr_camera_base as float)) * (animation_timer)) as int
 			if animation_timer >= 0.5:
 				Game_Manager.ftw_ui.animation_player.play("fade_to_white")
+				if not audio_stream_player_2d.playing:
+					audio_stream_player_2d.play()
 		# 0.5 sec, fade to white
 		elif animation_timer <= 1.5:
-			audio_stream_player_2d.play()
+			pass
 		# Load screen and move up player
 		elif animation_timer <= 2.0:
 			if not loaded:
