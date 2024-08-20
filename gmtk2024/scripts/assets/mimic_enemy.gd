@@ -22,9 +22,6 @@ func _physics_process(delta : float) -> void:
 	# Get the input direction: -1, 0, 1
 	var direction = Input.get_axis("Left", "Right")
 	
-	if Input.is_action_just_pressed("Up"):
-		velocity.y = JUMP_VELOCITY
-	
 	# Flip the Sprite
 	if direction > 0:
 		sprite_2d.flip_h = false
