@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://d22yy46mboiw5" path="res://sprites/game_objects/fireorb.png" id="1_5ik4n"]
 [ext_resource type="Script" path="res://scripts/assets/forb.gd" id="1_p5c0t"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7om0c"]
-size = Vector2(8, 8)
+[sub_resource type="CircleShape2D" id="CircleShape2D_0cak3"]
+radius = 4.12311
 
 [node name="Area2D" type="Area2D"]
 collision_mask = 255
@@ -14,6 +14,6 @@ script = ExtResource("1_p5c0t")
 texture = ExtResource("1_5ik4n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_7om0c")
+shape = SubResource("CircleShape2D_0cak3")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
