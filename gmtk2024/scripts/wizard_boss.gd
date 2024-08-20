@@ -4,6 +4,7 @@ extends Node2D
 
 @onready var damage_zone: Area2D = $"Damage Zone"
 @onready var explosion: AudioStreamPlayer2D = $"Damage Zone/Explosion"
+@onready var explosion_png: ExplosionDotPng = $ExplosionPNG
 
 var health : int = 3
 
@@ -25,4 +26,5 @@ func _on_damage_zone_body_entered(body: Node2D) -> void:
 		body.queue_free()
 		hurt_wizard()
 		explosion.play()
+		explosion_png.play_animation()
 		pass

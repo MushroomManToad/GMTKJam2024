@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dxor1dmlgo6ot"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b7w4nu451j121"]
 
 [ext_resource type="FontFile" uid="uid://c85820ggymdjn" path="res://fonts/CompassGold.ttf" id="1_e7plb"]
 
 [resource]
 default_font = ExtResource("1_e7plb")
+default_font_size = 64

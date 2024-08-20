@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bi6jtd8tw5sqv"]
 
-[ext_resource type="Theme" path="res://fonts/new_theme.tres" id="1_mbjp3"]
+[ext_resource type="Theme" uid="uid://b7w4nu451j121" path="res://fonts/new_theme.tres" id="1_mbjp3"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -10,24 +10,34 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 607.0
-offset_bottom = 462.0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(1226, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("1_mbjp3")
 text = "Credits
 
 MushroomManToad - Programming
-
-Pretender8 - Lead artist, organizing
-
-Kristen - Level / Game Design
-
+Pretender8 - Lead artist, Project Manager
+Kristen - Level Design, Game Design
 MiscEris - Artist/BG Artist
-
 Hex - Music
 
-Thanks to Kenney (kenney.nl) for button prompt assets
+Thanks to Kenney (kenney.nl) for button assets
 Made in Godot 4.3
 
 "
+fit_content = true
