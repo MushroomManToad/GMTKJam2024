@@ -20,6 +20,9 @@ custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(1226, 0)
 layout_mode = 2

@@ -1,3 +1,5 @@
+class_name Vent
+
 extends Node2D
 
 @export var height : float
