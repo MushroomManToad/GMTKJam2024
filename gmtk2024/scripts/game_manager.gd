@@ -152,6 +152,16 @@ func emit_health():
 func emit_spell():
 	spell_update.emit()
 
+func unload_world():
+	if not loaded_floors_nodes[0] == null:
+		loaded_floors_nodes[0].queue_free()
+	loaded_floors_nodes[1].queue_free()
+	loaded_floors = [null, null, null]
+	loaded_floors_nodes = [null, null, null]
+
+func load_final_cutscene():
+	pass
+
 # Internal class for storing loaded floor data
 class Floor:
 	var scene_id : String

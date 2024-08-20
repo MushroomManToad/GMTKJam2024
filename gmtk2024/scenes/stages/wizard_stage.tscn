@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://btivayt0g8pba"]
+[gd_scene load_steps=29 format=4 uid="uid://btivayt0g8pba"]
 
 [ext_resource type="Texture2D" uid="uid://p7kqf83ijgm" path="res://sprites/one_way.png" id="1_4kab0"]
 [ext_resource type="PackedScene" uid="uid://bxgpru7tnrhjl" path="res://scenes/game_objects/boss_wizard_atk.tscn" id="2_dm56q"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://kiei5ndi6enk" path="res://sprites/bosswizard/loopingstars2.png" id="17_6bbrs"]
 [ext_resource type="Shader" path="res://audio/wizard_stage_2.gdshader" id="17_koccl"]
 [ext_resource type="Script" path="res://scripts/thingtostartbossmusic.gd" id="20_lbv10"]
+[ext_resource type="Script" path="res://scripts/assets/player_in_boss_reset.gd" id="21_a1d1c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_18qrk"]
 size = Vector2(69, 39)
@@ -44,6 +45,9 @@ shader_parameter/speed_scale = 0.05
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kq0fq"]
 size = Vector2(881, 830)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxelh"]
+size = Vector2(66, 44)
 
 [node name="WizardStage" type="Node2D"]
 
@@ -253,6 +257,15 @@ script = ExtResource("20_lbv10")
 position = Vector2(94.5, -405)
 shape = SubResource("RectangleShape2D_kq0fq")
 
+[node name="Area2D2" type="Area2D" parent="."]
+collision_mask = 129
+script = ExtResource("21_a1d1c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(0, -39)
+shape = SubResource("RectangleShape2D_sxelh")
+
 [connection signal="area_entered" from="WizardBoss/Damage Zone" to="WizardBoss" method="_on_damage_zone_area_entered"]
 [connection signal="body_entered" from="WizardBoss/Damage Zone" to="WizardBoss" method="_on_damage_zone_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]

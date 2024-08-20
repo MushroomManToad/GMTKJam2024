@@ -10,6 +10,8 @@ var vent_count : int = 0
 var health : int = 3
 var i_frames : float = 0.0
 
+var is_in_final_boss = false
+
 @onready var hurt: AudioStreamPlayer2D = $Hurt
 @onready var death: AudioStreamPlayer2D = $Death
 
@@ -151,6 +153,8 @@ func damage():
 		Game_Manager.health_update.emit()
 		i_frames = 1.0
 		if health <= 0:
+			if is_in_final_boss:
+				camera_2d.limit_bottom = camera_2d.limit_bottom + 64
 			Game_Manager.restart_stage()
 			death.play()
 		else:
