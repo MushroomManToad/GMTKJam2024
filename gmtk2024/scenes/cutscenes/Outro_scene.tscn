@@ -1,0 +1,173 @@
+[gd_scene load_steps=16 format=3 uid="uid://b6fbqq8jbamgn"]
+
+[ext_resource type="Script" path="res://scripts/assets/outro_scene.gd" id="1_xkntq"]
+[ext_resource type="Texture2D" uid="uid://dkx8eabxdoglh" path="res://sprites/splash/End1.png" id="2_2h0p0"]
+[ext_resource type="Texture2D" uid="uid://e6l10yg17fnw" path="res://sprites/splash/Intro1.png" id="2_ugx1j"]
+[ext_resource type="Texture2D" uid="uid://b5tlx11qia1np" path="res://sprites/splash/End2.png" id="3_jsbwl"]
+[ext_resource type="Texture2D" uid="uid://0oy478oqpkq0" path="res://sprites/splash/End3.png" id="4_ok4fc"]
+[ext_resource type="Texture2D" uid="uid://bachpt2math8t" path="res://sprites/splash/End4.png" id="5_4lyq7"]
+[ext_resource type="AudioStream" uid="uid://c56lf3g4fd1dp" path="res://sound/effect/8bit rumble.wav" id="6_6ayqg"]
+[ext_resource type="Texture2D" uid="uid://b52s8k6ejdgyy" path="res://sprites/splash/End5.png" id="6_w2vk8"]
+[ext_resource type="Theme" uid="uid://b7w4nu451j121" path="res://fonts/new_theme.tres" id="7_shlf3"]
+[ext_resource type="Texture2D" uid="uid://c404rh0hpkw36" path="res://sprites/ui/menu_button.png" id="8_ip1fl"]
+[ext_resource type="Texture2D" uid="uid://pftbx5ouj4j6" path="res://sprites/ui/menu_button_selected.png" id="9_lvr3o"]
+[ext_resource type="Theme" uid="uid://bk8t7aafq4xyp" path="res://fonts/new_theme2.tres" id="10_elvbp"]
+
+[sub_resource type="Animation" id="Animation_ax8ua"]
+resource_name = "Intro Cutscene"
+length = 30.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(14.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"load_real_game"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BoxContainer/TextureRect:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4, 6.96667, 10, 14),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_2h0p0"), ExtResource("3_jsbwl"), ExtResource("4_ok4fc"), ExtResource("5_4lyq7"), ExtResource("6_w2vk8")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BoxContainer2/ColorRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.501961, 0.501961, 0.501961, 1), Color(0.501961, 0.501961, 0.501961, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1p707"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoxContainer/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_ugx1j")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BoxContainer2/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.501961, 0.501961, 0.501961, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ayaau"]
+_data = {
+"Intro Cutscene": SubResource("Animation_ax8ua"),
+"RESET": SubResource("Animation_1p707")
+}
+
+[node name="IntroScene" type="CanvasLayer"]
+script = ExtResource("1_xkntq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ayaau")
+}
+autoplay = "Intro Cutscene"
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_right = 640.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_ugx1j")
+
+[node name="BoxContainer2" type="BoxContainer" parent="."]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_right = 640.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="BoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.501961, 0.501961, 0.501961, 0)
+
+[node name="Rumble" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_6ayqg")
+volume_db = -2.971
+bus = &"SFX"
+
+[node name="BoxContainer3" type="BoxContainer" parent="."]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -40.0
+offset_right = -20.0
+offset_bottom = 40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Play" type="TextureButton" parent="BoxContainer3/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("7_shlf3")
+texture_normal = ExtResource("8_ip1fl")
+texture_pressed = ExtResource("9_lvr3o")
+texture_hover = ExtResource("9_lvr3o")
+texture_disabled = ExtResource("8_ip1fl")
+texture_focused = ExtResource("8_ip1fl")
+
+[node name="Label" type="Label" parent="BoxContainer3/VBoxContainer/Play"]
+layout_mode = 0
+offset_right = 93.0
+offset_bottom = 31.0
+theme = ExtResource("10_elvbp")
+theme_override_font_sizes/font_size = 16
+text = "Skip..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="BoxContainer3/VBoxContainer/Play" to="." method="load_real_game"]

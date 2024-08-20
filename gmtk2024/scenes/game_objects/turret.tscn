@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dme6v86lkfv4c"]
+[gd_scene load_steps=9 format=3 uid="uid://dme6v86lkfv4c"]
 
 [ext_resource type="Script" path="res://scripts/assets/turret.gd" id="1_hn43w"]
 [ext_resource type="Texture2D" uid="uid://djf0agha2rme8" path="res://sprites/game_objects/turret.png" id="1_rm4nv"]
+[ext_resource type="AudioStream" uid="uid://b4sty0ew7657l" path="res://sound/effect/FWOOSH.wav" id="3_40h82"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jeuup"]
 atlas = ExtResource("1_rm4nv")
@@ -49,3 +50,7 @@ position = Vector2(0, 2)
 sprite_frames = SubResource("SpriteFrames_87frw")
 frame = 2
 frame_progress = 0.72984
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_40h82")
+volume_db = -3.963

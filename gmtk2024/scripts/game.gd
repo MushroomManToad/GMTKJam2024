@@ -7,9 +7,6 @@ const BOSS_FIGHT_03 = preload("res://sound/boss_fight_03.wav")
 const A_WORTHY_CHALLENGE__LOOP_ = preload("res://sound/A Worthy Challenge (LOOP).wav")
 const JUMP_AND_SHOOT_MAN__LOOP_ = preload("res://sound/Jump and Shoot Man (LOOP).wav")
 
-func _process(delta : float):
-	pass
-
 func stop_music():
 	music.stop()
 

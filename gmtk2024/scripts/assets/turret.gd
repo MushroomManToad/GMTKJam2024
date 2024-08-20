@@ -7,6 +7,8 @@ var shot_timer : float = 0.0
 
 const FORB = preload("res://scenes/game_objects/forb.tscn")
 
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
 func _physics_process(delta: float) -> void:
 	# Check if line of sight to player
 	var player : Player = Game_Manager.player
@@ -22,6 +24,7 @@ func _physics_process(delta: float) -> void:
 		shot_timer = shot_cd
 
 func shoot(direction : Vector2):
+	audio_stream_player_2d.play()
 	var forb_instance = FORB.instantiate()
 	forb_instance.global_position = self.global_position
 	forb_instance.direction = direction
