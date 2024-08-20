@@ -1,10 +1,12 @@
-[gd_scene load_steps=25 format=3 uid="uid://d21c3hc1cqc5g"]
+[gd_scene load_steps=27 format=3 uid="uid://d21c3hc1cqc5g"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_bxdya"]
 [ext_resource type="Texture2D" uid="uid://ws8byqx67kar" path="res://sprites/player/idle.png" id="2_cb05a"]
 [ext_resource type="Texture2D" uid="uid://sqauor6gwlnk" path="res://sprites/dev/testwalk-Sheet.png" id="2_mbe07"]
 [ext_resource type="Texture2D" uid="uid://gbce4nw0w8yr" path="res://sprites/player/jump_fall.png" id="3_cvn7e"]
 [ext_resource type="Texture2D" uid="uid://cng4h424ul8uy" path="res://sprites/player/walk_push.png" id="4_7cibr"]
+[ext_resource type="AudioStream" uid="uid://cv0e0y4laix0y" path="res://sound/effect/hurt.wav" id="6_au2kq"]
+[ext_resource type="AudioStream" uid="uid://biuevkdyi680j" path="res://sound/death_test.wav" id="6_flkwt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vm8im"]
 atlas = ExtResource("3_cvn7e")
@@ -281,3 +283,11 @@ shape = SubResource("RectangleShape2D_xcnd0")
 zoom = Vector2(3, 3)
 limit_bottom = 32
 position_smoothing_enabled = true
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_au2kq")
+volume_db = 4.952
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_flkwt")
+volume_db = -25.752

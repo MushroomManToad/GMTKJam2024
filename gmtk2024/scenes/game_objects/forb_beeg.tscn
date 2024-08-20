@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxbv67bbxjymp"]
+
+[ext_resource type="Script" path="res://scripts/assets/forb_beeg.gd" id="1_36wkt"]
+[ext_resource type="Texture2D" uid="uid://d22yy46mboiw5" path="res://sprites/game_objects/fireorb.png" id="2_qjw4d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0cak3"]
+radius = 5.0
+
+[node name="Area2D" type="Area2D"]
+z_index = 10
+scale = Vector2(2, 2)
+collision_mask = 255
+script = ExtResource("1_36wkt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_qjw4d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0cak3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -10,6 +10,9 @@ var vent_count : int = 0
 var health : int = 3
 var i_frames : float = 0.0
 
+@onready var hurt: AudioStreamPlayer2D = $Hurt
+@onready var death: AudioStreamPlayer2D = $Death
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -149,6 +152,9 @@ func damage():
 		i_frames = 1.0
 		if health <= 0:
 			Game_Manager.restart_stage()
+			death.play()
+		else:
+			hurt.play()
 
 func heal():
 	health = 3
