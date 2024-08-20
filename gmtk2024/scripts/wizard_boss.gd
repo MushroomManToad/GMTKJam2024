@@ -20,7 +20,7 @@ const FORB_BEEG = preload("res://scenes/game_objects/forb_beeg.tscn")
 var health : int = 3
 
 var attack_cooldown_max = 5.0
-var atk_cd = 10.0
+var atk_cd = 1000.0
 
 var time_to_idle : float = 0.0
 var idle_primed : bool = false
