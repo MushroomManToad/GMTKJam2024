@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 			self.queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Player:
+	if body is Player or body is MimicEnemy:
 		collect_key()
 
 func collect_key():
