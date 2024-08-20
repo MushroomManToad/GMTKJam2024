@@ -58,6 +58,7 @@ func spawn_field(pos : Vector2):
 		"rotate":
 			player.spells_handler.active_rotate_field = field_instance
 	
+	player.field_open.play()
 	# Remove the traveller
 	queue_free()
 

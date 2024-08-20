@@ -14,6 +14,7 @@ var is_in_final_boss = false
 
 @onready var hurt: AudioStreamPlayer2D = $Hurt
 @onready var death: AudioStreamPlayer2D = $Death
+@onready var field_open: AudioStreamPlayer2D = $FieldOpen
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
