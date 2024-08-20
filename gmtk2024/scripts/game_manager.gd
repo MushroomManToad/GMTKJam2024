@@ -14,6 +14,7 @@ const UI_BATTLE_SCREEN = preload("res://scenes/player/ui_battle_screen.tscn")
 const UI_FADE_TO_WHITE = preload("res://scenes/player/ui_fade_to_white.tscn")
 const INTRO_SCENE = preload("res://scenes/cutscenes/IntroScene.tscn")
 const TITLE = preload("res://scenes/title.tscn")
+const OUTRO_SCENE = preload("res://scenes/cutscenes/Outro_scene.tscn")
 
 # Current array of loaded floor objects
 var loaded_floors : Array
@@ -25,11 +26,11 @@ signal spell_update
 
 func _ready():
 	# Comment this out for release
-	load_first_stage(Vector2(0, 0), "kristen_test_scene", Vector2(0.0, -16.0))
+	#load_first_stage(Vector2(0, 0), "kristen_test_scene", Vector2(0.0, -16.0))
 	
 	# Load Title Screen
-	#var title_instance = TITLE.instantiate()
-	#game.add_child(title_instance)
+	var title_instance = TITLE.instantiate()
+	game.add_child(title_instance)
 
 # Called on start button press
 func start_game():
@@ -165,7 +166,8 @@ func unload_world():
 	loaded_floors_nodes = [null, null, null]
 
 func load_final_cutscene():
-	pass
+	var outro = OUTRO_SCENE.instantiate()
+	game.add_child(outro)
 
 # Internal class for storing loaded floor data
 class Floor:
