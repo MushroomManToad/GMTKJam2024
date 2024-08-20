@@ -12,6 +12,8 @@ const player_asset = preload("res://scenes/player/player.tscn")
 const background_asset = preload("res://scenes/global/background.tscn")
 const UI_BATTLE_SCREEN = preload("res://scenes/player/ui_battle_screen.tscn")
 const UI_FADE_TO_WHITE = preload("res://scenes/player/ui_fade_to_white.tscn")
+const INTRO_SCENE = preload("res://scenes/cutscenes/IntroScene.tscn")
+const TITLE = preload("res://scenes/title.tscn")
 
 # Current array of loaded floor objects
 var loaded_floors : Array
@@ -22,7 +24,24 @@ signal health_update
 signal spell_update
 
 func _ready():
-	load_first_stage(Vector2(0, 0), "kristen_test_scene", Vector2(0.0, -16.0))
+	# Comment this out for release
+	#load_first_stage(Vector2(0, 0), "kristen_test_scene", Vector2(0.0, -16.0))
+	
+	# Load Title Screen
+	var title_instance = TITLE.instantiate()
+	game.add_child(title_instance)
+
+# Called on start button press
+func start_game():
+	play_intro()
+	# Unload title screen
+
+func play_intro():
+	var intro = INTRO_SCENE.instantiate()
+	game.add_child(intro)
+
+func load_playable_game():
+	load_first_stage(Vector2(0.0, 0), "stage_1", Vector2(-16.0, 0.0))
 
 # Generic Stage Loading Function. Called by relevant functions "first and "new
 func load_scene(pos: Vector2, scene_id: String, _prs_loc: Vector2) -> Node2D:
