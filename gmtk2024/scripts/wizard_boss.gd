@@ -7,6 +7,7 @@ extends Node2D
 
 @onready var explosion: AudioStreamPlayer2D = $"Damage Zone/Explosion"
 @onready var vicotory: AudioStreamPlayer2D = $Vicotory
+@onready var fwoosh: AudioStreamPlayer2D = $FWOOSH
 
 @onready var idle: Node2D = $Idle
 @onready var attack: Node2D = $Attack
@@ -62,6 +63,7 @@ func _physics_process(delta: float) -> void:
 				forb_1.speed = speed
 				forb_1.direction = (Game_Manager.player.global_position + Vector2(0.0, -6.0) - fire_gun.global_position).normalized()
 				Game_Manager.game.add_child(forb_1)
+				fwoosh.play()
 			if shooty_bang_bang_timer <= 0.5 and shooties_bang_banged <= 2:
 				shooties_bang_banged += 2
 				var forb_1 = FORB_BEEG.instantiate()
@@ -69,6 +71,7 @@ func _physics_process(delta: float) -> void:
 				forb_1.speed = speed
 				forb_1.direction = (Game_Manager.player.global_position + Vector2(0.0, -6.0) - fire_gun.global_position).normalized()
 				Game_Manager.game.add_child(forb_1)
+				fwoosh.play()
 	
 	else:
 		dead_timer += delta
@@ -119,6 +122,8 @@ func attack_1():
 	forb_1.speed = speed
 	forb_1.direction = (Game_Manager.player.global_position + Vector2(0.0, -6.0) - fire_gun.global_position).normalized()
 	Game_Manager.game.add_child(forb_1)
+	
+	fwoosh.play()
 
 func attack_2():
 	time_to_idle = 0.5
@@ -140,6 +145,8 @@ func attack_2():
 	forb_3.speed = speed
 	forb_3.direction = (Game_Manager.player.global_position + Vector2(0.0, -6.0) - fire_gun.global_position).rotated(-PI / 16.0).normalized()
 	Game_Manager.game.add_child(forb_3)
+	
+	fwoosh.play()
 
 func set_visible_sprite(val : int) -> void:
 	idle.visible = (val == 0)

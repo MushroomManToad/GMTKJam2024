@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://btivayt0g8pba"]
+[gd_scene load_steps=30 format=4 uid="uid://btivayt0g8pba"]
 
 [ext_resource type="Texture2D" uid="uid://p7kqf83ijgm" path="res://sprites/one_way.png" id="1_4kab0"]
 [ext_resource type="PackedScene" uid="uid://bxgpru7tnrhjl" path="res://scenes/game_objects/boss_wizard_atk.tscn" id="2_dm56q"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ctcx8qd28mshd" path="res://scenes/assets/explosiondotpng.tscn" id="7_mylgm"]
 [ext_resource type="Script" path="res://scripts/assets/explosiondotpng.gd" id="8_x7bg3"]
 [ext_resource type="AudioStream" uid="uid://dxwl6wc28461y" path="res://sound/victory_test.wav" id="9_rf5sa"]
+[ext_resource type="AudioStream" uid="uid://b4sty0ew7657l" path="res://sound/effect/FWOOSH.wav" id="10_0ekrd"]
 [ext_resource type="Theme" uid="uid://cgs7spjn5ynt0" path="res://fonts/font_in_stage.tres" id="12_e4nx1"]
 [ext_resource type="Texture2D" uid="uid://cjvw43ggfls3i" path="res://sprites/bosswizard/loopingstarsBase.png" id="15_1oeee"]
 [ext_resource type="Shader" path="res://audio/wizard_stage.gdshader" id="15_6dy0t"]
@@ -89,7 +90,7 @@ shape = SubResource("RectangleShape2D_18qrk")
 
 [node name="Explosion" type="AudioStreamPlayer2D" parent="WizardBoss/Damage Zone"]
 stream = ExtResource("6_82ljp")
-volume_db = -7.924
+volume_db = -3.963
 bus = &"SFX"
 
 [node name="Fire Gun" type="Marker2D" parent="WizardBoss"]
@@ -103,6 +104,10 @@ script = ExtResource("8_x7bg3")
 
 [node name="Vicotory" type="AudioStreamPlayer2D" parent="WizardBoss"]
 stream = ExtResource("9_rf5sa")
+
+[node name="FWOOSH" type="AudioStreamPlayer2D" parent="WizardBoss"]
+stream = ExtResource("10_0ekrd")
+volume_db = 13.104
 
 [node name="Tiles" type="Node2D" parent="."]
 

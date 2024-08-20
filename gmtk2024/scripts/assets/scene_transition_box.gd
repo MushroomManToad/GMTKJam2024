@@ -19,6 +19,8 @@ var camera_2d : Camera2D
 
 var loaded : bool = false
 
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		# Set vars
@@ -41,7 +43,7 @@ func _process(delta: float) -> void:
 				Game_Manager.ftw_ui.animation_player.play("fade_to_white")
 		# 0.5 sec, fade to white
 		elif animation_timer <= 1.5:
-			pass
+			audio_stream_player_2d.play()
 		# Load screen and move up player
 		elif animation_timer <= 2.0:
 			if not loaded:

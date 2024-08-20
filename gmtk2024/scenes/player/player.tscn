@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d21c3hc1cqc5g"]
+[gd_scene load_steps=28 format=3 uid="uid://d21c3hc1cqc5g"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_bxdya"]
 [ext_resource type="Texture2D" uid="uid://ws8byqx67kar" path="res://sprites/player/idle.png" id="2_cb05a"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cng4h424ul8uy" path="res://sprites/player/walk_push.png" id="4_7cibr"]
 [ext_resource type="AudioStream" uid="uid://cv0e0y4laix0y" path="res://sound/effect/hurt.wav" id="6_au2kq"]
 [ext_resource type="AudioStream" uid="uid://biuevkdyi680j" path="res://sound/death_test.wav" id="6_flkwt"]
+[ext_resource type="AudioStream" uid="uid://cqraq30f8y7vw" path="res://sound/effect/field_open.wav" id="8_daua8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vm8im"]
 atlas = ExtResource("3_cvn7e")
@@ -291,3 +292,7 @@ volume_db = 4.952
 [node name="Death" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_flkwt")
 volume_db = -25.752
+
+[node name="FieldOpen" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_daua8")
+volume_db = -15.847

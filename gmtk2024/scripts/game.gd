@@ -15,7 +15,7 @@ func stop_music():
 
 func play_boss_music():
 	if not music.playing or not music.stream == BOSS_FIGHT_03:
-		music.volume_db = 0.0
+		music.volume_db = -5.0
 		music.stream = BOSS_FIGHT_03
 		music.play()
 
