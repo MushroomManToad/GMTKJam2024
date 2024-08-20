@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b53i30nlxqyr8"]
+
+[ext_resource type="Texture2D" uid="uid://b7twpvaxs544t" path="res://sprites/game_objects/box_hazardous/badgoodsbox.png" id="1_qphfe"]
+
+[node name="HazardCrate2" type="Node2D"]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_qphfe")
+region_rect = Rect2(0, 10.9192, 48, 22.0627)
+patch_margin_left = 6
+patch_margin_right = 13
