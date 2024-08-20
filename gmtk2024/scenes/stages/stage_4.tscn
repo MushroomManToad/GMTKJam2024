@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bth3lkpq26jfx" path="res://scenes/game_objects/key.tscn" id="14_83b4d"]
 [ext_resource type="PackedScene" uid="uid://bhsusyoycs3gi" path="res://scenes/game_objects/mimic_enemy.tscn" id="15_6bk1c"]
 [ext_resource type="PackedScene" uid="uid://sxnojnvbwnom" path="res://scenes/game_objects/vent.tscn" id="15_174o2"]
-[ext_resource type="PackedScene" uid="uid://5gnkrek3f15y" path="res://scenes/game_objects/one_way_tile.tscn" id="16_5vnhl"]
+[ext_resource type="PackedScene" uid="uid://cui0fpu2gykur" path="res://scenes/game_objects/one_way_tile.tscn" id="16_5vnhl"]
 [ext_resource type="PackedScene" uid="uid://c80ll2o76ldle" path="res://scenes/game_objects/key_door.tscn" id="17_buk3k"]
 [ext_resource type="Texture2D" uid="uid://dunf4d3fpih7c" path="res://sprites/game_objects/button_door_center.png" id="18_ydlgo"]
 [ext_resource type="PackedScene" uid="uid://bp267ymmeq7fa" path="res://scenes/game_objects/button.tscn" id="19_jst0r"]
