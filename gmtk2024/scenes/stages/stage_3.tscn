@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c4td5heiuv54d" path="res://scenes/game_objects/spike.tscn" id="14_fpn4r"]
 [ext_resource type="PackedScene" uid="uid://bth3lkpq26jfx" path="res://scenes/game_objects/key.tscn" id="14_j0plg"]
 [ext_resource type="PackedScene" uid="uid://sxnojnvbwnom" path="res://scenes/game_objects/vent.tscn" id="15_7fwxv"]
-[ext_resource type="PackedScene" uid="uid://5gnkrek3f15y" path="res://scenes/game_objects/one_way_tile.tscn" id="15_a8gsy"]
+[ext_resource type="PackedScene" uid="uid://cui0fpu2gykur" path="res://scenes/game_objects/one_way_tile.tscn" id="15_a8gsy"]
 [ext_resource type="Texture2D" uid="uid://dunf4d3fpih7c" path="res://sprites/game_objects/button_door_center.png" id="17_45jtg"]
 [ext_resource type="PackedScene" uid="uid://bp267ymmeq7fa" path="res://scenes/game_objects/button.tscn" id="18_gu8gi"]
 [ext_resource type="PackedScene" uid="uid://dvji3mk22wsc7" path="res://scenes/assets/scene_transition_box.tscn" id="19_md5ce"]
