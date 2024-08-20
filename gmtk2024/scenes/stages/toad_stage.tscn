@@ -33,7 +33,7 @@ position = Vector2(0, 24)
 
 [node name="Turret" parent="." instance=ExtResource("3_k600t")]
 position = Vector2(-58, -34)
-shot_cd = 5.0
+shot_cd = 0.1
 
 [node name="ScrollOfGrowth" parent="." instance=ExtResource("4_fup3c")]
 position = Vector2(-104, -74)
@@ -45,4 +45,8 @@ position = Vector2(-13, -77)
 position = Vector2(-65, -75)
 
 [node name="Crate" parent="." instance=ExtResource("7_uph87")]
-position = Vector2(-34, -27)
+position = Vector2(-132, -43)
+
+[node name="DevOneWay4" parent="." instance=ExtResource("2_b1anm")]
+position = Vector2(-23, -25)
+rotation = 1.53421
