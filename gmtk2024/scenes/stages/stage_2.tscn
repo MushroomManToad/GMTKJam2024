@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://bxm0x5633n2f7"]
+[gd_scene load_steps=28 format=4 uid="uid://bxm0x5633n2f7"]
 
 [ext_resource type="TileSet" uid="uid://or6o82ixexje" path="res://tilesets/ground.tres" id="1_mam26"]
 [ext_resource type="TileSet" uid="uid://ctwi7yga7v2bk" path="res://tilesets/background.tres" id="2_7lijs"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c4td5heiuv54d" path="res://scenes/game_objects/spike.tscn" id="15_5k6sr"]
 [ext_resource type="PackedScene" uid="uid://sxnojnvbwnom" path="res://scenes/game_objects/vent.tscn" id="15_h33nw"]
 [ext_resource type="PackedScene" uid="uid://dvji3mk22wsc7" path="res://scenes/assets/scene_transition_box.tscn" id="16_egd0v"]
+[ext_resource type="Theme" uid="uid://cgs7spjn5ynt0" path="res://fonts/font_in_stage.tres" id="17_kqbi0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nillq"]
 size = Vector2(16, 16)
@@ -687,3 +688,24 @@ position = Vector2(-102, -234)
 
 [node name="DevOneWay9" parent="." instance=ExtResource("5_tphlk")]
 position = Vector2(-56, -188)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -272.0
+offset_top = -96.0
+offset_right = -162.0
+offset_bottom = -73.0
+theme = ExtResource("17_kqbi0")
+text = "Point & Left Click"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 6.0
+offset_top = -533.0
+offset_right = 116.0
+offset_bottom = -500.0
+theme = ExtResource("17_kqbi0")
+text = "[Q] to clear 
+cast spells"
+horizontal_alignment = 1
+vertical_alignment = 1

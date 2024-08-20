@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://cife6wcgy4jt2"]
+[gd_scene load_steps=36 format=4 uid="uid://cife6wcgy4jt2"]
 
 [ext_resource type="TileSet" uid="uid://or6o82ixexje" path="res://tilesets/ground.tres" id="1_jxdn6"]
 [ext_resource type="TileSet" uid="uid://ctwi7yga7v2bk" path="res://tilesets/background.tres" id="2_3ow7v"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dunf4d3fpih7c" path="res://sprites/game_objects/button_door_center.png" id="17_45jtg"]
 [ext_resource type="PackedScene" uid="uid://bp267ymmeq7fa" path="res://scenes/game_objects/button.tscn" id="18_gu8gi"]
 [ext_resource type="PackedScene" uid="uid://dvji3mk22wsc7" path="res://scenes/assets/scene_transition_box.tscn" id="19_md5ce"]
+[ext_resource type="Theme" uid="uid://cgs7spjn5ynt0" path="res://fonts/font_in_stage.tres" id="20_pjc2d"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_36b8x"]
 a = Vector2(-8, -9)
@@ -780,3 +781,14 @@ collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="door owo uwu/StaticBody2D"]
 shape = SubResource("RectangleShape2D_vkkp2")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -365.0
+offset_top = -114.0
+offset_right = -255.0
+offset_bottom = -81.0
+theme = ExtResource("20_pjc2d")
+text = "[1], [2], [3]
+Select Spell"
+horizontal_alignment = 1
+vertical_alignment = 1

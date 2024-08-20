@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://y5m5g37hekfd"]
+[gd_scene load_steps=30 format=4 uid="uid://y5m5g37hekfd"]
 
 [ext_resource type="TileSet" uid="uid://or6o82ixexje" path="res://tilesets/ground.tres" id="1_u68vg"]
 [ext_resource type="TileSet" uid="uid://ctwi7yga7v2bk" path="res://tilesets/background.tres" id="2_4s2oa"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cniki3yqqc641" path="res://scenes/decor/false_door.tscn" id="16_8xs8h"]
 [ext_resource type="Script" path="res://scripts/assets/one_way_tile.gd" id="17_abphq"]
 [ext_resource type="PackedScene" uid="uid://dvji3mk22wsc7" path="res://scenes/assets/scene_transition_box.tscn" id="17_tvt77"]
+[ext_resource type="Theme" uid="uid://cgs7spjn5ynt0" path="res://fonts/font_in_stage.tres" id="18_ya60o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nillq"]
 size = Vector2(16, 16)
@@ -506,6 +507,37 @@ collision_mask = 255
 shape = SubResource("SegmentShape2D_o5h77")
 one_way_collision = true
 one_way_collision_margin = 4.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = -95.0
+offset_top = -62.0
+offset_right = -25.0
+offset_bottom = -39.0
+theme = ExtResource("18_ya60o")
+text = "[A] <-> [D]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -273.0
+offset_top = -79.0
+offset_right = -203.0
+offset_bottom = -56.0
+theme = ExtResource("18_ya60o")
+text = "[Space]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+offset_left = -122.0
+offset_top = -298.0
+offset_right = -52.0
+offset_bottom = -265.0
+theme = ExtResource("18_ya60o")
+text = "Shift & R 
+to Restart"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="Field" to="Field" method="_on_body_entered"]
 [connection signal="body_exited" from="Field" to="Field" method="_on_body_exited"]
