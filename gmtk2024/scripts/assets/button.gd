@@ -6,12 +6,15 @@ var pressed : int = 0
 
 var pushed_texture = preload("res://sprites/game_objects/button_on.png")
 var unpushed_texture = preload("res://sprites/game_objects/button_off.png")
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func send_activation_signal():
 	to_toggle._add_power(1)
+	audio_stream_player_2d.play()
 
 func send_deactivation_signal():
 	to_toggle._add_power(-1)
+	audio_stream_player_2d.play()
 
 func _on_detection_region_body_entered(body: Node2D) -> void:
 	if body is Player or body is IPushableObject or body is MimicEnemy:

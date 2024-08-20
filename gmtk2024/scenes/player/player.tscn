@@ -295,4 +295,4 @@ volume_db = -25.752
 
 [node name="FieldOpen" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_daua8")
-volume_db = -15.847
+volume_db = -11.885

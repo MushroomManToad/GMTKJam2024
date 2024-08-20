@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkdvssksk57q6"]
+[gd_scene load_steps=7 format=3 uid="uid://dkdvssksk57q6"]
 
 [ext_resource type="Script" path="res://scenes/title.gd" id="1_64prv"]
-[ext_resource type="Theme" path="res://fonts/new_theme.tres" id="1_f3k44"]
-[ext_resource type="FontFile" uid="uid://c85820ggymdjn" path="res://fonts/CompassGold.ttf" id="2_pkymf"]
+[ext_resource type="Theme" uid="uid://b7w4nu451j121" path="res://fonts/new_theme.tres" id="1_f3k44"]
+[ext_resource type="Texture2D" uid="uid://b1658da1877wp" path="res://sprites/splash/Menu.png" id="2_raorj"]
+[ext_resource type="Texture2D" uid="uid://c404rh0hpkw36" path="res://sprites/ui/menu_button.png" id="4_7la8j"]
+[ext_resource type="Texture2D" uid="uid://pftbx5ouj4j6" path="res://sprites/ui/menu_button_selected.png" id="5_ni1pb"]
+[ext_resource type="Theme" uid="uid://bk8t7aafq4xyp" path="res://fonts/new_theme2.tres" id="6_6v6lg"]
 
 [node name="Title" type="Control"]
 layout_mode = 3
@@ -13,27 +16,61 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_64prv")
 
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_raorj")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 546.0
+offset_top = 290.0
+offset_right = 734.0
+offset_bottom = 430.0
 
-[node name="Play" type="Button" parent="VBoxContainer"]
+[node name="Play" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
 theme = ExtResource("1_f3k44")
-theme_override_fonts/font = ExtResource("2_pkymf")
+texture_normal = ExtResource("4_7la8j")
+texture_pressed = ExtResource("5_ni1pb")
+texture_hover = ExtResource("5_ni1pb")
+texture_disabled = ExtResource("4_7la8j")
+texture_focused = ExtResource("4_7la8j")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/Play"]
+layout_mode = 0
+offset_right = 188.0
+offset_bottom = 68.0
+theme = ExtResource("1_f3k44")
 text = "Play"
+horizontal_alignment = 1
 
-[node name="Settings" type="Button" parent="VBoxContainer"]
+[node name="Credits" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 68)
 layout_mode = 2
 theme = ExtResource("1_f3k44")
-text = "Settings"
+texture_normal = ExtResource("4_7la8j")
+texture_pressed = ExtResource("5_ni1pb")
+texture_hover = ExtResource("5_ni1pb")
+texture_disabled = ExtResource("4_7la8j")
+texture_focused = ExtResource("4_7la8j")
+stretch_mode = 0
 
-[node name="Credits" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("1_f3k44")
+[node name="Label" type="Label" parent="VBoxContainer/Credits"]
+offset_left = 4.0
+offset_right = 187.0
+offset_bottom = 68.0
+theme = ExtResource("6_6v6lg")
+theme_override_font_sizes/font_size = 48
 text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]

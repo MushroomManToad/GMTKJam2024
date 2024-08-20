@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bp267ymmeq7fa"]
+[gd_scene load_steps=5 format=3 uid="uid://bp267ymmeq7fa"]
 
 [ext_resource type="Script" path="res://scripts/assets/button.gd" id="1_jhnan"]
 [ext_resource type="Texture2D" uid="uid://v3vs6hsxehdi" path="res://sprites/game_objects/button_off.png" id="2_wqvdc"]
+[ext_resource type="AudioStream" uid="uid://bsp6tgh162vio" path="res://sound/effect/button_push.wav" id="3_mfpd6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wx8kc"]
 size = Vector2(12, 6)
@@ -26,6 +27,11 @@ collision_mask = 255
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection Region"]
 position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_wx8kc")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mfpd6")
+volume_db = -3.224
+panning_strength = 0.0
 
 [connection signal="body_entered" from="Detection Region" to="." method="_on_detection_region_body_entered"]
 [connection signal="body_exited" from="Detection Region" to="." method="_on_detection_region_body_exited"]
