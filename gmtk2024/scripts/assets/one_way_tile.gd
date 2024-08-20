@@ -1,3 +1,5 @@
+class_name OneWayPlatform
+
 extends Node2D
 
 @onready var one_way: NinePatchRect = $OneWay

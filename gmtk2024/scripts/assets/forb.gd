@@ -9,6 +9,7 @@ func _physics_process(delta: float) -> void:
 	self.global_position += direction * speed
 
 func _on_body_entered(body: Node2D) -> void:
-	if body is Player:
-		body.damage()
-	queue_free()
+	if not body is OneWayPlatform:
+		if body is Player:
+			body.damage()
+		queue_free()
