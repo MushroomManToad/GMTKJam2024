@@ -44,18 +44,18 @@ func spawn_field(pos : Vector2):
 	Game_Manager.game.add_child(field_instance)
 	
 	# Update the player's active spell
+	if not player.spells_handler.active_grow_field == null:
+		player.spells_handler.active_grow_field.queue_free()
+	if not player.spells_handler.active_stretch_field == null:
+		player.spells_handler.active_stretch_field.queue_free()
+	if not player.spells_handler.active_rotate_field == null:
+		player.spells_handler.active_rotate_field.queue_free()
 	match spell:
 		"grow":
-			if not player.spells_handler.active_grow_field == null:
-				player.spells_handler.active_grow_field.queue_free()
 			player.spells_handler.active_grow_field = field_instance
 		"stretch":
-			if not player.spells_handler.active_stretch_field == null:
-				player.spells_handler.active_stretch_field.queue_free()
 			player.spells_handler.active_stretch_field = field_instance
 		"rotate":
-			if not player.spells_handler.active_rotate_field == null:
-				player.spells_handler.active_rotate_field.queue_free()
 			player.spells_handler.active_rotate_field = field_instance
 	
 	# Remove the traveller
