@@ -1,19 +1,225 @@
-[gd_scene load_steps=4 format=3 uid="uid://8mc16drpsrks"]
+[gd_scene load_steps=11 format=3 uid="uid://brn8vuc1wujwo"]
 
-[ext_resource type="Script" path="res://scripts/assets/scroll_of_stretch.gd" id="1_hhnku"]
-[ext_resource type="Texture2D" uid="uid://s6a0qqfnlxln" path="res://sprites/game_objects/scroll/stretch_scroll.png" id="2_hq04t"]
+[ext_resource type="Script" path="res://scripts/assets/scroll_of_stretch.gd" id="1_yhkk5"]
+[ext_resource type="Texture2D" uid="uid://btd64k3fdb1m7" path="res://sprites/game_objects/scroll/glory.png" id="2_tekjo"]
+[ext_resource type="Texture2D" uid="uid://s6a0qqfnlxln" path="res://sprites/game_objects/scroll/stretch_scroll.png" id="3_wy4uy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0kg5"]
 size = Vector2(28, 30)
 
+[sub_resource type="Animation" id="Animation_pity7"]
+resource_name = "Collect"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/GloryScroll:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/GloryScroll:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2, 0), Vector2(2, -8), Vector2(2, -8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -8), Vector2(0, -8)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Node2D/GloryScroll:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Node2D/Sprite2D:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2.46667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_7lpbb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/GloryScroll:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/GloryScroll:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Node2D/GloryScroll:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Node2D/Sprite2D:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tmbev"]
+_data = {
+"Collect": SubResource("Animation_pity7"),
+"RESET": SubResource("Animation_7lpbb")
+}
+
+[sub_resource type="Animation" id="Animation_d40dh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/GloryScroll:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0vkc6"]
+resource_name = "rotate"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/GloryScroll:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5708]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b3oa1"]
+_data = {
+"RESET": SubResource("Animation_d40dh"),
+"rotate": SubResource("Animation_0vkc6")
+}
+
 [node name="ScrollOfStretch" type="Area2D"]
 collision_mask = 255
-script = ExtResource("1_hhnku")
+script = ExtResource("1_yhkk5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_e0kg5")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_hq04t")
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_tmbev")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationPlayer2"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_b3oa1")
+}
+autoplay = "rotate"
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="GloryScroll" type="Sprite2D" parent="Node2D"]
+visible = false
+position = Vector2(2, 0)
+texture = ExtResource("2_tekjo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+z_index = 1
+texture = ExtResource("3_wy4uy")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
