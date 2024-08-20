@@ -9,8 +9,8 @@ extends IPushableObject
 var center : Vector2
 
 # Variables about growing
-var time_to_grow : float = 0.5
-var growth_timer : float = 0.5
+var time_to_grow : float = 1.25
+var growth_timer : float = 1.25
 
 var default_size : Vector2
 var default_pos : Vector2
