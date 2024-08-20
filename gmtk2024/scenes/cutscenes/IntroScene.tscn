@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://clog8cddg0rk2"]
+[gd_scene load_steps=11 format=3 uid="uid://clog8cddg0rk2"]
 
 [ext_resource type="Texture2D" uid="uid://e6l10yg17fnw" path="res://sprites/splash/Intro1.png" id="1_indwb"]
 [ext_resource type="Script" path="res://scripts/intro_scene.gd" id="1_w0t0k"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cchaybcttp0pr" path="res://sprites/splash/Intro4.png" id="4_aqxl0"]
 [ext_resource type="AudioStream" uid="uid://c56lf3g4fd1dp" path="res://sound/effect/8bit rumble.wav" id="6_fkuus"]
 [ext_resource type="Theme" path="res://fonts/new_theme.tres" id="6_g8exw"]
-[ext_resource type="FontFile" uid="uid://c85820ggymdjn" path="res://fonts/CompassGold.ttf" id="7_pugds"]
 
 [sub_resource type="Animation" id="Animation_ax8ua"]
 resource_name = "Intro Cutscene"
@@ -149,10 +148,8 @@ grow_vertical = 0
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Play" type="Button" parent="BoxContainer3/VBoxContainer"]
+[node name="Play" type="TextureButton" parent="BoxContainer3/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("6_g8exw")
-theme_override_fonts/font = ExtResource("7_pugds")
-text = ">>>"
 
 [connection signal="pressed" from="BoxContainer3/VBoxContainer/Play" to="." method="load_real_game"]
