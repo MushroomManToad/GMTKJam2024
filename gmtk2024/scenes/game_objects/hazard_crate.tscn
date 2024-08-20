@@ -1,15 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://ccrihv5oodeu1"]
 
-[ext_resource type="Script" path="res://crate.gd" id="1_kyrhv"]
-[ext_resource type="Texture2D" uid="uid://cut56x68cvyav" path="res://sprites/game_objects/crate.png" id="2_i4b3t"]
-[ext_resource type="Texture2D" uid="uid://cf7jw1tpaatik" path="res://sprites/game_objects/box_hazardous/hazard_icons.png" id="3_oimhg"]
+[ext_resource type="Script" path="res://hazard_crate.gd" id="1_op5jk"]
+[ext_resource type="Texture2D" uid="uid://b7twpvaxs544t" path="res://sprites/game_objects/box_hazardous/badgoodsbox.png" id="2_5cpd1"]
+[ext_resource type="Texture2D" uid="uid://b25kl45wk7h02" path="res://sprites/game_objects/box_hazardous/hazard_icons.png" id="3_oimhg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_45w4p"]
 
 [node name="Crate" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 255
-script = ExtResource("1_kyrhv")
+script = ExtResource("1_op5jk")
 
 [node name="Crate" type="NinePatchRect" parent="."]
 z_index = 1
@@ -17,7 +17,7 @@ offset_left = -16.0
 offset_top = -16.0
 offset_right = 16.0
 offset_bottom = 16.0
-texture = ExtResource("2_i4b3t")
+texture = ExtResource("2_5cpd1")
 region_rect = Rect2(0, 0, 48, 48)
 patch_margin_left = 1
 patch_margin_top = 8

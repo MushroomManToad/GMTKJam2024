@@ -1,9 +1,10 @@
-class_name Crate
+class_name Hazard_Crate
 
 extends IPushableObject
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var nine_patch_rect: NinePatchRect = $Crate
+@onready var hazard_symbol: Sprite2D = $Sprite2D
 
 var center : Vector2
 
@@ -38,6 +39,8 @@ func align_collider():
 	rect.extents = Vector2(size[0] / 2.0, size[1] / 2.0)
 	collision_shape_2d.position = Vector2(size[0] / 2.0 + pos[0], size[1] / 2.0 + pos[1])
 	collision_shape_2d.set_deferred("shape", rect)
+	
+	hazard_symbol.position = Vector2(size[0] / 2.0 - 16.0, size[1] / 2.0 - 16.0)
 
 func _get_top():
 	return global_position[1] + nine_patch_rect.position[1]
@@ -80,7 +83,7 @@ func get_scale_target_size_scalar() -> Vector2:
 	if grow_active > 0:
 		size = Vector2(size[0] * 2.0, size[1] * 2.0)
 	if stretch_active > 0:
-		size = Vector2(size[0] * 5.0, size[1])
+		size = Vector2(size[0] * 6.0, size[1])
 	if rotate_active > 0:
 		size = Vector2(size[0], size[1]* 5.0)
 	return size

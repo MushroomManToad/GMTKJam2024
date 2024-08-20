@@ -12,7 +12,6 @@ var is_closed : bool = true
 
 var open_texture = preload("res://sprites/game_objects/doorStates.png")
 var closed_texture = preload("res://sprites/game_objects/door.png")
-#ty mushroom
 
 func _ready():
 	# Rescale the door's components to match the visual.
