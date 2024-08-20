@@ -25,11 +25,11 @@ func _ready():
 	load_first_stage(Vector2(0, 0), "kristen_test_scene", Vector2(0.0, -16.0))
 
 # Generic Stage Loading Function. Called by relevant functions "first and "new
-func load_scene(pos: Vector2, scene_id: String, prs_loc: Vector2) -> Node2D:
+func load_scene(pos: Vector2, scene_id: String, _prs_loc: Vector2) -> Node2D:
 	var stage = load("res://scenes/stages/" + scene_id + ".tscn")
 	var stage_instance : Node2D = stage.instantiate()
 	stage_instance.global_position = pos
-	game.add_child(stage_instance)
+	game.call_deferred("add_child", stage_instance)
 	return stage_instance
 
 func load_player(pos: Vector2) -> void:
@@ -111,6 +111,9 @@ func load_first_stage(pos: Vector2, scene_id: String, prs_loc: Vector2):
 # Resets player HP
 # Resets player to start of room
 func restart_stage():
+	player.heal()
+	
+	# Reload floors (This is honestly probably magic)
 	var floor_0 : Floor = null
 	if not loaded_floors[0] == null:
 		floor_0 = loaded_floors[0]

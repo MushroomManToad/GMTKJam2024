@@ -7,6 +7,9 @@ extends CharacterBody2D
 
 var vent_count : int = 0
 
+var health : int = 3
+var i_frames : float = 0.0
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -33,8 +36,10 @@ func _process(_delta: float) -> void:
 		if camera_zoom and not Input.is_action_pressed("Zoom"):
 			camera_zoom_reset()
 
-func _physics_process(delta):	
+func _physics_process(delta):
 	if not frozen:
+		if i_frames >= 0.0:
+			i_frames -= delta
 		spells_handler.physics_loop()
 		
 		# Add the gravity.
@@ -136,6 +141,18 @@ func freeze():
 
 func unfreeze():
 	frozen = false
+
+func damage():
+	if i_frames <= 0.0:
+		health -= 1
+		Game_Manager.health_update.emit()
+		i_frames = 1.0
+		if health <= 0:
+			Game_Manager.restart_stage()
+
+func heal():
+	health = 3
+	Game_Manager.health_update.emit()
 
 class SpellsHandler:
 	var active_grow_field : Node2D = null
