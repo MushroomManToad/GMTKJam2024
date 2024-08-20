@@ -735,7 +735,7 @@ shape = SubResource("RectangleShape2D_5nn0j")
 position = Vector2(-424, -776)
 scale = Vector2(2.60509, 0.699009)
 scene_id = "stage_4"
-scene_load_location = Vector2(0, -784)
+scene_load_location = Vector2(0, -816)
 player_jump_target = Vector2(-8, -32)
 
 [node name="balloon4" parent="." instance=ExtResource("11_uudd2")]

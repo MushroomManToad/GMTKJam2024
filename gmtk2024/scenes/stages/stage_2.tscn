@@ -630,7 +630,7 @@ launch_vel_big_mult = 1.5
 position = Vector2(8, -918)
 scale = Vector2(7.68, 1)
 scene_id = "stage_3"
-scene_load_location = Vector2(0, -928)
+scene_load_location = Vector2(0, -944)
 player_jump_target = Vector2(0, -32)
 
 [node name="DevOneWay12" type="Node2D" parent="."]
