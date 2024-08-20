@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://l3umrrhuv5tq"]
+[gd_scene load_steps=8 format=3 uid="uid://cfuyw38fwxho1"]
 
-[ext_resource type="Texture2D" uid="uid://cnrc3mykfxm4q" path="res://sprites/bosswizard/WizardIdle.png" id="1_qa1fn"]
+[ext_resource type="Texture2D" uid="uid://byvwngissm7p6" path="res://sprites/bosswizard/WizardIdle.png" id="1_qa1fn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ofax3"]
 atlas = ExtResource("1_qa1fn")
@@ -48,6 +48,7 @@ size = Vector2(112, 65)
 [node name="Idle" type="AnimatedSprite2D" parent="Area2D"]
 sprite_frames = SubResource("SpriteFrames_0x5gm")
 animation = &"Idle"
+autoplay = "Idle"
 frame = 3
 frame_progress = 0.399329
 offset = Vector2(-144, 80)

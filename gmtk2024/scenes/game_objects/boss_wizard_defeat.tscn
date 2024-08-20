@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dm4qogr27jug0"]
+[gd_scene load_steps=2 format=3 uid="uid://c3mgdwaf4pv07"]
 
-[ext_resource type="Texture2D" uid="uid://blf5mpsj1p0ti" path="res://sprites/bosswizard/WizardDefeat.png" id="1_s17yq"]
+[ext_resource type="Texture2D" uid="uid://dhioth6mgyfl2" path="res://sprites/bosswizard/WizardDefeat.png" id="1_s17yq"]
 
 [node name="BossWizardDefeat" type="Node2D"]
 

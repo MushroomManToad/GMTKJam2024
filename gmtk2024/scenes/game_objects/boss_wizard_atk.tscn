@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://0w0w1aowacbo"]
+[gd_scene load_steps=8 format=3 uid="uid://bxgpru7tnrhjl"]
 
-[ext_resource type="Texture2D" uid="uid://b745vsnxtqmfe" path="res://sprites/bosswizard/WizardCast.png" id="1_0b1oq"]
+[ext_resource type="Texture2D" uid="uid://b6w4wokvlp0r7" path="res://sprites/bosswizard/WizardCast.png" id="1_0b1oq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uaa85"]
 atlas = ExtResource("1_0b1oq")
@@ -49,6 +49,7 @@ size = Vector2(112, 64)
 position = Vector2(-1, -75)
 sprite_frames = SubResource("SpriteFrames_75fpf")
 animation = &"Attack"
+autoplay = "Attack"
 frame = 3
 frame_progress = 0.674967
 offset = Vector2(-72, 80)

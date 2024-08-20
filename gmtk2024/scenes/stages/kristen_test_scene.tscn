@@ -3,9 +3,9 @@
 [ext_resource type="TileSet" uid="uid://c6sbug5hr28jf" path="res://tilesets/tileset_toad_dev.tres" id="1_licr2"]
 [ext_resource type="PackedScene" uid="uid://c2fuwxxyo25yp" path="res://scenes/assets/dev/dev_one_way.tscn" id="2_0tm1i"]
 [ext_resource type="PackedScene" uid="uid://dh7totc25gyx8" path="res://scenes/assets/clickable_scene_loader.tscn" id="3_28jqa"]
-[ext_resource type="PackedScene" uid="uid://cuafdeeudj243" path="res://scenes/game_objects/scroll_of_growth.tscn" id="4_5omsp"]
-[ext_resource type="PackedScene" uid="uid://ccnjr8df87yj2" path="res://scenes/game_objects/scroll_of_rotate.tscn" id="5_tgdd5"]
-[ext_resource type="PackedScene" uid="uid://8mc16drpsrks" path="res://scenes/game_objects/scroll_of_stretch.tscn" id="6_2wn3n"]
+[ext_resource type="PackedScene" uid="uid://bkvojngy3wtf0" path="res://scenes/game_objects/scroll_of_growth.tscn" id="4_5omsp"]
+[ext_resource type="PackedScene" uid="uid://dnphvhjathph1" path="res://scenes/game_objects/scroll_of_rotate.tscn" id="5_tgdd5"]
+[ext_resource type="PackedScene" uid="uid://brn8vuc1wujwo" path="res://scenes/game_objects/scroll_of_stretch.tscn" id="6_2wn3n"]
 
 [node name="KristenTestScene" type="Node2D"]
 
@@ -36,6 +36,16 @@ pos = Vector2(0, -37)
 [node name="ClickableSceneLoader3" parent="." instance=ExtResource("3_28jqa")]
 position = Vector2(99, -55)
 scene_id = "stage_2"
+pos = Vector2(0, -37)
+
+[node name="ClickableSceneLoader6" parent="." instance=ExtResource("3_28jqa")]
+position = Vector2(77, -23)
+scene_id = "stage_4"
+pos = Vector2(0, -37)
+
+[node name="ClickableSceneLoader7" parent="." instance=ExtResource("3_28jqa")]
+position = Vector2(33, -56)
+scene_id = "wizard_stage"
 pos = Vector2(0, -37)
 
 [node name="ClickableSceneLoader4" parent="." instance=ExtResource("3_28jqa")]
