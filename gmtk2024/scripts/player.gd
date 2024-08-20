@@ -66,9 +66,6 @@ func _physics_process(delta):
 		# Get the input direction: -1, 0, 1
 		var direction = Input.get_axis("Left", "Right")
 		
-		if Input.is_action_just_pressed("Up"):
-			velocity.y = JUMP_VELOCITY
-		
 		if vent_count > 0:
 			velocity.y = JUMP_VELOCITY / 2.0
 		

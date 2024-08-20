@@ -42,6 +42,7 @@ func play_intro():
 
 func load_playable_game():
 	load_first_stage(Vector2(0.0, 0), "stage_1", Vector2(-16.0, 0.0))
+	(game as Game).play_stage_1_2_music()
 
 # Generic Stage Loading Function. Called by relevant functions "first and "new
 func load_scene(pos: Vector2, scene_id: String, _prs_loc: Vector2) -> Node2D:
@@ -73,6 +74,10 @@ func load_ui() -> void:
 	ftw_ui = ftw_instance
 
 func load_new_scene(pos: Vector2, scene_id: String, prs_loc: Vector2):
+	if scene_id == "stage_3":
+		(game as Game).play_stage_3_4_music()
+	if scene_id == "wizard_stage":
+		(game as Game).stop_music()
 	# A lil crash failsafe
 	if loaded_floors[1] is Floor:
 		# Load the new scene
