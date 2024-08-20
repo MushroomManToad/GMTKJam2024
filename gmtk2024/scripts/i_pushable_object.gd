@@ -30,6 +30,7 @@ func _physics_process(delta: float) -> void:
 		if c.get_collider() is Player:
 			var c_ = c.get_collider() as Player
 			var ypos = c_.global_position[1] + 1.0
+			print(str(c_.global_position) + " : " + str(global_position))
 			if ypos > _get_bottom() + 8.0:
 				if c_.global_position[0] < self.global_position.x:
 					self.update_velocity(Vector2(self.SPEED, -4.0))

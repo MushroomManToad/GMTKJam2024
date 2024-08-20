@@ -64,6 +64,7 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("Space") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
 
+
 		# Get the input direction: -1, 0, 1
 		var direction = Input.get_axis("Left", "Right")
 		

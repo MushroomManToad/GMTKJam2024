@@ -479,8 +479,8 @@ position = Vector2(7, -17)
 position = Vector2(507, -502)
 scale = Vector2(15.2027, 0.640615)
 scene_id = "stage_2"
-scene_load_location = Vector2(528, -512)
-player_jump_target = Vector2(32, -32)
+scene_load_location = Vector2(0, -512)
+player_jump_target = Vector2(0, -32)
 
 [node name="DevOneWay8" type="Node2D" parent="."]
 position = Vector2(441, -392)
