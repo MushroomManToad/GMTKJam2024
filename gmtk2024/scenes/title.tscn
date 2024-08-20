@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cv700pxg4co87"]
+[gd_scene load_steps=4 format=3 uid="uid://dkdvssksk57q6"]
 
 [ext_resource type="Script" path="res://scenes/title.gd" id="1_64prv"]
-[ext_resource type="Theme" uid="uid://dxor1dmlgo6ot" path="res://fonts/new_theme.tres" id="1_f3k44"]
+[ext_resource type="Theme" path="res://fonts/new_theme.tres" id="1_f3k44"]
 [ext_resource type="FontFile" uid="uid://c85820ggymdjn" path="res://fonts/CompassGold.ttf" id="2_pkymf"]
 
 [node name="Title" type="Control"]

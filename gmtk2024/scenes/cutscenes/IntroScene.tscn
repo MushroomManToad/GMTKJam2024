@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://clog8cddg0rk2"]
+[gd_scene load_steps=12 format=3 uid="uid://clog8cddg0rk2"]
 
 [ext_resource type="Texture2D" uid="uid://e6l10yg17fnw" path="res://sprites/splash/Intro1.png" id="1_indwb"]
 [ext_resource type="Script" path="res://scripts/intro_scene.gd" id="1_w0t0k"]
 [ext_resource type="Texture2D" uid="uid://dq4wy1coodegv" path="res://sprites/splash/Intro2.png" id="2_ckolp"]
 [ext_resource type="Texture2D" uid="uid://8ufvmpe6m1ps" path="res://sprites/splash/Intro3.png" id="3_kgrcn"]
 [ext_resource type="Texture2D" uid="uid://cchaybcttp0pr" path="res://sprites/splash/Intro4.png" id="4_aqxl0"]
+[ext_resource type="AudioStream" uid="uid://c56lf3g4fd1dp" path="res://sound/effect/8bit rumble.wav" id="6_fkuus"]
+[ext_resource type="Theme" path="res://fonts/new_theme.tres" id="6_g8exw"]
+[ext_resource type="FontFile" uid="uid://c85820ggymdjn" path="res://fonts/CompassGold.ttf" id="7_pugds"]
 
 [sub_resource type="Animation" id="Animation_ax8ua"]
 resource_name = "Intro Cutscene"
@@ -16,9 +19,12 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(9.93333),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(7, 9.93333),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"play_rumble"
+}, {
 "args": [],
 "method": &"load_real_game"
 }]
@@ -122,3 +128,31 @@ size_flags_horizontal = 3
 color = Color(0.501961, 0.501961, 0.501961, 0)
 
 [node name="Rumble" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_fkuus")
+volume_db = -2.971
+bus = &"SFX"
+
+[node name="BoxContainer3" type="BoxContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -40.0
+offset_right = -20.0
+offset_bottom = 40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Play" type="Button" parent="BoxContainer3/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6_g8exw")
+theme_override_fonts/font = ExtResource("7_pugds")
+text = ">>>"
+
+[connection signal="pressed" from="BoxContainer3/VBoxContainer/Play" to="." method="load_real_game"]
