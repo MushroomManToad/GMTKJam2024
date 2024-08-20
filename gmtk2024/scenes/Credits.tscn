@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://b23hh31oaukiw"]
+
+[ext_resource type="Theme" uid="uid://dxor1dmlgo6ot" path="res://fonts/new_theme.tres" id="1_mbjp3"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 607.0
+offset_bottom = 462.0
+theme = ExtResource("1_mbjp3")
+text = "Credits
+
+MushroomManToad - Programming
+
+Pretender8 - Lead artist, organizing
+
+Kristen - Level / Game Design
+
+MiscEris - Artist/BG Artist
+
+Hex - Music
+
+Thanks to Kenney (kenney.nl) for button prompt assets
+Made in Godot 4.3
+
+"
