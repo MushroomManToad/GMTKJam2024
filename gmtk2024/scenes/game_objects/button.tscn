@@ -30,7 +30,7 @@ shape = SubResource("RectangleShape2D_wx8kc")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_mfpd6")
-volume_db = -3.224
+volume_db = -15.11
 panning_strength = 0.0
 
 [connection signal="body_entered" from="Detection Region" to="." method="_on_detection_region_body_entered"]

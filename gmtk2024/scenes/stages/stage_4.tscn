@@ -830,4 +830,4 @@ position = Vector2(111, -755)
 scale = Vector2(-3.75759, -4.28603)
 scene_id = "wizard_stage"
 scene_load_location = Vector2(0, -1000)
-player_jump_target = Vector2(0, -16)
+player_jump_target = Vector2(0, -32)
