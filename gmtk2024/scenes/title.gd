@@ -5,6 +5,7 @@ const CREDITS = preload("res://scenes/Credits.tscn")
 #play button
 func _on_play_pressed() -> void:
 	Game_Manager.start_game()
+	queue_free()
 #settings
 func _on_settings_pressed() -> void:
 	pass # Replace with function body.

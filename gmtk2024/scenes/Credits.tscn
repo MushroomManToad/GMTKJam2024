@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://b23hh31oaukiw"]
+[gd_scene load_steps=2 format=3 uid="uid://bi6jtd8tw5sqv"]
 
-[ext_resource type="Theme" uid="uid://dxor1dmlgo6ot" path="res://fonts/new_theme.tres" id="1_mbjp3"]
+[ext_resource type="Theme" path="res://fonts/new_theme.tres" id="1_mbjp3"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
