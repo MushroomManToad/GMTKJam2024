@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://btivayt0g8pba"]
+[gd_scene load_steps=13 format=4 uid="uid://btivayt0g8pba"]
 
 [ext_resource type="Texture2D" uid="uid://p7kqf83ijgm" path="res://sprites/one_way.png" id="1_4kab0"]
 [ext_resource type="PackedScene" uid="uid://bxgpru7tnrhjl" path="res://scenes/game_objects/boss_wizard_atk.tscn" id="2_dm56q"]
@@ -7,6 +7,7 @@
 [ext_resource type="TileSet" uid="uid://ctwi7yga7v2bk" path="res://tilesets/background.tres" id="3_vjno0"]
 [ext_resource type="PackedScene" uid="uid://cfuyw38fwxho1" path="res://scenes/game_objects/boss_wizard_idle.tscn" id="4_6535t"]
 [ext_resource type="Script" path="res://scripts/assets/one_way_tile.gd" id="4_haaia"]
+[ext_resource type="PackedScene" uid="uid://ccrihv5oodeu1" path="res://scenes/game_objects/hazard_crate.tscn" id="4_jcju0"]
 [ext_resource type="PackedScene" uid="uid://sxnojnvbwnom" path="res://scenes/game_objects/vent.tscn" id="6_ww1f3"]
 [ext_resource type="Theme" path="res://fonts/new_theme.tres" id="9_koids"]
 
@@ -19,6 +20,9 @@ a = Vector2(-8, -9)
 b = Vector2(8, -9)
 
 [node name="WizardStage" type="Node2D"]
+
+[node name="Crate" parent="." instance=ExtResource("4_jcju0")]
+position = Vector2(-36, -100)
 
 [node name="WizardBoss" type="Node2D" parent="."]
 
@@ -35,7 +39,8 @@ scale = Vector2(0.5, 0.5)
 
 [node name="Defeat" parent="WizardBoss" instance=ExtResource("3_mcgpf")]
 visible = false
-position = Vector2(0, -216)
+z_index = -500
+position = Vector2(-35, -186)
 scale = Vector2(0.5, 0.5)
 
 [node name="Tiles" type="Node2D" parent="."]

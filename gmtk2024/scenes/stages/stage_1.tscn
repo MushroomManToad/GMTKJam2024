@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://or6o82ixexje" path="res://tilesets/ground.tres" id="1_u68vg"]
 [ext_resource type="TileSet" uid="uid://ctwi7yga7v2bk" path="res://tilesets/background.tres" id="2_4s2oa"]
 [ext_resource type="TileSet" uid="uid://pgaccxbahffk" path="res://tilesets/decor.tres" id="3_pwxo7"]
-[ext_resource type="PackedScene" path="res://scenes/assets/field.tscn" id="4_w4qvc"]
+[ext_resource type="PackedScene" uid="uid://dmx2r4ceb4x8i" path="res://scenes/assets/field.tscn" id="4_w4qvc"]
 [ext_resource type="PackedScene" uid="uid://d4csisfev404e" path="res://scenes/game_objects/crate.tscn" id="5_6vdi1"]
 [ext_resource type="PackedScene" uid="uid://bth3lkpq26jfx" path="res://scenes/game_objects/key.tscn" id="7_avaqi"]
 [ext_resource type="Script" path="res://scripts/assets/key_door.gd" id="8_phltj"]
@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bfppn2sxagjue" path="res://sprites/particle/expand.png" id="16_6ipmp"]
 [ext_resource type="PackedScene" uid="uid://cniki3yqqc641" path="res://scenes/decor/false_door.tscn" id="16_8xs8h"]
 [ext_resource type="Script" path="res://scripts/assets/one_way_tile.gd" id="17_abphq"]
-[ext_resource type="PackedScene" path="res://scenes/assets/scene_transition_box.tscn" id="17_tvt77"]
+[ext_resource type="PackedScene" uid="uid://dvji3mk22wsc7" path="res://scenes/assets/scene_transition_box.tscn" id="17_tvt77"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nillq"]
 size = Vector2(16, 16)
