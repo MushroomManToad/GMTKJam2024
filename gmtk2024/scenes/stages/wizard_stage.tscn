@@ -1,11 +1,14 @@
-[gd_scene load_steps=9 format=4 uid="uid://btivayt0g8pba"]
+[gd_scene load_steps=12 format=4 uid="uid://btivayt0g8pba"]
 
 [ext_resource type="Texture2D" uid="uid://p7kqf83ijgm" path="res://sprites/one_way.png" id="1_4kab0"]
+[ext_resource type="PackedScene" uid="uid://bxgpru7tnrhjl" path="res://scenes/game_objects/boss_wizard_atk.tscn" id="2_dm56q"]
 [ext_resource type="TileSet" uid="uid://or6o82ixexje" path="res://tilesets/ground.tres" id="2_n7guq"]
+[ext_resource type="PackedScene" uid="uid://c3mgdwaf4pv07" path="res://scenes/game_objects/boss_wizard_defeat.tscn" id="3_mcgpf"]
 [ext_resource type="TileSet" uid="uid://ctwi7yga7v2bk" path="res://tilesets/background.tres" id="3_vjno0"]
 [ext_resource type="PackedScene" uid="uid://cfuyw38fwxho1" path="res://scenes/game_objects/boss_wizard_idle.tscn" id="4_6535t"]
 [ext_resource type="Script" path="res://scripts/assets/one_way_tile.gd" id="4_haaia"]
 [ext_resource type="PackedScene" uid="uid://sxnojnvbwnom" path="res://scenes/game_objects/vent.tscn" id="6_ww1f3"]
+[ext_resource type="Theme" path="res://fonts/new_theme.tres" id="9_koids"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_36b8x"]
 a = Vector2(-8, -9)
@@ -17,8 +20,21 @@ b = Vector2(8, -9)
 
 [node name="WizardStage" type="Node2D"]
 
-[node name="BossWizard" parent="." instance=ExtResource("4_6535t")]
+[node name="WizardBoss" type="Node2D" parent="."]
+
+[node name="Idle" parent="WizardBoss" instance=ExtResource("4_6535t")]
 z_index = -500
+position = Vector2(0, -254)
+scale = Vector2(0.5, 0.5)
+
+[node name="Attack" parent="WizardBoss" instance=ExtResource("2_dm56q")]
+visible = false
+z_index = -500
+position = Vector2(0, -216)
+scale = Vector2(0.5, 0.5)
+
+[node name="Defeat" parent="WizardBoss" instance=ExtResource("3_mcgpf")]
+visible = false
 position = Vector2(0, -216)
 scale = Vector2(0.5, 0.5)
 
@@ -31,6 +47,7 @@ tile_set = ExtResource("2_n7guq")
 
 [node name="Background Trees" type="TileMapLayer" parent="Tiles"]
 z_index = -10
+tile_map_data = PackedByteArray("AAD6//v/AgAAAAAAAAD6//z/AgAAAAAAAAD6//3/AgAAAAAAAAD6//7/AgAAAAAAAAD7//v/AgAAAAAAAAD7//z/AgAAAAAAAAD7//3/AgAAAAAAAAD7//7/AgAAAAAAAAD8//v/AgAAAAAAAAD8//z/AgAAAAAAAAD8//3/AgAAAAAAAAD8//7/AgAAAAAAAAD9//v/AgAAAAAAAAD9//z/AgAAAAAAAAD9//3/AgAAAAAAAAD9//7/AgAAAAAAAAD+//z/AgAAAAAAAAD+//3/AgAAAAAAAAD+//7/AgAAAAAAAAD///z/AgAAAAAAAAD///3/AgAAAAAAAAD///7/AgAAAAAAAAAAAPz/AgAAAAAAAAAAAP3/AgAAAAAAAAAAAP7/AgAAAAAAAAABAPz/AgAAAAAAAAABAP3/AgAAAAAAAAABAP7/AgAAAAAAAAACAPz/AgAAAAAAAAACAP3/AgAAAAAAAAACAP7/AgAAAAAAAAADAPz/AgAAAAAAAAADAP3/AgAAAAAAAAADAP7/AgAAAAAAAAAEAPz/AgAAAAAAAAAEAP3/AgAAAAAAAAAEAP7/AgAAAAAAAAAFAPz/AgAAAAAAAAAFAP3/AgAAAAAAAAAFAP7/AgAAAAAAAAACAPv/AgAAAAAAAAADAPv/AgAAAAAAAAAEAPv/AgAAAAAAAAAFAPv/AgAAAAAAAAD+////AgAAAAAAAAD/////AgAAAAAAAAAAAP//AgAAAAAAAAABAP//AgAAAAAAAAA=")
 tile_set = ExtResource("3_vjno0")
 
 [node name="DevOneWay" type="Node2D" parent="."]
@@ -67,11 +84,11 @@ height = 3.6
 
 [node name="vent5" parent="." instance=ExtResource("6_ww1f3")]
 position = Vector2(8, -74)
-height = 8.0
+height = 10.0
 
 [node name="vent6" parent="." instance=ExtResource("6_ww1f3")]
 position = Vector2(-8, -74)
-height = 8.0
+height = 10.0
 
 [node name="vent3" parent="." instance=ExtResource("6_ww1f3")]
 position = Vector2(72, -10)
@@ -130,3 +147,13 @@ collision_mask = 255
 shape = SubResource("SegmentShape2D_awnh5")
 one_way_collision = true
 one_way_collision_margin = 4.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = -35.0
+offset_top = -57.0
+offset_right = 35.0
+offset_bottom = -34.0
+theme = ExtResource("9_koids")
+text = "[F] to Zoom"
+horizontal_alignment = 1
+vertical_alignment = 1
