@@ -43,6 +43,7 @@ position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_rwn53")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+top_level = true
 z_index = 10
 position = Vector2(0, -9)
 amount = 48
