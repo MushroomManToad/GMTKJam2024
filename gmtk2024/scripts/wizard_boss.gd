@@ -31,6 +31,7 @@ var speed = 3
 var shooty_bang_bang_timer : float = 0.0
 var shooties_bang_banged : int = 3
 
+var dead_timer : float = 0.0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -70,10 +71,12 @@ func _physics_process(delta: float) -> void:
 				Game_Manager.game.add_child(forb_1)
 	
 	else:
+		dead_timer += delta
 		# Death animation!
 		var start: Vector2 = Vector2(-35, -186)
 		var rng = RandomNumberGenerator.new()
 		defeat.global_position = start + Vector2(rng.randf_range(-4.0, 4.0), rng.randf_range(-4.0, 4.0))
+		defeat.global_position.y += dead_timer * 32.0
 
 func hurt_wizard():
 	health -= 1
@@ -84,6 +87,7 @@ func die():
 	dead = true
 	set_visible_sprite(2)
 	Game_Manager.player.heal()
+	(Game_Manager.game as Game).stop_music()
 	vicotory.play()
 
 func attack_1():

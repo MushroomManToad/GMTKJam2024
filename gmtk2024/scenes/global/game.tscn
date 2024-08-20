@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://ux2m1pprvpfc"]
+[gd_scene load_steps=3 format=3 uid="uid://ux2m1pprvpfc"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_yuxe8"]
+[ext_resource type="AudioStream" uid="uid://dcjxovcg41dr1" path="res://sound/boss_fight_03.wav" id="2_15y77"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_yuxe8")
 
 [node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_15y77")
+bus = &"Music"
