@@ -127,6 +127,12 @@ func restart_stage():
 		reload_new_scene(floor_0.get_vals()[0], floor_0.get_vals()[1], floor_0.get_vals()[2])
 	reload_new_scene(floor_1.get_vals()[0], floor_1.get_vals()[1], floor_1.get_vals()[2])
 
+func emit_health():
+	health_update.emit()
+
+func emit_spell():
+	spell_update.emit()
+
 # Internal class for storing loaded floor data
 class Floor:
 	var scene_id : String

@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://brhn03sv5j6dx"]
+[gd_scene load_steps=8 format=3 uid="uid://dme6v86lkfv4c"]
 
+[ext_resource type="Script" path="res://scripts/assets/turret.gd" id="1_hn43w"]
 [ext_resource type="Texture2D" uid="uid://djf0agha2rme8" path="res://sprites/game_objects/turret.png" id="1_rm4nv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jeuup"]
@@ -39,8 +40,12 @@ animations = [{
 }]
 
 [node name="Turret" type="Node2D"]
+script = ExtResource("1_hn43w")
+shot_speed = 6.0
+shot_cd = 0.5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 2)
 sprite_frames = SubResource("SpriteFrames_87frw")
 frame = 2
 frame_progress = 0.72984

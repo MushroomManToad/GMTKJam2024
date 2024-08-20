@@ -1,12 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://dmjkk2cg57vpk"]
+[gd_scene load_steps=4 format=4 uid="uid://dmjkk2cg57vpk"]
 
 [ext_resource type="TileSet" uid="uid://c6sbug5hr28jf" path="res://tilesets/tileset_toad_dev.tres" id="1_wup54"]
 [ext_resource type="PackedScene" uid="uid://5gnkrek3f15y" path="res://scenes/game_objects/one_way_tile.tscn" id="2_b1anm"]
-[ext_resource type="PackedScene" uid="uid://ccnjr8df87yj2" path="res://scenes/assets/scroll_of_rotate.tscn" id="5_sb3r1"]
-[ext_resource type="PackedScene" uid="uid://dvji3mk22wsc7" path="res://scenes/assets/scene_transition_box.tscn" id="6_krkh6"]
-[ext_resource type="PackedScene" uid="uid://d4csisfev404e" path="res://scenes/game_objects/crate.tscn" id="7_0exg4"]
-[ext_resource type="PackedScene" uid="uid://c4td5heiuv54d" path="res://scenes/game_objects/spike.tscn" id="7_4nqtv"]
-[ext_resource type="PackedScene" uid="uid://cuafdeeudj243" path="res://scenes/assets/scroll_of_growth.tscn" id="10_uaysk"]
+[ext_resource type="PackedScene" uid="uid://dme6v86lkfv4c" path="res://scenes/game_objects/turret.tscn" id="3_k600t"]
 
 [node name="ToadStage" type="Node2D"]
 
@@ -31,21 +27,6 @@ position = Vector2(8, 0)
 [node name="DevOneWay3" parent="." instance=ExtResource("2_b1anm")]
 position = Vector2(0, 24)
 
-[node name="ScrollOfGrowth" parent="." instance=ExtResource("10_uaysk")]
-position = Vector2(-18, -35)
-
-[node name="Crate" parent="." instance=ExtResource("7_0exg4")]
-position = Vector2(-77, -58)
-
-[node name="ScrollOfRotate" parent="." instance=ExtResource("5_sb3r1")]
-position = Vector2(63, -37)
-
-[node name="SceneTransitionBox" parent="." instance=ExtResource("6_krkh6")]
-position = Vector2(22, -36)
-scene_id = "toad_stage"
-scene_load_location = Vector2(0, -64)
-player_jump_target = Vector2(0, -16)
-camera_base = 16
-
-[node name="Spike" parent="." instance=ExtResource("7_4nqtv")]
-position = Vector2(-76, -18)
+[node name="Turret" parent="." instance=ExtResource("3_k600t")]
+position = Vector2(-58, -34)
+shot_cd = 0.05
