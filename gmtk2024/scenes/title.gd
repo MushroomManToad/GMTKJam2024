@@ -12,3 +12,4 @@ func _on_settings_pressed() -> void:
 func _on_credits_pressed() -> void:
 	var credits_instance = CREDITS.instantiate()
 	Game_Manager.game.add_child(credits_instance)
+	
