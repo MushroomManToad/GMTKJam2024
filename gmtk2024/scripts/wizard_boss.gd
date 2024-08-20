@@ -77,6 +77,25 @@ func _physics_process(delta: float) -> void:
 		var rng = RandomNumberGenerator.new()
 		defeat.global_position = start + Vector2(rng.randf_range(-4.0, 4.0), rng.randf_range(-4.0, 4.0))
 		defeat.global_position.y += dead_timer * 32.0
+		
+		if dead_timer <= 3.0:
+			pass
+		elif dead_timer <= 5.0:
+			Game_Manager.player.freeze()
+			var scale_var : float = 3.0 - (dead_timer - 3.0)
+			Game_Manager.player.camera_2d.zoom = Vector2(scale_var, scale_var)
+			if dead_timer >= 4.5:
+				Game_Manager.ftw_ui.animation_player.play("fade_to_white")
+		# 0.5 sec, fade to white
+		elif dead_timer <= 6.0:
+			pass
+		# Load screen and move up player
+		else:
+			Game_Manager.load_final_cutscene()
+			Game_Manager.player.queue_free()
+			Game_Manager.ftw_ui.queue_free()
+			Game_Manager.ui.queue_free()
+			Game_Manager.unload_world()
 
 func hurt_wizard():
 	health -= 1
