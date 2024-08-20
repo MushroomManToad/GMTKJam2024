@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccrihv5oodeu1"]
+[gd_scene load_steps=5 format=3 uid="uid://de46b72g8bvam"]
 
 [ext_resource type="Script" path="res://hazard_crate.gd" id="1_op5jk"]
 [ext_resource type="Texture2D" uid="uid://b7twpvaxs544t" path="res://sprites/game_objects/box_hazardous/badgoodsbox.png" id="2_5cpd1"]
