@@ -1,7 +1,9 @@
 extends CanvasLayer
 
+@onready var rumble: AudioStreamPlayer2D = $Rumble
+
 func play_rumble():
-	pass
+	rumble.play()
 
 func load_real_game():
 	Game_Manager.load_playable_game()
